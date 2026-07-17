@@ -1,0 +1,801 @@
+<!doctype html><html><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"capabilities":{"downloads":"downloads.DUzXFHNF.js","mcp":"mcp.CLzOm9JX.js","permissions":"permissions.C9OCnDjh.js","self":"self.DqF_PxOe.js"},"transforms":"_transforms.DYk1Ltlh.js","comments":"_comments.Dp6RDy7J.js","translate":"_translate.DHzvAjkZ.js"}</script><script>(function(){"use strict";const fe="modulepreload",de=function(e){return"/"+e},pe={},J=function(t,r,u){let o=Promise.resolve();function i(f){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=f,window.dispatchEvent(c),!c.defaultPrevented)throw f}return o.then(f=>{for(const c of f||[])c.status==="rejected"&&i(c.reason);return t().catch(i)})},V=["light","dark","system"];function Y(e){if(e==null||typeof e!="object")return!1;const t=e.__frame_init;return t!=null&&typeof t=="object"}function Q(e){return e!=null&&typeof e=="object"&&e.__frame_size_poke===!0}function X(e){if(e==null||typeof e!="object")return!1;const t=e.__frame_theme;if(t==null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&V.includes(r)}function Z(e){try{typeof reportError=="function"?reportError(e):setTimeout(()=>{throw e},0)}catch{}}function D(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let r=null;for(let f=0;f<t.length;f++){const c=t[f];if(c&&c.matches&&c.matches("a[href],area[href]")){r=c;break}}if(!r&&e.target&&e.target.closest&&(r=e.target.closest("a[href],area[href]")),!r)return;const u=r.getAttribute("href");if(!u)return;let o,i;try{o=new URL(u,document.baseURI),i=new URL(document.baseURI).origin}catch{return}(o.protocol==="http:"||o.protocol==="https:")&&o.origin!==i&&(e.preventDefault(),parent.postMessage({__frame_nav:!0,url:o.href},"*"))}const U={};function T(e){if(window===top)return;const t=Date.now();t-(U[e]||0)<500||(U[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}const ee=2e3,F=["wheel","touchstart","touchmove","keydown","pointerdown"];let H=0;function te(e){e.isTrusted&&(H=Date.now())}function ne(){addEventListener("click",D,!0),addEventListener("auxclick",D,!0)}function re(){for(let e=0;e<F.length;e++)addEventListener(F[e],te,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-H<ee&&T("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&T("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&T("click")},{capture:!0,passive:!0})}function oe(e,t,r){const u=[...t.values()].filter(o=>o.targets.some(i=>i.startsWith(e+".")));return{wrap(o,i){const f=`${e}.${o}`,c=u.filter(s=>s.targets.includes(f));return c.length===0?(...s)=>{try{return i(...s)}catch(p){return Promise.reject(p)}}:(...s)=>{let p=s;for(const a of c){const l=a.module.parameters;if(l)try{p=l(p)}catch{return Promise.reject({code:"transform_error",id:a.id,scope:e,message:"parameters transform failed"})}}let g;try{g=i(...p)}catch(a){g=Promise.reject(a)}return g.then(a=>{for(let l=c.length-1;l>=0;l--){const m=c[l],d=m.module.returns;if(d)try{a=d(a)}catch{return r({id:m.id,scope:e,leg:"returns"}),a}}return a},a=>{for(let l=c.length-1;l>=0;l--){const m=c[l],d=m.module.throws;if(d)try{a=d(a)}catch{return r({id:m.id,scope:e,leg:"throws"}),Promise.reject(a)}}return Promise.reject(a)})}}}}function se(e,t,r,u=()=>{}){const o=new Set(e.changes??[]),i=new Map;for(const f of o){const c=t[f];c&&i.set(f,c)}return{contract:e.contract,changes:o,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:i,shellOrigin:r.shellOrigin,mount:r.mount,pipe:f=>oe(f,i,u)}}(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let u=0;for(let o=0;o<r.length;o++){const i=r[o];try{e(t,i,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[i]}catch{}try{e(t,i,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[i]=="function"&&u++}if(u&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:u},"*")}catch{}})();const ie=1e4,ae=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function ce(e){for(const t of ae)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}const j=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities??{}}),k=window.__FRAME_PREAMBLE?.transforms,C=window.__FRAME_PREAMBLE?.comments,N=window.__FRAME_PREAMBLE?.translate,O=/^[\w.-]+\.js$/,le=/^[a-z][a-z0-9_-]{0,63}$/;let W=null,P=null;function I(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}let $=!1;function x(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,$=!0):$&&(delete t.dataset.theme,t.style.colorScheme="",$=!1)}const M={mcp:{watchTool:{handlerArg:3}}},S=new Map;function ue(e,t){const r=S.get(e);if(!r)return;Object.assign(r.impl,t),r.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const u=r.queue;r.queue=[];for(const o of u){const i=t[o.method];if(i)if(M[e]?.[o.method])try{o.resolve(i(...o.args))}catch{A(o,M[e][o.method].handlerArg,{code:"transform_error",message:`${e}.${o.method} rejected its arguments`})}else i(...o.args).then(o.resolve,o.reject);else{const f={code:"capability_removed",message:`${e}.${o.method} is not in this runtime`},c=M[e]?.[o.method];if(c){A(o,c.handlerArg,f);continue}o.reject(f)}}}function q(e,t){const r=S.get(e);if(!r)return;r.impl.__settled=()=>Promise.reject(t);const u=r.queue;r.queue=[];for(const o of u){const i=M[e]?.[o.method];if(i){A(o,i.handlerArg,t);continue}o.reject(t)}}function A(e,t,r){if(e.syncState?.dead)return;const u=e.args[t];typeof u=="function"&&queueMicrotask(()=>{if(!e.syncState?.dead)try{u({type:"error",error:r})}catch(o){Z(o)}})}const z=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(z&&z.writable===!1)){ne(),re();const e=z?.value??{};I(window,"claude",e);const t=s=>{const p={impl:Object.create(null),queue:[]};S.set(s,p);const g=new Proxy(p.impl,{get:(a,l)=>{if(typeof l!="string"||l==="then"||l==="toJSON"||l==="valueOf")return;if(l==="toString")return Object.prototype.toString;const m=M[s]?.[l];return m?(...d)=>{if(typeof d[m.handlerArg]!="function")throw new TypeError(`${s}.${l} requires a handler function`);const b=a[l];if(b)return b(...d);if(a.__settled){const w={dead:!1},E={args:[...d],syncState:w};return a.__settled().catch(R=>A(E,m.handlerArg,R)),()=>{w.dead=!0}}let h=null;const _={dead:!1};return p.queue.push({method:l,args:d,resolve:w=>{h=typeof w=="function"?w:null,_.dead&&h?.()},reject:()=>{},syncState:_}),()=>{_.dead=!0,h?.()}}:(...d)=>{const b=a[l]??a.__settled;return b?b(...d):new Promise((h,_)=>{p.queue.push({method:l,args:d,resolve:h,reject:_})})}},set:()=>!1});I(e,s,g)};for(const s of Object.keys(j)){if(e[s]!==void 0){I(e,s,e[s]);continue}t(s)}let r=null,u=null,o=0;const i=s=>{s.source!==parent||!ce(s.origin)||Y(s.data)&&(r=s.data.__frame_init,P=s.origin,removeEventListener("message",i),clearTimeout(o),u?.())};addEventListener("message",i),parent.postMessage({__frame_connect:!0},"*");const f=new Promise(s=>{u=s,o=setTimeout(()=>{removeEventListener("message",i),s()},ie)}),c=document.readyState==="loading"?new Promise(s=>document.addEventListener("DOMContentLoaded",()=>s(),{once:!0})):Promise.resolve();f.then(async()=>{if(!r||!P){for(const n of S.keys())q(n,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}x(r.theme);const s=P;let p=!1,g=!1;addEventListener("message",n=>{if(n.source!==parent||n.origin!==s)return;X(n.data)&&x(n.data.__frame_theme.theme);const y=n.data?.__fc_mode;y&&typeof y=="object"&&!p&&C&&O.test(C)&&(p=!0,a(C).then(B=>B.install?.(s,y.on===!0)).catch(()=>{}));const v=n.data?.__ft_cmd;v&&typeof v=="object"&&!g&&N&&O.test(N)&&(g=!0,a(N).then(B=>B.install?.(s,v)).catch(()=>{}))});const a=n=>J(()=>import("/_runtime/"+n),void 0),l=Object.keys(r.capabilities??{});for(const n of l)Object.hasOwn(j,n)||le.test(n)&&e[n]===void 0&&(t(n),q(n,{code:"capability_disabled",message:"capability not in this runtime generation"}));const m=l.filter(n=>Object.hasOwn(j,n)).map(n=>[n,j[n]]).filter(n=>typeof n[1]=="string"&&O.test(n[1])),[d,...b]=await Promise.allSettled([k&&O.test(k)?a(k):Promise.resolve({}),...m.map(([,n])=>a(n))]),h=P;W=se(r,d.status==="fulfilled"&&d.value?.TRANSFORMS||{},{shellOrigin:h,mount:ue},n=>parent.postMessage({__frame_cap_telemetry:n},h));const _=n=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:n}},h),w=W;b.forEach((n,y)=>{const v=m[y][0];if(n.status!=="fulfilled"){_(v);return}try{n.value?.install?.(w)}catch{_(v)}});for(const[n,y]of S)y.queue.length===0&&Object.keys(y.impl).length>0||q(n,{code:l.includes(n)?"capability_disabled":"not_granted",message:"capability not available in this session"});await c,parent.postMessage({__frame_ready:!0},P);let E=-1,R=0;const K=()=>{R=0;const n=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);n!==E&&(E=n,parent.postMessage({__frame_size:!0,h:n},h))},L=()=>{R||(R=setTimeout(K,200))},G=new ResizeObserver(L);G.observe(document.documentElement),document.body&&G.observe(document.body),document.addEventListener("load",L,!0),document.fonts?.ready.then(L,()=>{}),addEventListener("beforeprint",()=>{E=-1,K()}),L(),addEventListener("message",n=>{n.source!==parent||n.origin!==h||Q(n.data)&&(E=-1,L())})})}})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Kết quả xét nghiệm 17/07/2026 — Giải thích bằng hình</title>
+
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #EFF7FA; --card: #FFFFFF; --tile: #E3F1F5; --line: #DCE9EE;
+    --ink: #16232B; --ink-soft: #4E606B; --ink-faint: #7F8F99;
+    --teal: #1B8FA8; --teal-ink: #12657A;
+    --band-a: #4FB3C9; --band-b: #2588A3;
+    --ok: #1E7A50; --warn: #CE8A00; --urgent: #A32018;
+    --ok-ink: #1A6845; --warn-ink: #855900; --urgent-ink: #93190F;
+    --ok-bg: #E6F2EC; --warn-bg: #FBF1DC; --urgent-bg: #F9E9E7;
+    --bar-ok: #1A6845; --bar-warn: #8A5A00; --bar-urgent: #A32018;
+    --bar-ink: #FFFFFF;
+    --skin: #F0D3BC; --skin-line: #C79E80; --bone: #EFEAE0;
+    --shadow: 0 1px 2px rgba(18,101,122,.05), 0 8px 24px rgba(18,101,122,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --bg: #0E1519; --card: #16222A; --tile: #1E3038; --line: #294049;
+      --ink: #E6EEF1; --ink-soft: #A9BAC2; --ink-faint: #7A8B94;
+      --teal: #2A9CC0; --teal-ink: #7CCBE0;
+      --band-a: #1B4C5C; --band-b: #123946;
+      --ok: #1F9862; --warn: #B8860B; --urgent: #E85368;
+      --ok-ink: #56C68F; --warn-ink: #D9A62A; --urgent-ink: #F2879A;
+      --ok-bg: #132E22; --warn-bg: #2E2410; --urgent-bg: #35191F;
+      --bar-ok: #175C3D; --bar-warn: #6B5010; --bar-urgent: #8E2733;
+      --bar-ink: #FFFFFF;
+      --skin: #C9A88E; --skin-line: #8A6A52; --bone: #D6D0C4;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.22);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0E1519; --card: #16222A; --tile: #1E3038; --line: #294049;
+    --ink: #E6EEF1; --ink-soft: #A9BAC2; --ink-faint: #7A8B94;
+    --teal: #2A9CC0; --teal-ink: #7CCBE0;
+    --band-a: #1B4C5C; --band-b: #123946;
+    --ok: #1F9862; --warn: #B8860B; --urgent: #E85368;
+    --ok-ink: #56C68F; --warn-ink: #D9A62A; --urgent-ink: #F2879A;
+    --ok-bg: #132E22; --warn-bg: #2E2410; --urgent-bg: #35191F;
+    --bar-ok: #175C3D; --bar-warn: #6B5010; --bar-urgent: #8E2733;
+    --bar-ink: #FFFFFF;
+    --skin: #C9A88E; --skin-line: #8A6A52; --bone: #D6D0C4;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.22);
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --bg: #EFF7FA; --card: #FFFFFF; --tile: #E3F1F5; --line: #DCE9EE;
+    --ink: #16232B; --ink-soft: #4E606B; --ink-faint: #7F8F99;
+    --teal: #1B8FA8; --teal-ink: #12657A;
+    --band-a: #4FB3C9; --band-b: #2588A3;
+    --ok: #1E7A50; --warn: #CE8A00; --urgent: #A32018;
+    --ok-ink: #1A6845; --warn-ink: #855900; --urgent-ink: #93190F;
+    --ok-bg: #E6F2EC; --warn-bg: #FBF1DC; --urgent-bg: #F9E9E7;
+    --bar-ok: #1A6845; --bar-warn: #8A5A00; --bar-urgent: #A32018;
+    --bar-ink: #FFFFFF;
+    --skin: #F0D3BC; --skin-line: #C79E80; --bone: #EFEAE0;
+    --shadow: 0 1px 2px rgba(18,101,122,.05), 0 8px 24px rgba(18,101,122,.07);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Segoe UI", Roboto, system-ui, "Helvetica Neue", Arial, sans-serif;
+    font-size: 19px; line-height: 1.55; -webkit-text-size-adjust: 100%;
+  }
+  .wrap {
+    max-width: 46rem; margin: 0 auto; padding: 0.9rem 0.7rem 3rem;
+    display: flex; flex-direction: column; gap: 0.9rem;
+  }
+  @media (min-width: 34rem) { .wrap { padding: 1.5rem 1.1rem 4rem; gap: 1.1rem; } }
+
+  h1, h2, h3 { text-wrap: balance; letter-spacing: -0.015em; }
+  strong, b { font-weight: 700; }
+
+  .card { background: var(--card); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .pad { padding: 1.1rem 0.95rem; display: flex; flex-direction: column; gap: 1rem; }
+  @media (min-width: 34rem) { .pad { padding: 1.6rem 1.4rem; } }
+
+  /* ---- tiêu đề ---- */
+  .topbar {
+    background: var(--card); border-radius: 14px; box-shadow: var(--shadow);
+    padding: 0.8rem 0.95rem; display: flex; align-items: center; gap: 0.65rem;
+  }
+  .topbar .glyph {
+    width: 36px; height: 36px; flex: none; border-radius: 9px;
+    background: var(--teal); display: grid; place-items: center;
+  }
+  .topbar .glyph svg { width: 20px; height: 20px; stroke: #fff; }
+  .topbar .who { font-weight: 700; font-size: 1rem; line-height: 1.3; }
+  .topbar .when { font-size: 0.76rem; color: var(--ink-faint); line-height: 1.4; }
+
+  /* ---- hero ---- */
+  .hero .pad { gap: 1.1rem; }
+  .hero .eyebrow { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); }
+  .hero h1 { font-size: clamp(1.7rem, 6.5vw, 2.3rem); line-height: 1.18; font-weight: 800; }
+  .hero h1 em { font-style: normal; color: var(--urgent-ink); }
+
+  .tptr { position: relative; height: 3.1rem; }
+  .tptr .you {
+    position: absolute; left: 74.3%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 2px; width: max-content;
+  }
+  .tptr .you .lbl {
+    background: var(--bar-urgent); color: var(--bar-ink);
+    font-size: 0.7rem; font-weight: 800; letter-spacing: .04em;
+    padding: 0.2rem 0.5rem; border-radius: 5px; white-space: nowrap;
+  }
+  .tptr .you .big { font-size: 1.5rem; font-weight: 800; line-height: 1; color: var(--urgent-ink); }
+  .tptr .you .tri { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 7px solid var(--urgent-ink); }
+  .tbar { display: flex; height: 34px; border-radius: 6px; overflow: hidden; gap: 2px; }
+  .seg { display: grid; place-items: center; color: #fff; font-size: 0.72rem; font-weight: 800; }
+  .seg.ok { background: var(--bar-ok); }
+  .seg.warn { background: var(--bar-warn); }
+  .seg.urgent { background: var(--bar-urgent); }
+  .tnote { font-size: 0.8rem; color: var(--ink-soft); }
+
+  .gap {
+    background: var(--urgent-bg); border-radius: 10px; padding: 0.9rem 1rem;
+    display: flex; align-items: center; gap: 0.85rem;
+  }
+  .gap .n { font-size: 2.2rem; font-weight: 800; color: var(--urgent-ink); line-height: 1; flex: none; }
+  .gap .t { font-size: 0.9rem; line-height: 1.4; }
+
+  /* ---- mục NƯỚC ---- */
+  .water { background: linear-gradient(160deg, var(--band-a), var(--band-b)); border-radius: 14px; box-shadow: var(--shadow); }
+  .water .pad { color: #fff; gap: 1.2rem; }
+  .water .wtag { font-size: 0.72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .9; }
+  .water h2 { font-size: clamp(1.35rem, 5.5vw, 1.7rem); font-weight: 800; line-height: 1.2; }
+  .water .wsub { font-size: 0.92rem; opacity: .95; }
+  .wproof { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .wp { background: rgba(255,255,255,.16); border-radius: 10px; padding: 0.75rem 0.7rem; text-align: center; }
+  .wp .n { font-size: 1.35rem; font-weight: 800; line-height: 1.15; }
+  .wp .l { font-size: 0.74rem; opacity: .92; line-height: 1.35; margin-top: 2px; }
+  .wwhite { background: var(--card); border-radius: 11px; padding: 0.95rem 0.85rem; color: var(--ink); display: flex; flex-direction: column; gap: 0.7rem; }
+  .wwhite h3 { font-size: 0.95rem; font-weight: 800; color: var(--teal-ink); }
+  .wlist { display: flex; flex-direction: column; gap: 0.55rem; }
+  .wl { display: flex; gap: 0.55rem; font-size: 0.88rem; line-height: 1.45; }
+  .wl .k { flex: none; font-weight: 800; color: var(--teal); }
+  .wcaution { background: rgba(255,255,255,.16); border-radius: 10px; padding: 0.85rem 0.9rem; font-size: 0.85rem; line-height: 1.45; }
+  .wcaution b { font-weight: 800; }
+
+  /* ---- nhóm ---- */
+  .ghead { display: flex; align-items: center; gap: 0.7rem; padding: 0.85rem 0.95rem; color: var(--bar-ink); }
+  @media (min-width: 34rem) { .ghead { padding: 1rem 1.4rem; } }
+  .ghead.urgent { background: var(--bar-urgent); }
+  .ghead.warn { background: var(--bar-warn); }
+  .ghead.ok { background: var(--bar-ok); }
+  .ghead .gnum {
+    width: 30px; height: 30px; flex: none; border-radius: 8px;
+    background: rgba(255,255,255,.22); display: grid; place-items: center;
+    font-size: 0.95rem; font-weight: 800;
+  }
+  .ghead .gtx { flex: 1 1 auto; min-width: 0; }
+  .ghead h2 { font-size: 1.1rem; font-weight: 800; line-height: 1.25; }
+  .ghead .gsub { font-size: 0.72rem; opacity: .88; line-height: 1.35; display: block; margin-top: 2px; }
+  .ghead .gbadge {
+    flex: none; background: #fff; color: var(--bar-urgent);
+    font-size: 0.65rem; font-weight: 800; letter-spacing: .08em;
+    padding: 0.25rem 0.5rem; border-radius: 5px; white-space: nowrap;
+  }
+  .ghead.ok .gbadge { color: var(--bar-ok); }
+  .ghead.warn .gbadge { color: var(--bar-warn); }
+
+  /* ---- bảng ---- */
+  .tbl { display: flex; flex-direction: column; }
+  .tbl .thead {
+    display: none; gap: 0.7rem; padding: 0 0 0.45rem;
+    border-bottom: 2px solid var(--line);
+    font-size: 0.66rem; font-weight: 800; letter-spacing: .07em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  .trow { display: flex; flex-direction: column; gap: 0.15rem; padding: 0.65rem 0; border-bottom: 1px solid var(--line); }
+  .trow:last-child { border-bottom: none; }
+  .trow .c1 { font-weight: 700; font-size: 0.92rem; }
+  .trow .c2 { font-size: 0.92rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .trow .c2 .std { font-weight: 400; font-size: 0.78rem; color: var(--ink-faint); }
+  .trow .c2.ok { color: var(--ok-ink); }
+  .trow .c2.warn { color: var(--warn-ink); }
+  .trow .c2.urgent { color: var(--urgent-ink); }
+  .trow .c3 { font-size: 0.84rem; color: var(--ink-soft); line-height: 1.4; }
+  .trow .c3 b { color: var(--ink); }
+  @media (min-width: 34rem) {
+    .tbl .thead { display: flex; }
+    .trow { flex-direction: row; gap: 0.7rem; align-items: baseline; }
+    .thead > *, .trow > * { min-width: 0; }
+    .thead > :nth-child(1), .trow .c1 { flex: 0 0 8.5rem; }
+    .thead > :nth-child(2), .trow .c2 { flex: 0 0 8.5rem; }
+    .thead > :nth-child(3), .trow .c3 { flex: 1 1 auto; }
+  }
+
+  /* ---- ghi chú ngắn ---- */
+  .note { border-radius: 10px; padding: 0.8rem 0.95rem; font-size: 0.88rem; line-height: 1.45; background: var(--tile); }
+  .note.alert { background: var(--urgent-bg); }
+  .note.alert b { color: var(--urgent-ink); }
+  .note ul { padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.35rem; margin: 0.4rem 0 0; }
+
+  /* ---- hình ---- */
+  .fig { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+  .fig svg { width: 100%; max-width: 300px; height: auto; }
+  .fig.wide svg { max-width: 100%; }
+  .fig .cap { font-size: 0.82rem; color: var(--ink-soft); text-align: center; max-width: 40ch; }
+  .fig .photo {
+    display: block; width: 100%; max-width: 100%; height: auto;
+    border-radius: 10px; border: 1px solid var(--line);
+  }
+  .fig .credit { font-size: 0.7rem; color: var(--ink-faint); text-align: center; font-style: italic; }
+  .glegend { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem 0.85rem; }
+  .gl { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; font-weight: 700; color: var(--ink-soft); }
+  .gl .d { width: 9px; height: 9px; border-radius: 2px; flex: none; }
+
+  .uleg { display: flex; width: 100%; max-width: 100%; gap: 2px; }
+  .ul3 { flex: 1 1 0; text-align: center; font-size: 0.68rem; font-weight: 800; padding: 0.25rem 0.15rem; border-radius: 4px; line-height: 1.25; }
+  .ul3.ok { background: var(--ok-bg); color: var(--ok-ink); }
+  .ul3.warn { background: var(--warn-bg); color: var(--warn-ink); }
+  .ul3.urgent { background: var(--urgent-bg); color: var(--urgent-ink); }
+
+  .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .vsb { border-radius: 10px; padding: 0.85rem 0.7rem; display: flex; flex-direction: column; gap: 0.2rem; align-items: center; text-align: center; }
+  .vsb.good { background: var(--ok-bg); }
+  .vsb.bad { background: var(--urgent-bg); }
+  .vsb .n { font-size: 1.65rem; font-weight: 800; line-height: 1.1; }
+  .vsb.good .n { color: var(--ok-ink); }
+  .vsb.bad .n { color: var(--urgent-ink); }
+  .vsb .l { font-size: 0.76rem; line-height: 1.3; color: var(--ink-soft); }
+
+  /* ---- sơ đồ ---- */
+  .flow { display: flex; flex-direction: column; }
+  .fbox { border-radius: 10px; padding: 0.7rem 0.85rem; background: var(--tile); }
+  .fbox b { font-size: 0.88rem; display: block; }
+  .fbox span { font-size: 0.78rem; color: var(--ink-soft); line-height: 1.35; display: block; margin-top: 2px; }
+  .fbox.bad { background: var(--urgent-bg); }
+  .fbox.bad b { color: var(--urgent-ink); }
+  .fbox.flag { background: var(--warn-bg); }
+  .fbox.flag b { color: var(--warn-ink); }
+  .farrow { display: flex; align-items: center; gap: 0.45rem; padding: 0.28rem 0 0.28rem 1rem; font-size: 0.74rem; color: var(--ink-faint); }
+  .farrow .bar { width: 3px; height: 18px; border-radius: 2px; background: var(--line); flex: none; }
+  .farrow.stop .bar { background: var(--urgent); }
+  .farrow.stop { color: var(--urgent-ink); font-weight: 700; }
+  .loop {
+    margin-top: 0.5rem; border: 2px dashed var(--urgent); border-radius: 10px;
+    padding: 0.7rem 0.9rem; font-size: 0.82rem; font-weight: 700;
+    color: var(--urgent-ink); text-align: center; line-height: 1.4;
+  }
+
+  .remember { background: linear-gradient(105deg, var(--band-a), var(--band-b)); border-radius: 14px; box-shadow: var(--shadow); }
+  .remember .pad { color: #fff; }
+  .remember h2 { font-size: 1.15rem; font-weight: 800; }
+  .remember ol { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.55rem; margin: 0; }
+  .remember li { font-size: 0.92rem; line-height: 1.45; }
+
+  .qbox ul { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem; margin: 0; }
+  .qbox li { font-size: 0.88rem; }
+
+  footer { font-size: 0.78rem; color: var(--ink-faint); display: flex; flex-direction: column; gap: 0.5rem; padding: 0 0.4rem; }
+  footer strong { color: var(--ink-soft); }
+
+  :focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+  /* ---- menu chung ---- */
+  .sitenav { position: sticky; top: 0; z-index: 50; background: var(--card); border-bottom: 1px solid var(--line); box-shadow: var(--shadow); }
+  .sitenav-inner { max-width: 46rem; margin: 0 auto; padding: 0.55rem 0.7rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+  .sitenav .brand { font-weight: 800; font-size: 0.9rem; color: var(--teal-ink); margin-right: auto; display: flex; align-items: center; gap: 0.4rem; }
+  .sitenav a.navlink { text-decoration: none; font-size: 0.82rem; font-weight: 700; color: var(--ink-soft); padding: 0.4rem 0.7rem; border-radius: 8px; white-space: nowrap; }
+  .sitenav a.navlink:hover { background: var(--tile); color: var(--teal-ink); }
+  .sitenav a.navlink.active { background: var(--teal); color: #fff; }
+</style>
+
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <span class="brand">🩺 Kết quả xét nghiệm · Bác Tám</span>
+    <a class="navlink active" href="index.html">Acid uric &amp; Gút</a>
+    <a class="navlink" href="cortisol.html">Cortisol &amp; ACTH</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+    <div>
+      <div class="who">Nguyễn Tám · sinh 1962</div>
+      <div class="when">Xét nghiệm 17/07/2026 · Chẩn đoán M10 — Gút · BS Nguyễn Hoàng Linh</div>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <div class="card hero">
+    <div class="pad">
+      <div style="display:flex; flex-direction:column; gap:0.5rem">
+        <div class="eyebrow">Đọc kết quả bằng hình</div>
+        <h1>Acid uric: <em>312</em><br>Mục tiêu: <em>dưới 200</em></h1>
+      </div>
+
+      <div>
+        <div class="tptr">
+          <div class="you">
+            <span class="lbl">BÁC ĐANG Ở ĐÂY</span>
+            <span class="big">312</span>
+            <span class="tri"></span>
+          </div>
+        </div>
+        <div class="tbar">
+          <div class="seg ok" style="flex:200 0 0">DƯỚI 200</div>
+          <div class="seg warn" style="flex:160 0 0">200 – 360</div>
+          <div class="seg urgent" style="flex:60 0 0">&gt; 360</div>
+        </div>
+      </div>
+      <p class="tnote">Vạch <b>140 – 360</b> in trên phiếu là mức của <b>người thường, không bị gút</b>. Bác đã bị gút rồi nên mốc phải thấp hơn — tinh thể cũ trong khớp chỉ tan khi xuống <b>dưới 200</b>.</p>
+
+      <div class="gap">
+        <span class="n">112</span>
+        <span class="t">Là khoảng còn phải giảm nữa. <b>Con số quan trọng nhất của lần khám này.</b></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NƯỚC ============ -->
+  <div class="water">
+    <div class="pad">
+      <div>
+        <div class="wtag">Việc dễ nhất, quan trọng nhất</div>
+        <h2>Bác đang uống thiếu nước — chính phiếu xét nghiệm nói vậy</h2>
+      </div>
+
+      <div class="wproof">
+        <div class="wp">
+          <div class="n">1,025</div>
+          <div class="l">Tỉ trọng nước tiểu<br>→ nước tiểu <b>đặc</b></div>
+        </div>
+        <div class="wp">
+          <div class="n">32.518</div>
+          <div class="l">Creatinine nước tiểu<br>vượt chuẩn 24.600 → <b>cô đặc</b></div>
+        </div>
+      </div>
+
+      <div class="wwhite">
+        <h3>Nhìn màu nước tiểu là biết ngay, không cần xét nghiệm</h3>
+        <div class="fig wide">
+          <svg viewBox="0 0 220 78" role="img" aria-label="Bảng màu nước tiểu từ nhạt đến đậm: càng đậm càng thiếu nước.">
+            <g stroke="#8C9AA3" stroke-width="1.6">
+              <rect x="1" y="1" width="28" height="66" rx="9" fill="#F7F3D8"/>
+              <rect x="39" y="1" width="28" height="66" rx="9" fill="#F5E9A3"/>
+              <rect x="77" y="1" width="28" height="66" rx="9" fill="#F0DC72"/>
+              <rect x="115" y="1" width="28" height="66" rx="9" fill="#E5C13C"/>
+              <rect x="153" y="1" width="28" height="66" rx="9" fill="#CE9A1C"/>
+              <rect x="191" y="1" width="28" height="66" rx="9" fill="#A9700C"/>
+            </g>
+          </svg>
+          <div class="uleg">
+            <span class="ul3 ok">ĐỦ NƯỚC<br>Cứ vậy</span>
+            <span class="ul3 warn">UỐNG THÊM<br>Ngay</span>
+            <span class="ul3 urgent">THIẾU NƯỚC<br>Nguy hiểm</span>
+          </div>
+          <p class="cap">Đây là bảng hướng dẫn chung để bác tự nhìn hằng ngày — không phải kết quả của bác. Nhắm tới hai ô nhạt nhất bên trái.</p>
+        </div>
+      </div>
+
+      <div class="wwhite">
+        <h3>Vì sao riêng bác uống nước lại quan trọng hơn người khác</h3>
+        <div class="wlist">
+          <div class="wl"><span class="k">1.</span><span>Thận bác <b>thải acid uric rất kém (2,4%)</b>. Nước là thứ giúp đẩy nó ra.</span></div>
+          <div class="wl"><span class="k">2.</span><span>Nước tiểu bác <b>vừa đặc vừa chua (pH 5,0)</b> — đúng công thức tạo <b>sỏi thận</b>.</span></div>
+          <div class="wl"><span class="k">3.</span><span>Thận bác <b>đã yếu (mức lọc 53)</b>. Thiếu nước làm nó yếu nhanh hơn.</span></div>
+        </div>
+      </div>
+
+      <div class="wwhite">
+        <h3>Cách uống cho người ngại uống nước</h3>
+        <div class="fig wide">
+          <svg viewBox="0 0 240 40" role="img" aria-label="Dãy tám ly nước tượng trưng cho lượng nước cần uống rải đều trong ngày.">
+            <defs>
+              <g id="ly">
+                <path d="M2 2 H24 L21 32 H5 Z" fill="#BFE0F2" stroke="#2E86C1" stroke-width="1.8" stroke-linejoin="round"/>
+              </g>
+            </defs>
+            <use href="#ly" x="0"/><use href="#ly" x="30"/><use href="#ly" x="60"/><use href="#ly" x="90"/>
+            <use href="#ly" x="120"/><use href="#ly" x="150"/><use href="#ly" x="180"/><use href="#ly" x="210"/>
+          </svg>
+          <p class="cap">Hình chỉ để nói ý <b>rải đều cả ngày</b> — số ly cụ thể của bác do bác sĩ quyết.</p>
+        </div>
+        <div class="wlist">
+          <div class="wl"><span class="k">✓</span><span><b>Đong sẵn một chai to buổi sáng</b>, để ngay chỗ bác hay ngồi. Nhìn thấy thì mới nhớ uống.</span></div>
+          <div class="wl"><span class="k">✓</span><span><b>Uống theo mốc, đừng đợi khát.</b> Người lớn tuổi mất cảm giác khát — khát là đã thiếu rồi.</span></div>
+          <div class="wl"><span class="k">✓</span><span><b>Rải đều cả ngày</b>, mỗi lần một ly. Uống dồn một lúc không có tác dụng.</span></div>
+          <div class="wl"><span class="k">✓</span><span><b>Hết chai là xong việc.</b> Không phải nhớ, không phải đếm.</span></div>
+        </div>
+      </div>
+
+      <div class="wcaution">
+        <b>⚠ Nhưng uống bao nhiêu thì phải hỏi bác sĩ, đừng tự quyết.</b> Natri của bác là <b>135 — sát mép dưới</b>, và tuyến thượng thận đang có vấn đề (Nhóm 2). Với hai điều đó, uống quá nhiều nước lã có thể làm natri tụt thêm. <b>Bác cứ hỏi thẳng: "Một ngày con nên uống mấy lít?"</b> — rồi đong đúng chừng đó vào chai.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NHÓM 1: GÚT ============ -->
+  <div class="card">
+    <div class="ghead urgent">
+      <span class="gnum">1</span>
+      <div class="gtx">
+        <h2>Bệnh gút và acid uric</h2>
+        <span class="gsub">Chưa đạt mục tiêu — còn phải giảm 112</span>
+      </div>
+      <span class="gbadge">CHÚ Ý</span>
+    </div>
+    <div class="pad">
+
+      <div class="fig wide">
+        <img class="photo" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQUFBAYFBQUHBgYHCQ8KCQgICRMNDgsPFhMXFxYTFRUYGyMeGBohGhUVHikfISQlJygnGB0rLismLiMmJyb/2wBDAQYHBwkICRIKChImGRUZJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJib/wAARCAGhAfQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6MvpZVupQJGAB6BjUHnzf89X/AO+jUmof8fkv1qvQBJ583/PV/wDvo0edN/z2k/76NOhtnkjV/MAz2xT/ALG//PVf++f/AK9A7EXnTf8APaT/AL6NHnTf89pP++jUv2Nv+eq/98//AF6Psbf89R/3z/8AXoCzIvOm/wCe0n/fRo8+b/nq/wD30al+xt/z0X/vn/69H2Nv+eq/98//AF6AsyLzpv8AntJ/30aPPm/56v8A99Gpfsb/APPVf++aPsb/APPVf++aLBZkXnzf89X/AO+jR503/PaT/vo1IbRx/wAtF/75pPsj/wDPRf8AvmnZhysZ583/AD1f/vo0efN/z1f/AL6NP+yP/wA9F/75o+yP/wA9F/75oswsxnnzf89X/wC+jR583/PV/wDvo0/7I/8Az0X/AL5o+yP/AM9F/wC+aLMLMZ583/PV/wDvo0efN/z1f/vo0/7I/wDz0X/vmj7M/wDz0X/vmizCzGefN/z1f/vo0efN/wA9X/76NP8Asz/89F/75pPsz/8APRf++aLBZjfPm/56v/30aPPm/wCer/8AfRp32Z/+ei/980fZn/56L/3zSDlY3zpv+e0n/fRo8+b/AJ6v/wB9GnfZn/vr+VJ9nf8Avr+VOwWYnnzf89X/AO+jR583/PV/++jQ0JVSzSqFAySRWN/apZ2CRgoDw3qPWs5TjD4jSNKc/hRs+dN/z2k/76NHnzf89X/76NZH9pP/AM81pw1Bz/yzWs/rFPuX9Wq9jV86b/ntJ/30aPPm/wCer/8AfRrKbUGUZ2LmoH1d1H+qH51SqwezE6FRbo3PPm/56v8A99Gjz5v+er/99GuZl8RNH/y7qfxqs/ip1/5dFP8AwKrUkyPZz7HX+fN/z1f/AL6NHnzf89X/AO+jXESeNHT/AJcVP/A6rN49dTj+zh/38/8ArU7oXJI9A8+b/nq//fRo8+b/AJ6v/wB9GvPT4/cf8w4f9/P/AK1IPiA5/wCYaP8Av5/9ai4ckj0Pzpv+e0n/AH0aPPm/56v/AN9GvPx49kP/ADDh/wB9/wD1qevjp2/5h4/77o5kPkl2O98+b/nq/wD30aPOm/57Sf8AfRrh4vGrv1sAMf7dNbxuwk2LYg+++o549x+xn2O68+b/AJ6v/wB9Gjz5v+er/wDfRrjrDxcbq8it2tBGJCQG3ZwcVtnUWH8C1pD31eIpU5LdGt583/PV/wDvo0efN/z1f/vo1jHU2H/LNajbWGH/ACyX86rkYuSRu+fN/wA9X/76NHnzf89X/wC+jXPnW2H/ACxX86Y2vsv/ACwX86ORhySOj86b/ntJ/wB9Gjzpv+e0n/fRrl28SMv/AC7L/wB9VG3ihh/y6j/vqnySDkkdZ503/PaT/vo0edN/z2k/76Nce3i1gf8Aj0H/AH1UZ8YsP+XMf99Uckg5JHaedN/z2k/76NHnTf8APaT/AL6NcM3jZl/5cR/33TD46Yf8uA/77o5JBySO88+b/nq//fRo86b/AJ7Sf99GvP28fMv/ADDx/wB/Kjb4hMP+YcP+/n/1qOSQckj0Tzpv+e0n/fRo86b/AJ7Sf99GvNz8RiP+YaP+/n/1qY3xKK/8wwf9/P8A61HJIOSR6V583/PZ/wDvo0edN/z1k/76NeZH4mEf8wsf9/P/AK1NPxOYf8wof9/f/rUckg5JHqHnzf8APV/++jR583/PV/8Avo15d/ws9v8AoFD/AL+//WpD8UWH/MJH/f3/AOtRySDkkepefN/z1f8A76NHnzf89X/76Ncz4M8RHxFaT3Bthb+U+zG7OeK6KoasS1Y3NLZmtFLMWOTyTRRpP/Hmv1NFAjL1D/j8l+tV6sah/wAfkv1qvQBftP8Aj2T6VPUFp/x7J9KnploKKKTOKBi0maMimmgBxPFNooqkO4UlFGaYhaSjNFABmiikzQAtIaWm1LYBRmjNJTQC02lpM0xi0lGeaw9X1bYWt7Rsv0aQfw+wqJzjBXkXCDm7Ib4gvwwNnA2WP+sI7e1ZEa4FNRNxz+tTBcCvGq1HUldnr06apxsgVdxqZVC4pqAACnEEkcGlFDkxkvc1n3DZzVm7dkFUnYMOK6YI5ZspT81RmXNX5lJqjICDXRExbMy7Xis8LubOK2ZYt3aqjW+1uBxVkWKTJzTdlXmhIHSm+V8tFwKyLVq3j+bmo/KkxkA4+lWLVWLAEEGs5SLiglBUkKPxqKJSMse9aDJk4qtcDaMADisGbxYKxhKTJ95GDD867hJ1liSVTw6hq4VCWjb6V0WhTGXTIwTzHlD+FdWFeriZ1VomajPUDvzTXYioHfmvRMLCu/Jqu79aSRzVaSQ0DsLI9V5HpskhqtJJQFh0j81WkemySmqzy80ASSPVeSSo5JuvNVZJDQBLI/Jqs8nNNeU1Az0JgSO9RM1MLZphbmgGOLVGWppamFsClckUtzTWamlqYxpgewfBk50i+/67D+Veh1518FjnR77/AK7j+Vei1zT3Oae5uaT/AMea/U0UaT/x5r9TRUkmXf8A/H5L9ar1Y1D/AI/JfrVegDQs/wDj2T6VKTioLRsW6fSpicimWg3UhOaKKoYUUUUWASiijNMA6UhpetIaVwFpM0ZpKLgLmkoopbgFJmg0U7AFJS03NMYu6mlgATkADnmmltoLMQAOSSelc5qupNdMYICVgHBI/j/+tWVSoqauzWnTc3oSatqrSs1vbMfLzhnB+97CstE9qmihG0cVOEAFeTUnKo7yPUhGMFZEIGBTgcnAFShN3apoogD0qEi3IZFEANz/AJVPhdp205owy4Y1VAaKbBbKHp9a3ikc85lS7TcTnrWNdBossv410k6BlDjoazbyAEHitonM5XMFbtS21jxUpVW5HIrJ1yCS1Yzx52dGH933rPtdVlhbDDKfWtkRc6QwDGRVaWLHJFNs9Wt5jsY7G96tzNG44Ye1AFErwaSCDzZMEcA5NWSvHSrOnxZEnbgCpbGkQSRqOFHHpSBAOwqwV5OaildIYXlkzsjUs2BzgVnuWmQyKFrNuCS1XN19cRrLFo2oMjgMp8ocg/jUEtrqrcjQ9Q/79D/Ggu7IYP8AWAHoRWp4fl2/aoCehDCs0WurKQ39h3/H/TIf40+0/tG2vTM+jX4VlIP7of41dKXLNMctYnRSOKrO4zVF766P/MH1D/v0P8arve3Of+QRqH/fof416PtIdzntYuyP71WkfGeapy3l1/0Cb/8AGIf41X+0Xkj7F0i/LHoBEP8AGj2kO4FqST3qtK/vRJDqp6aLf/8Afsf41Xe11c5xot//AN+x/jS9tT/mRXJLsNkf3qq789alksdYGc6Lff8AfA/xqrJZavuwNHvcntsH+NHtaf8AMh+zn2GSv71XZ6tnR9ebkaHffig/xpP7A8RN00O8/wC+R/jVe0h3FyvsUGeomatM+HfEY66Fef8AfI/xqM+HfER/5gV5/wB8j/Gl7SHcOV9jMLEd6YzVq/8ACM+JW6aFeH/gI/xpD4V8UE8aBefkv+NLnj3IcWZO7/appNazeFfFX/Qv3n5D/Gq934d8R2ttLc3Gh3ccUKF3YqMKoHJ60+ePcRn5ApjGo92eR0NDNWgHsfwU/wCQNff9dx/KvR683+CJzo1//wBdx/KvSK5pbnNPc3NJ/wCPNfqaKNJP+hr9TRUkmXf/APH5L9ar1Yv/APj8l+tV6ALtr/x7p9KmqG1/490+lTVSNAoopKaQC0UlFMAooptJsAozRRQAUUmaM0WAM0ZopGOBTAWmk80maQnmgdh2TUTsqIXdgFHUntSTSpDGZJG2qvU1zOqag96+xeIB0X+97msatVU1fqbUqbqPyHarqT3TGKHK24/Nv/rVTjjLdB+NIibiBV6KPaAMV5E6kpu7PUjFQVkRxu4IRhk+tWNrEelOVMvyKsJGT16UIluxDbKTnPUVbWLdzjiqF9OsMiLG2JBz9a2IATCjMOWUE1pGPcxlOxSmQKOtUJRkEbiKv3fU1mu2M1vGBhKZJHOIo9kgyvrTJFVk65U9CKqSy4HPSq0V35LEZ3RnnHpWijYzuNvrcOrKygq3UetcJrNi1jOSAfIflT6H0r0R3SZNyncKydStYriF4ZBlHHPqD2NUD1OFRgee/rWhaXDnAZjxVK5tZbO4aKUZweG9R61LbnDA1VxHTWUvmoFY81q2kJ8jf0yawtMy3T0rblmEcSQqeg5rNq7ZpF9SOQYHXNZ+rn/iV3n/AFwf/wBBNLJclbhgT8vSq2rzL/Zd3j/ng/8A6CaSQ2zttNAGm2n/AFxT/wBBFWt2BVTTTnTrT/rin/oIqaRsCuU6kRzyFQaoud3NTytuOKryDApoGQuQKruwzU0jVSlbBrVGUiOVqu6ZEVUzsME8LWegMsoTsev0q9cXiQqqRI0nZQKicrKw6au7svqxPOetPBAGc1i3VxqMJBMaxjbuxnIqu2pXyAF1Qhs8A1zOLR2KcTVuZsZxTbcBB5j43HpVTT7hL1yWO3aOVNOupvnwDxWsEjrhG+iNBLkM3Wr0MwA4Nc9DLzWhHNx1rZIU6RpvP70wTZ71SMmTSrJVGfszSjm461Ms+R1rKE2BSiemjmnTNQz+9Yfi6cN4Z1cHr9jl/wDQTUklzjvWH4pus+HdVHraS/8AoJrRHFOFjxxCTGv0FKWzTY/9Wv0FBr0jmPZ/gef+JLf/APXcf+g16VXmnwO/5At//wBdx/6DXpdYS3MJbm5pP/Hmv1NFGk/8ea/U0VJJl6h/x+S/Wq9WL/8A4/JfrVegC7a/8e6fSpqhtf8Aj3T6VLmtC0FBpCaM0DFoptFLUAoyKTNFKwATRRSZqgDIoz700nmkzQMCaM0maQnAoAXNQ3VzFbRGSVsDtjqagv76G1XBO+Q/dQda5y6uJbly8rZbsOy/SuatiFT0W500qDnq9EP1C+lvJPm+WMfdTP8AOoFU0KpPJFTwxGVsfw+teVKTk7s9KMVFWQtuhZxgdDWgqgc+lMACJgAcU+AmTnHy+tUokSlcfAu8byMelF9OLWEuemKdJKExjAFc/wCIr4SKsCckck1pGJjJlR7pmmEjE5yDXVC/VVReOlVNI8PwfZkluV8yR1DEHoPartxo9vIO6N0BBrVasxkxpkWdDtIznms66hIJ55qhqElzo1wPMy8TfxCrJvo5ogwPboK1SMWzHu53RyhBGOKpGbnnPPBq1dssoJ/KqWP0rVAJbX0lvMYXOVzxV9plYfWsm/h3RCVM7k6+4qG3uM4QnmgFoWtWsftdtlAPNj5X3HpXOoPwPSustpdwwDzWdqGnL9oNyGCxscuPQ+1TsUR2l0llAN3zSv0HoPWp1uyymRjnmqMkMBl8wBi3+0aJW4AwAB2FSmUSPKQ2/wBag1OUNpl3/wBcX/kajeQ7eagv2zpl1/1xf+VCQmenaexXTLUj/ngn/oIqRzuXIqG1ONMtMf8APFP/AEEUobCkVxnaiNqgkPFTOcDJqlcydcU0rgyKZ+cd6xNR1JIX8pEeaX+4tT6rOyKkUcm15GxkdcVv2Omafa2Ms6xCW4VO/Xp1qlK7sjCVkrs4aHUbyacRhfIXuM5OK7KK5tLnTzGsi25thkFl5cmqNtp0DRt+4DSsC24DkVaeG4061SKO3S4R0JkDrkx+4/Csrt6lWQyR7b+yllkZcMSVJfOce1ZEvmzDzZMBiMqMY49Kuh7JnZVjUouBux09eKW6hlnUvErBGGFJFZu9tC07bmRasyajGEb7w5+lXLmb5sZqG1sirmRX/ex88dx6Ul9yVlXowramj0sLO/uk8EtXo5uOtYcUhGKuxSE45rY7ZRNZXzTt+KpxvTmf3qjnlEstLzTWmIWqhkI71WuLraCM1SOWoiWe6x3rD8RXRfQ9RGT/AMe0n/oJptzdEtgE1n6wzNomof8AXtJ/6CatHFUWhw6H5F+gpxqJG+RfoKXNeicJ7V8Dcf2Lf/8AXcf+g16XXmfwM/5Al/8A9fA/9Br0ysJbnNPc3NJ/481+poo0n/jzX6mipJMu/wD+PyX61Xqxf/8AH5L9ar0AXbU/6On0qWoLU/uE+lS1dzRAaKDxSZoQxaTNGaTNAhaTpSbjSE8UxilqQnNNJxRmgAzSbqQ9ar3VzFbKWlfHoB1P4Um0ldlKLbsicnjk4+tZN9qYUmK1IZuhk7D6VUvb6W5O0Axx+g6n61SLHG1RXn1cVfSB30sOlrMR2JYsWLsepNLGuWzjr2qWGAnBbr6VYKqgwBljXCk2dbaRWVGZ9uPrVsAIm0cCglYUyx+Y9TVGe45wOT7VpGNjOUrlpSZpQinr/KrzlYo9o7CoLCEwQeZJgO/PNVry6Cqfmq0rmTZFf3WxTzzWHChvNTghHJkcZ/rSXlwZWPzAe5PFbPg6wVpm1CRgwAKx/Xua1WhhJnaLtVAo6AUjYYZNReYGNNuJdsJ5raMbIxaOc8SNHNE0EmCD09q5CKVrZzGTjb8v1FbutTAzgZzk1gXqln8z2wapaIkk37lIWqwkKPtbvUFtcATGMmpZgsv17VRRZRvyPWsLUgbW5OOB95fcVobyhAbNQauguLPcv34/5UmCJrG6V1V1PB7VsErLEVbBDDGDXG2chgOzOR1rbgut0ec4wM1LaaLSKhyrsp7HFMlNN3HqTyeaaWz1pFco1jlagvuNNuv+uL/yqZ8EYqnfsV0+6Gf+WTfypoTR6rZMDptpkf8ALBP/AEEU1jhTVa3m26faD/pgn/oIqKS4IBA71xHch8snBAqnO4ClieAM0u/INUNVlZLGZl5IQ4FaRRL1MaKXffGe7cCCRiE9R6V1szQzxQtpdyxnSPbIrHrXkh1KS5dLaWXaqt06EV0WhX72U+wTEoT95jnH1rOSaTRMoO9zt4/t8FsN6IfMGN6np+NbX9oRtoaWl9EVY5CSjnn61ybeIHaOOIqohLAjA4NbE80jWSIxAQfMnpk1HM4qxk9XqJpdrDd3bIiLJJuzwetdJfyNFp0G1zFLDlFQjAUdPzrlL20uLO4WVo3iLAMccYPY0apq019skmkUKuBhP4qqMkk11JceZplK9lWzmDqNpbqfUVmSSq1w0A5XGR7VBrDTTOq+Zxnqey1m6Qbm41Z3OfLCkD3q4PQ9HC6TuaTAqxqSFyDyaWZDuJFIi881rY9ltWL0b8ZpJJsDOaiBCrVG6nxnJppHNImnutufmrKubxmY4aq11cljgVUDFjWhxz1LcbMzZJp2q86HqH/XtJ/6Cajh4Ip+q8aFqH/XtJ/6CatHFV2OEU4RfoKM0g+4v0FL2rvOA9r+BX/IE1D/AK+B/wCg16bXmPwJ/wCQJqH/AF8D/wBBr06sJbnNPc3NJ/481+poo0n/AI81+poqSTLv/wDj8l+tV6sah/x+S/Wq9AFu2/1CfSpM1Fbf6hPpUmatGqFpMgUhNJmmApPpSUh60lAC5pC1Iaax47/hQUKWFRTzwwpvlkCD3qtfXy24KJ882OBngfWsK4aSVzJMS7foPpXNVrqGkdWdFOg5avRGjc6s7ZW2TaP77d/oKzWZ5JC7sWY9zSIS4wBgClLAHaoy1efOcp6yZ3QhGHwoQenU1NGoXk9aYAU6LknuakVWHJI+p7VHKU5EpdIl3N97sKEJAMr4B7e1MG1n3Ek46k1Tv7sH5E+6OtCRLY27udxOOgpdJgNzceY/3I+T7mssyFzhc9eB610UIFhYBW++fmP1qyQ1K7VPlB6dq5y+usZJJH9Klup2kcse54qu9mZcb369RitLqJHI5bGWDJeXccEYOXOAK9HslW1tYrePgIoFczoenJb3L3RO7jC5HSuhjbNaQfMzOUO5dV+9U766wpGadLJtTHrWFqdztRsnr0ro31MZGPqk/mXJwelVJW3xkDqwxUN1IS5PrUUU2SR6UGRjfaHXUFVhjqDWqswJHNYeonytVfHTqKnSYlgKVykjcdlZAe9QABtyHoQQagSRilOR9u5z2GKzlI1jEqpAir9wj33VIG2rtXAX61A8uKrmbmsrs15Ei78vdh+VNZeMqwNU1m5qZJs0XY+VDmOOD1qnqbD7Bc/9cm/lVtmDdfwqjqPNhc/9cm/lVKRLR6HDN/oNqM/8sU/9BFMLZ61SsZS1pbZ7RJ/6CKsFsA1jY3TGs+01WuZAVPoRTJpsZyabCj3LiKPOe59BWqRcVdnKHw1Le6u8qDbAeSw7GtJPDTQIwjuWLEdG6V2kUCW8Plr+J9aqXEeeRU7nfCEWrM4tJprC1ksr62LJnKOD92tmy1rTrqaxtbRnV4zvkVjwSKnvoRJGyMuRXHTR/YdXjnRdi5wSKiUdCKmFXxI90gvYdTuIo7l1jDp0foR9a5SS2s4dfZJlL2u/qvHftVeylkaGJSGYEbkbNb8Hh6W6077S8yeaTlI1POPWou56WPI5fZ7lPXtBt7gl7V0CYyjE8MPQ1ybW6WBeSHcrRf6xDzx7H0rptQttTttOy6bQGwCT1Nc7cOjROGIDlSCPaqi0pWaN6UuVp3JSyTIJEIIbmkQc81n6A5aCSLO4K3y/StAttOK3SbWp7imnEZcNtQ1h3k+5sA1pahNhMVgytljVpGEnoRsSSaVM0qjNOApnLJksXUU/Vyf7C1D/AK9pP/QTTIzg0as3/Ej1D/r3f/0E00zlqrQ4VG+RfoKduBpsfMafQUleieae3fAn/kB6h/18D/0GvTq8w+BBzoeof9fA/wDQa9PrCW5hPc3NJ/481+poo0n/AI81+poqSTLv/wDj8l+tV6sX/wDx+S/Wq9AFm3P7hfpT81Fbn9yv0p9aI1QppM0GmlsUAOJpuaaW71Q1C8dX8iDG/HzN/d/+vUTmoR5maQg5uyLrzIgy7quPU4qhc6pEoIhIZv73YVjahcrBGXkfJ9WNcpfazkMYzkDvmuR15z0irHUqMI/FqdNNeRqSc7mJyT61LADLhieD2rhNJu7nUtRWBQdoPzEdq9BQLDGAxCgD8655R5TaMuYXyyx4wqimM22RVCjnvTXuBJxGRioypXDnisrdzRNlskBeRk4qCSTC8ngU9HDR/NwDWdfzBcoMYprXUXkMuL04KIfxrPLvI4UHrTHJbnnFWbKI53AZP9KexSjc0NNgRW3sMle57Go9UvWkk2joOvvT55fJi8tOprLKuzEYOTTQNIdEpZtx6CpCx3AZ5NSlVijC5HAqpvBctzgVD1Z0RjZGxHMERUHarcEueprCSbJzmpGvNg4NdFNpKxjUp6Gxc3OFPNc3qE5ckk8DpTri8MgwDWZcu0jeWmSa6E9DzZqzsZ93MdxxVWG4Ik5qa8Ta2D1rPZdrZ5pcxKiJqvzXCSZ+8uKZbkhqdKpk2d8VJHEF5PGKjm0NlAvRsBHyetVby5CrtBxUF3fJGhAIAUdTXJ3niKyeUxi6jyDg80lFyG2o7m/Ldrzyag88seCcVhJqVqx/4+Yzn/bFWlvYMcSof+BCq9mLnRrrL71KsxFZAvIRz5qf99Cg6laqPmuYx9XFHIxqaNxZ6iv5lNhc8D/VN/KsJ9c09Ot5Efo2apah4lsRaTKkhkLIQNgz2o9mw513PVrOXbb246fuk/8AQRVqSTIzmqV/GbeG0lX7kkCH8dopbRpLlhHGCzH0rOxpFjGDyyhIwSzHGK6WwsltLfB5kYfMafp+nR2g8xsNMe57VYlbjNJu+x100V5TxVOU8VYmaqcrUHfTK06jBrntatVkj3KPmBzXROc1n3yfuzgZNNrQ6IvSxD4f1mKHy4LwZjHGc8iutsL2OOU3UU5WNR8q9eK81kEKzbpVwpOCR2NTQX01pMLeGRZlkO0AHNYWseNiaPLN9jtJdW89y8sxfLcKTxmsvUTDNK7kKpK9KtwaLfG33tbMqsmVPUFs/pVWDTZFuQ13jDHHJ6fWod7GEbdDMs4XtVW5iVio4dB6etXXmjlTzI2BBrQvLJrGTzISxB6oehFc7f7LK6aWIkQynp6GumElax00ajvysiv5OetZTNlqs3UwYnmqO75q2Oxq6LSCn5xUUR4qRulBytaig+lJqxzot9/17v8A+gmmjrS6j/yBb/8A695P/QTQiaq904qP/Vr9BSd6RCdi/QUo5NeieMe3fAjjQ9Q/6+B/6DXp1eY/Ar/kB6h/18D/ANBr06sZbmE9zc0n/jzX6mijSf8AjzX6mipJMvUP+PyX61XqxqH/AB+S/Wq9AE0BxCtPLcVFCR5S0prRGqWg4nNJTdwFZ2p3xizBCC0xH/fIqZzUFzMuEHJ2QahfFG8mJwrfxN6Vg31/HaIzF/m7knrUN5FOyswkO484JrCsrG+1LU1NyCLSI7mZuNx7AV5k5+0d29D0Ix5FyxRJJZ6trz7lb7Na/wDPR+p+gq9FoGl2MX74vcHHJc8flWtd3kNpCAMdMDFc/dLql425ItkZ/ic44ou35IGkn3Jm1CysdwsrdIs9di4JrLuvEJaYQhi0jdFHU1MdFd/9bdqnrtFPtbHRtJlNyFM9z/z0lOcfQdqE4+oWl6G/pUZS1Dzj525x6VNLdRhuSCfSuSv/ABICxCyfhUmk3Ul6+/8Ah71Lg3qylNbI6GS4wDyNtZEjtNKTn5RVuVS3yjoOtReTg9alFiJEWwei0mtzS2ujzSW0hilBQK4AJXLAd/rVtcMVHYcVS8REDRp8/wB6P/0YtNLUvoR/2bcnJbW7/wD8h/8AxNCadOAXOt3/ALf6v/4mtH5JZtjOVUAk471JNEIQDA/mKxCgHgg46c1UpaGbaTOcuoJiSq63fEDr/q//AImqMkM/Qaxe4/4B/wDE1o6/az2pZyQMLyveufFySOSaz5mehRhGpG5c2XCDP9s3v/jn/wATVOa7ure+swNRubhJZSjpJtwRtJ7AelQXV3tXg1Q8xmvdPYn/AJbn/wBAatYO7CtSUVdHViZse56VYlYWttzjzpBkn0FZMtyYSrqAX7Z/nUZup5STJJvPXmrlI8uVNyZJJlsse/rVaQD1qXdu5PJqNl5JPAHWp5hqlYjUbeapXl4FVsHCqMls0t3dBsqhAA6muF8Rar9qc2dqx8kHEjj+M+n0rSEHNk1JKCIPEGsyag5tbRytsD8zd3/+tWRHYhRyKsxIEAGMYp7N716MIKKsjz5Nt3ZX+yrjpSGAZ6VPmkxmrJRXNuD1yfxoFqnpVsKTT1jNKw7FNbdR2pZoQIJDjGFNX1iPpTp4P9Hl4/hNA7H0Fb6c+p6NbRAFB5SEMe3yitXTNKg02HanzSH7z1p2Cqum2aqMDyI+n+6KbK2c15TbZ6NMqyHiqsrcVPM2BVKZjikkdsCGVs1UkPWpZGOTVZ2qjshsMY1DKMg1Izc1GzUJGqZhalahTvVeO9M8LWkD6nGyRgnf0Pati5j81CKoaYk2m3nmIofe3yj0NRNaGGI1g7HfR6symS1ZlzGcbT2rIu5RczyGFl2qMmoBa3V7MGMLKzdSverr6MbCDcSxYn7pPQ1g22eKkl6mdcTbQ8bMRlRwe1YGsKs9kxwOPmB9CK6DWoI2hSTeTOSBx6VgauVS3MKj58cUoyszVX3RzFxNwpz1qMTDODVe8V4eX3ED2qukytyDzXZCV0elCScTcgcEVYzkCsm2m6ZNaMcgYCrIlG7uSCn3/Gi6icf8u0n/AKCaRBmpb9c6HqI/6dn/APQTQZVfhOCX7q/QUo4oQcAe1Br0jxEe3fAk50PUP+vgf+g16dXmHwI/5Aeof9fA/wDQa9PrCW5hLc3NJ/481+poo0n/AI81+poqSTL1D/j8l+tV6sah/wAfkv1qvQA6L/VrSs1RI3yCkLYFao3Ww27uEt7d5XIAHTPrXJS6mvm+X5MstxI38AyPxPYVva7bNfabLCjbZAN6HPGR0rntO09bSzPnSfMx3SNnkn0HtXBiviSex24fRNomijO8TXUysw6Ip+Vf8arahqiQrtQ+wFUboJcziGx3hu5U5A+tXLPTYLOTz53M03Yt0X6CuT3Vqzod3sTadbMR9rveWPKo38P/ANem6hfIq/exVLWdWEUbfNj2riTc6lrV99j09GdyeT2QepNaRjzayM5SS0idFc6kW3LCSSfTmoDo+r3+Gci3jPdz/Suj0bR7bSbUb2E9yfvSsO/t6Ul/ehc4bGKSfSA7fzHPx+FLNWD3V7LIR2TCitm1+w2MQhhG1R75J/Gse5vy7kKTWfdzuFzuNXyye7J5ox2Ookvoz904qD7WCeWzXEvqUiyYZ/1q5YXjzSqi5ZieAKtUkifaanb2smVJJ461meJLgf2POe26P/0NasRsYoVV/TkVj68JDpdwGyE3Jj3G8VilqdcfeRPqF3IrmVH2gdPrVnStahvZ/s9wshx827OefasvVWypGMAVh2Vz9lvfNMhRv4WHrUSZ1zw8XDmW51+u20jw75pZI5OQQ4+8OxBri5ZjEzIxyQetddMbq/0nzLi4VVbgoo5IrmNXsFVZXiO1VwQp/iH+NBGEmoXjJ7mVPKXI5NPld4n09kjMjCc/KGA42N61TDgt171ZuW5scd58f+OmnF2Z3VIcyLbXt3LLuNg3oB5q8CpRc3QXP2Fv+/q02Pj2qV3wtJyMPYajVvbr/nxb/v8ALUF9f3ax7RYsC3fzVqRJea53xZqJRTbQt87fePoK0hG7OarHl1Zj65rdxNutLeFkHSRg459hWKrSqOLc/wDfYqaNNvWngZr06cFFaHjVJOT1IPNm/wCeB/77FLumP/Luf++xVlUzUqxZrWxhYpgzH/l2P/fYqVRN/wA+x/77FXkg46VZigPoaZSRmosxP/Hsf++xU6LNn/j0b/vsVqJBmp0hFMdjLVZ/+fRv+/gp86z/AGSUm0I+Q/8ALQela6w0l5Hizn/65t/KnYqx9C2h/wCJdaf9cE/9BFQztim2cn/EvtMdoI//AEEVDcSEmvHsdlMhmbIPNUpWqWZ6qytkmmkd1MikbmoGanSN2qB3xxmnY6osRmpjNTWaonfHerNUyXdxUNwhlQBTh1O5TTBIPUUvme9Jq5L10NbRfFZs5xBcbUZR0bjNbtvqsGqXrSlhhPXkE15n4iiSeBXbqp6jrU3hTUZVYxwqxAOCM1hNNI82rQSfMj0XxDa2sFrFJCi7mOTiuSurNbp9yKEZCeW6VtRrdXSDeQoxnk5wKpsBA5TceTkE9653q7nPG8VY5rVLWPIjnhEQI+8Rwayb/wAH3Mdo9/YzJPGoDFV6gV2niDfcaYVwGCfP09aZoepJFaxx8dNpAHOK0hKyNY1HHQ8ugZhlWBV1PIrQt5SODVrxhaLa6gt1CMRy5BHpWXBJuFdUZXVzqhK+pt28uSBVu/P/ABJNQ/695P8A0E1kW7YIrTvm3aFf/wDXu/8AKqJr6ROIHQfSmmn0m2vSR4Z7X8CP+QHqH/XwP/Qa9PrzH4EjGh6h/wBfA/8AQa9OrCW5hLc3NJ/481+poo0n/jzX6mipJMrUP+PyX61BVjUP+PyX61XoAhDYFIzelNLY4qN2HetUbrYzfEGoCygUNkCTOSPauLS7u9avPItZ3Fqh/fbhnA9AR3rr/EVouoabJDvCOPmRj0BrCtJ9M0awFtDKhkHzOT1LHvXDiE1PudlJrltsT+Y+lwARWxEfcry341l32sq0e45XPIzVZ9alv9QWxs8u7H5iBnaPU1fudEjvZvMvJsQJwkSHBPuxrnso/Ebay+E5yO0u9bnKwg+X3kP3QK7TSLCz0Sz8i2jG9uZJT95z6mmQPBawiCBFjRegWs/VNVWFThu1JuU9Og0lBXe5Z1TUliQksM1xmo6sZpCqHrVLVdQmnc4PBrMgWRpVCqzMx4AGSTXTCCirnNKdzfs2LdanlgnusRW0TSyHsozitTQ/DtwwWS+BhU8iMfeP19K623ht7SPy4Y1Ud8d6ynVSehrCm5LU4G28EXUzia/n8pevlxDLfnXS6VoK2waOytxGAOZZDkn8a2JHeQlUAzSJdm22xOSpP61nzzluW4RjsRCxWHmc+ZJ69hWB4rXGlzf70f8A6GK6i6nR4w24VyHi24A0ubDfxJ/6GKtIuEtCrqq8GuVvsq2R2ro764DZ5rnNROATWTWp7NN+7qb/AIU1222tZXsBeRvlWbPKD6Vb1i1imMgti7RjLIH4J9TXHeGryG01y3nuRuhVvnB7iuzur6wvrvfpxWOCFmcsSRwRjbzUs8+vDknp1ODmVklIYYOc1JM3zWA/6bn/ANANWdRELTSvGGKA8egqpNxJYf8AXY/+gmhrU7qNTnhZ76Gsp9aZM+BTXcAVVmkz0NZJnoOKSux/nbQWY8DmuM1CU3N28jHOSa3dVuPKtmAPzPwKwY03dq9LDw6nz2MqK9kRBAalSHPap44Se1XYbc+legkeO9SpFB7VajtvarkUHtVmOHFWkCiU47bjpVlIB2FW1hGKeEx2p2LSKywgdqkEQFWAopCop2KIggqK+X/Qp/8Arm38qtYFQX3/AB5T/wDXNv5U2B7LbSbdOtT28iP/ANBFQSzZBot3/wCJfaj/AKYJ/wCgiqU77ScV5FjaDJHk96gdwOSarSzjrmqstzn+Kix3QZPLLjNVZJuearTT9eaqvIWPWmdMWWpLjHQ1Vkuj2qNsmonHrRY0THm4b8aBcsOpquRTc0WBkt9L5luQRW18P9KW4nITLbzkY9RXPucoVNaHhPxGmjbHddzoxAFRKN9znrN+zdjuntLrSLlhdwvNE7YTb15qp4luMwJ5kBh2HKkjBqtrXjqz1OKEwF0mjIO3HFV9Q1r+07RYTAS56sR1rmnZaI8uN3qxsFylzZyRK+D0PP3qwktLuwvI5pVf7MWxuI4re0exgtvJmkIJXkoR1rp9TEGsaVLFaBGG3lCMbTTilawpN3OH8XC1vPDspRU8xCGUg8mvNLaR0fa4x9a9Nv8AQrrThFBdyo8UwDDac4FYHiyxsktVlgGJIzjp1FXD3dGdWHqWdnsYts+SPata6J/sLUD/ANO7/wAqwrN8ketb0/8AyL+oHH/Lu/8AKtzfEbHHgcCjFPC8Dmm4r0zxj2r4Ff8AIEv/APr4H/oNem15l8C/+QJf/wDXwP8A0GvTawnuc09zc0n/AI81+poo0n/jzX6mipJMvUP+PyX61Xqxf/8AH5L9ar0AUXbBNQu9LM2HYe9QOwrdbHQtihrjP/Zs5TOQueK8g1ya8mvo7eKD7XJI21EI5JPvXsszAggjIPBHqK5OG1ttBvpr5ohcNj9xnqg7iuaunH3kbQ191mnoGjR6TpscZjSOZ13TFOpb0yecUl9KgU/OFI7ise98W202dgdCOoIzXOapqk0wEjuYbbP3mOGf2Ud64lTk3dnS6kYqyNzUJ5baFJzIGjkzgg9aw5ZmuTkknPQVl6jqkmozqwXy4Y1Cxxj+Ef1Ndv4V0+Cxt1udSRRPL80Yfoo/xrSVoLXczXvuyMe18MX18BIVW3i/vSdT9BXR6NolrpA3ptluO8zDJH09K15boSfddSD6Gs27uwgO5gPxrnlKc9DeMIR1ND7Yy5DkMP5Uxp9wynIrkrrVmZ/LiyxJwMdTWwtytjYRpI+Z3G5xnp7UlTaK510NVbhY125+buaZPPHMhVuvY+lc3caorHORVT+08tjdW8YGEndmpLqLKrRkkFTg8VzXia93adN82SSn/oYqe8ui27Bznrmua12RjYyfVcf99CiWjsdFKN0aVxeAE881nzzLLkHcufxqORWJJIbNNxx939K52z2qcdCNrTaPMEqlevHWtaCW3t7Bd8XmO2TgnGKyZovMAA3A0saTAjcxYDjmlcxqUpTauTySBnJCkA8Ypl222exyf+Wp/wDQTTxhT0Oaz9RmJntMZ4lP/oJpXuzohBU46+X5mjLKOgNQFsgnPTn6VChZz61DqEpI+zREHP32H8q0o0nJmeKxSirIzrtzdXRxnYnAqaKHA6VNBbBQMCr0cOAOK9inDlR8zUm5O5BDBx0q5FFjHFSpHgVOi1skQkRpHjtUwUZpRxTscVSQxCABRRmkJFBQmaQ0E+lGaACq9/8A8eNx/wBc2/lU5aq18f8AQp/+ubfyoewHq8Eg+wWo/wCmKf8AoIrPvJlGeaWOf/iX2xzz5KfyFZtw5Y9a8uxpAjlmPY8VWZi1PfNRqOaLHZCQmN1KIzTiQKaZQKLGymBT3qJ0oe4Azziqk9/GoJLCgtTJXXFRMuKz5dWj5x1qu2rAkjFK5pzM1HHFZV1CyPvQDGc4NOXUg3JFLJexsvvQ1czlK2hUn1b7KwYWyDH3m7V2Wh3Jkjjkk2qj4II6EVwt+kcytjowwa6nw6AdBtkkLKyLgY71y1I2OScUtUd1qlxpzpDdJdRgKuNg4NYeka9Ba38i3BzCwPArKn0XVJ4/tZRYos7QpzuP4VeOkx2WmNcSRq0gwCW6g1nezvY51FPS5cnu11rVVW3Z/IT1PSsfxmkUUbwogQqmSM5rGfVLm0uWNq2057VNcW91d2sl3euVLLkZ/iq0ru5K93Y5yzb94OuDzXR3jeV4Z1DPVoGA/KsDTIXa8+zkBmXke4rb15v+JRdxL0S3fP8A3zXR2Ouc+aJzK/dX6ClxQv3F+gpcV6iPKPZ/gaMaJf8A/Xcf+g16XXmnwO/5At//ANdx/wCg16XWEtzCe5uaT/x5r9TRRpP/AB5r9TRUkmXqH/H5L9ar1Yv/APj8l+tV6AMa5bEr/WqzvT7tsTv9aqO5rdbHTHYbO3Fcz4ikyqg9DkfSt+Z6xtUhWaF0IyDSnHmjYuLs7nlerxTC6cRO6HPVSRVVUnZg00jSNjG5jk11l5aJBIxlQuPXvVCW40yFfnYD2Nc/vJWaCy3uM8M2/wBp1i2jcZQNub6DmvS7+5hkXa6hl9K8x0vXtLttWgigVy0j7C2OFz7102r3Lx8qTjGa5ppuSbNoNKOhFqEUayFre9e29geKyLiW8Jw+qQFfViRWZqWoyAk5NYUl080nOa3jDQyc9TtrC+tbEmRJPtE+Meafur9BUF3qryEkuSSeTnrXMxMTgZNWU+tPkQc7NFr6RulLDcsrZOc1UT6VYgiZqTshxdy2ZmY5qK6hiuYWhkXcjdRmjU57fSbHz5zl24VB1Y1yo165kk3hFRQeFrHkc9UdcKqhozZfTbcE/wCs/wC/rf41C1jbjtJ/39b/ABpbXVoZh+84arZeKQZR1/OsJU5JnqUsRTaM57K3HaT/AL+t/jTTa247Sf8Af1v8auyRMRncuKieNF5eVR+NSoSNZV6a6FQ2sDdpP+/rf41LbadF5qyqjDZyGdyQv50/z41OIo959T0p2JZcGQ5HZRwK6adGTOGriorSITEH5IWYL0L92+lJDDVmKHueasxwY7V306agrHmTqObu2RRQ8irSxcCnrHgVKq4rZIzGKuKcFp1GaooTFNpS1NLUABoppNJk0AKelJSE0ZFADe9QX3/Hlcf9c2/lU5NV74f6Fcf9c2/lQwO6hl3WlsP+mKf+gionPtUVm2bO3/65J/IUsrYrzC4sY7AcmoHfnIps0hANVXlGKZqpWJ2kx1NVprpVByw/Gs281KKPjO5h2FYlzdyzHliB6ClY1UzZmukkfb9pRaVNLF19y9jYnsWrnCKcpYHIJBHpScX3KU7HRP4cuFGcbh6ioG0WaPloziqFpqF9bMGincD0JzXR2PiaJ1Ed/Djj76f4Vm1JbG8aie5htb+XwVNVJxtya625t7S7Qy21zEyAc/NgiuU1toLX5FlVnI6LQpXBxW9yGyzPcpF1BPIr0KJ4bIWzRQsEjA355/KvOfDiTS3IxxzyfSuw1D7Rpm396J0cd6znqclWabsjtbrxFBfxK6zpD5XQEcmud13xHFKrINpYrjjv71yM0qSEyOrIByccCqzX9qOEjLN2JrPlb1ZjzJbDpbjEoc9zWjdax5tssKkkL0BPSsW8jnm/eBCqnpTbKyvfMC7AAf4j2rVJW1I3NLQZHbVmkPJERH0rU1df+JRfH1gf+Rp2m2MdnFkfNI/LMfWk1kj+ybwf9MH/AJU1qzVaI5tF+RfpS7felHQfSlr1jkPZPgeMaLf/APXcf+g16VXm3wQ/5At//wBdx/6DXpNYS3Oae5uaT/x5r9TRRpP/AB5r9TRUkmXqH/H5L9ar1Y1D/j8l+tV6AObvmxcyfWqbtxUuoti7l5/iqiz10LY6lsJK1Upm4NTu3WqkzcGmMyr6JHU5rmr/AE6F93yjmuouMkGsm7B5oFY4+60qNTuQYYcg1vWl99stRBcH94oxUd0uc8VkTK8b7kJHrWVSHOtBxfKyXUbAljxWX9kweRW3bakjKI7gjd0ye9SP9lc/K65965LyjozTlUtUY8Vv04q5FADV4RW45Z1x9abJf6bbD55EyO2aOZvYXKuokVtntVvENsheQgBRmsS58SwjK28bt7gYFYt5e3d6T5jlUP8ACtUqc5b6A5RjsN16+bVL4vn9zH8qD+tUFjAHSrAjx2qQQk9q64xSVkY3bd2U/L5+XIqeIyL0Y/nVlICe1TxWx9KbgmNNogXzn6yNj61Yhti2Cx3fWrkVt7VbigA7UKCXQvmkytFAPSrkcI9KmWLHapVXHatLBbuMjQCpQuKUDFOppDsIOKDRnFNJpjsGaQtRTTQMCaM0lFABmkJxQTikJzQAjGkzQaSgAqC+J+xXH/XNv5VPmq99/wAeU/8A1zb+VS7ks62yYfZLf/rkv8qSd6jjBhggBHBiQg/gKZIS/SvMuWtCGVt3GeO59KxNTviVMMJwueT61d1K42I0cZ+tYDjOSepprUq5WYcmgCpSCaUJ3q7j5iLbmnBR6VMF46U4LzSuHMRBeKXbU22jbSuHMZN/DMpEkbOE/i2nFY7sWfILMQeM11skPmxsp4yMVgSWskK4aIlg2QwHBqWPnZoaFfmyEgkQHeOp7Vej1OO4mC3LMY1ORisRJrjKk25KjqMVdlurNkTZZOJB196ycSHIv6rexNb+Vb8K3c1l2y7QrtyM8e9Wgs12gjitVhB6s3WtbTtJSFAZDveiyErshhW4vmQMPLhT+HHWt6GMIoGOlJFEiLwMYp5ag1SsK7AVQ1hv+JVef9cX/lVtj71Q1ck6Zd/9cm/lTW4S2MYA4H0oxSr90fSlPSvWRynsfwQ/5At//wBdx/6DXpNebfBD/kC3/wD13H8q9Jrnnuc09zc0n/jzX6mijSf+PNfqaKkky9Q/4/JfrVerGof8fkv1qvQBx2qH/Tpv96qLtVzVFkN/PhGI3dhVCRZf+ebfka6I7HVHYjduaqyHNTskp/5ZP/3yaiaKXH+qf/vk1Q2Upu9Z06bu1a0kMxH+pf8A75NVZLWc/wDLF/8Avk0hmDcRVnzwnniuklspz/ywk/75NVJLC4/595P++DQS0ctPahs5FU3tXUfJI6j0Brq5NOuf+faT/vg1XfTbo/8ALtL/AN8GlZCsclJZyN96VyPdjUX2BQc7Rn1rq20y67W0v/fs0z+yrr/n1l/79miyA5pbXGOKkFsf7tdCNJuQf+PWb/v2acNLus/8esv/AH7NMLHPrak9qmS19q3RplyP+XWX/v2aeNNuf+faX/vg0DSMaO29qsJb47VqDT7kf8u0v/fBp4sbkf8ALtL/AN8GmOxQWHHapVXHarn2O5/59pf++DSG0uv+faX/AL4NA0VtopanNrdf8+0v/fBpDa3X/PtN/wB8GqQyDIppJqdrW6/59pf++DTfst1/z7Tf98GncZCTSZqb7Jdf8+s3/fBpPsl1/wA+s3/fBoC5CTSZqc2l3/z7Tf8Afs0n2S6/59Zv++DRcLkNIam+y3f/AD7Tf9+zSG1u/wDn2m/79mgLkGc0hqf7Jd/8+03/AH7NH2S7/wCfWb/v2aAuQUmasfZLv/n1m/79mkNpd/8APrN/37NFwuQVWvj/AKFcf9c2/lV/7Jd/8+s3/fs1BeWV41nOBazZMbf8sz6VLYrnSWEqtY26SrvxGuD+AqvfXG1WSNdoPenWrqtrAvQiNeCDxwKr3nzE45+grx0nc3fKYt1k5yc1UZa0J4pC33G/75NQmByfuP8A98mtkQ2ioEzTxHxVpbd/+eb/AJGnrA/9x/yNFxaFQR4pQuKueS39xvyNHkN/cb8jUjuips9qTbVvyX/uP/3yaPIf+4/5Gi7C6K6rT/LB6gGrCwv/AHW/75NOWJs8g/8AfJpO49Ct5SEfcX8qcsEW7/Vr+VWlh5+6fyNSrCByQfyNJhoRxxgdBirKqFHSkA29FP5Gglv7rf8AfJqbMq6FJqNmx0oYv02t+RpoVv7rfkaEmPmQg55qrq3/ACC7v/rk38qtkN/db8jVXU1kbTrlFjdmaJgFCnJ4ppO5LkrGMOgpM1aFje4H+iT/APfs/wCFH2C8/wCfOf8A79t/hXqpnNc9c+CIxo19/wBdx/KvSK86+C8MsOj3yyxPGTOCAykdvevRawnuc89zc0n/AI81+poo0n/jzX6mipJMu/8A+PyX61Xqxf8A/H5L9ar0AJtX0H5UYX+6PypaKAE2r6D8qML/AHR+VLRQAm1fQflRhf7o/KlooATC/wB0flRtX+6PypaKAEwv90flRhf7o/KlooATC/3R+VGF/uj8qWigBML/AHR+VGB/dH5UtFACYX+6Pyowv90flS0UAJhf7o/KjC/3R+VLRQAm1fQflRhf7o/KlooATC/3R+VGF/uj8qWigBNq+g/KjC/3R+VLRQAmF/uj8qML/dH5UtFACbV9B+VGF/uj8qWigBML/dH5UYX+6PypaKAEwv8AdH5UYX+6PypaKAEwv90flRhf7o/KlooATavoPyowv90flS0UAJhf7oowv90flS0UAJhf7o/KjavoPypaKAE2r6D8qNq+g/KlooATC/3R+VGF/uj8qWigNRML/dH5UYH90flS0UAJhf7o/KjC/wB0flS0UD1Ewv8AdH5UYX+6PypaKBaiYX+6Pyowv90flS0UAJhf7o/KjC/3R+VLRQPUTC/3R+VGF/uj8qWigQmF/uj8qML/AHR+VLRQAgAHQAUtFFAG5pP/AB5r9TRRpP8Ax5r9TRQBl3//AB+S/Wq9WL//AI/JfrVegDeVU8tflHQdqaQg/hH5UgbEa/QVGzUAOO3+6PyppKj+EflUTPVa4uBGhZj0obtqxpX0RZkmiRSzlVA7mq6ajYu+xbmEv/d3AE1z95qSsSzHPYCsTUJ7aVjDcRhWPTcMVwvF66LQ7oYRNWbsz0MsvdR+VIWX0H5V5YNZ1bw+4lt5HvrDPzW8rZKj/Zb+E/pXdaTq1rq2nxX1lIXhkHfgqR1UjsRXTTqxqK6OerQnSdma5dfQU0uvoKqGWmtLgZJAHqTWpgXC6+gppkHoKp+bkZByPUGmGagC6ZB7UhlHtVEy+9NMx9aAL/mj0FKJB6Cs7zvenCb3oA01cegqeNlPYflWXHLnvVuF6ALN7t+zHAGcjtWY3Q/Sr902bY/UVQb7p+lAHhWoeINfTUblE1a5VFlYABzwM01PEHiA/wDMXuv+/hpt/BnUro4/5av/ADNJHb+1Isspr2vnrqtz/wB9mp01vXT11S5/77NV44ParCQe1A7E6azrZ/5idz/32amXV9Z/6CVx/wB91HHBipo4e+OKB2JY9V1dmx/aE/HX56eNV1Y8/b5+v9+kWHC+7VJHBlgMd6BpIlbUtUVF/wBPmz/vVNHqOpfZd5vJic/3veoZYsueOgxU7xbLKP3I/nSuPl2Jzfah9ldvtcuQODuqaK8vuAbqUn3Y01ogdPlYdxn6UpUhDtHbPPemmNRuT/bLzynb7RINo6lqks7+e5lEMdw5+Qt5nUHHp61kaoN+nKwbPQkjocirfho7p7FR/FbvUKonKyLdK0OYgF9qP2i7Q3kuEcBfm6cVj6vrOp2t0U/tC4RHAZfmOODgj8a3kg3X1/zgB1/9Brj/ABcwUICcseMUqs4xTXU2pQTexe0jXNXuvMf7fO5GoQRBd/8ACTyPoa7v4g6yPDHhp5IV8zUJ/wB1ATyFY9WPsK83+GSrJHq91LxFFPAULf3gTk/gP51b+I0Oqa34tfZdQLam2eW2cybojCgzuOPU55pYeajP3n569krndSw1N4iMalklq/PbQ5CTxnr8UEobVLyZmIRY45sPuPAx+PpV3RPFPiKHU5NF1e/v45UG+KaZ9rIpwTHMozjqCGHI78VhwskV3H5QSFtoUidQyYYc89x3B6jitDXNPu59KTVbpHh+3SeXAzOxkyqjMgc84JzxX0sMXR92EoJKWl/PoketmmWUsbD2cfduvdaVnf5Ghq/iXxbpeqW+n3N3PqEMzgwvZNskkAIDIcnh8f8AAT1HWqn/AAmHiNNMdJrq9RPtKhr9pWzCMH5JFHT6gdRXHjWfEdhYnS7ia3+ywNuglkjxODk4jEo5UZ5GeOK6S11a28URHU7e+P8AwkMMSm8g8nBRl/5a7V4ljIA3YGVPzAdRXdiMJz0lOMVZ6PTdrZ+V0fLYLGVcDU+rY6CdrWdvPd9y1D4m8QLPC1xr921o2CXgfcWUE5AJwATx16ZqC78X+IGuZJYdXvYY3J8tPPJCjP61DdJNdX9vpljFbfYpnMsbwyAQM7D5mAxxnA49uPSqV9plzBdyxTKkTAgxgElZgW25Q9x/hXyNWE4tRkrXTaXW3n5n3VKGGqWfKr22t07nW6J4m1u40LWHm1a6M0EcU0b7ySAG2sPoc8/Ssyz13xWt9YTR67evBLO9u0c8ylcleCSW6d847Vz6XV7awTW0SOIplEUqKeWAOcc+4qTS4tEvby1OpXFzGElC7o/keNDxuB9uOMdK9TAylzuUleDS6J7K23QivgaUqc/dWrurLXRa2Om0DxX4hutFvtQk1WaW7syjGIS5CgvtIdMAhSO4OQTmlv8AWvEYv1jtvEF3D9oQTQwzuclGUnqARkYIrnZYda8E61cwT2MWoRalE9urJnEo3YDMg7nGR78g1PNrOmav4Xtx5k0OpaZv2byp25/5ZnPzY3AY/EV34vCRxElXwa5qbatbpp1W+j3POo+zhdzSd/JapLc67VPEuqQrbFNXuoJoLeFprFkZpZGzlmLDgKQQc/hTdI1rWr9JNa1PXLmz0p5jtSOTa0rZx5aA4wOetZ3ia61YiC6tprO6LXLwI00bQNCAADHvJ2lWxnB4rkpbmFpYBcQXsNvDk7wRcAP3woIG0nn6V8neWy0d38tdbI3o4eFalblSfV21t2vsdT4g8Z+Ibm+mjtdQltFicxwpBJlSM8At/E3v0rHHjLxQzkDW7zceAvmYA9a50XVu5kzLGrE7sHK7fw7Vqafp19PbSXkdv9ps4XVZXB+Xnpz9PT1FTGE4qz2VvxO+OGw8IpcqS2LqeLvFLsIk1u9LlsDEpyc9qR/F3ipTg65e59PMNJJp8CW96kBhna3HnLJG2QyEgHnuRkcfWsq4uJ5xDE0rSLAu2JAMlQTkjj8TSu9LPcfsKL2ivuR7f8P/ABLN4k0F7ee4ZNSthskcHBb0f/Gr1tfXyzNFLcSblOCCe9ed6DrdlpMNvdRToWsZ1Rkj/wCWkMoG4cjnawzXpeqRJ50N9CQUmAyR344P5V0wle67f0j47MsMqNZuKtF7G5pztJjexb610VpbQMhLRKT7iua0k5xXV2X3DVo8llG+jjinAjUKCueKgq1qX/Hwv+7VWmSbmk/8ea/U0UaT/wAea/U0UAZeof8AH5L9ar1Yv/8Aj8l+tV6ANbdhF+gqB2pzN8g+lVZXoAJJMDrXO6/feXE4DfdB/OtW5nCqST0rz/xNqG2N/m65rixU7R5V1PQwVLmk5PoWPCN6t94gWCUbhFEWH14Gf1q547gWOF2PygjPsB6j8ayfh7ZTQNLqk6lDc4SJT1KDkt+J/lWn46kabTZlXk7CAB9K8+N+ayO2olzaHP6NdG7tY1l53KNwNXvBMzaZ4mvtNBItr1TKi9ldfT6g/oK4nwzqZXaHP1rq9OmVvEmmzqeS5X8CpopSdOsvM7q9FVcO/JXPSDJWNqkoLHzF3AdM9BWjG24kk8AZrDuZZL3URp9oqvMwJ5OAB7104uo3JQR5uXxjFOcjGubp7WTzbOZoJP8AZPB+o6Gui0LWF1S0LsFS4iIWVAeAexHsa4jUJ8SzQyoY5omKuh7Gl+HU0r6zrByfKWKJT6btzEfpmnhZyUuUrHU4OHOtz0Yye9MMlZtxqVpBKI551iY9C4IX8+lTeYCAQQQelekpJ7M8eUJR+JWLfmU9ZKoh/enq9Mg04pKvW7ZxWPC9aVu3SgDRmbMB+oqm33T9KsucwH61WP3T9KAPGryDN9ccdZG/nRHb+1alzDm7mOP42/nQkOO1I1KaQe1WEh71aSHJxUyRZOcYHagdiqsPOKmWHJAxwOtWBGBzjJ7VJs2rgcE0DK6puf26VNbxZcn0qSGLqasImy3d8cngUAUzHkE+pq3cwjbbxkdTzTjFyiD2FWL1f9MjUfwITUPZstboSWEJpM+OQAf509IMrjH8J/lUzqT4euXHUKx/I1dtYhLFFIBw4H4ZFNapAtF8zj7n/kEJ/up/Wn+EGJvdOyeCsifzpt0dun3MR4MO0c+m4j+YpPBhy+mv6XEqGuKD5alvM7pQ/dMvSzCG+1PJxgof0NebeIrsXNzIS2AzeUuO2ckn8hXXeLLr7Lfang4yqfzNeaafKb7XLCAnKu8srD2GF/qazrK9do3wkL2f9aHVXEv9meCtStkby5rry48jsXJz+nFZN1qbWtr/AMI94gt3iWKHFtMmd0OQD8ynG5GAH05qXW5WmmjgGRvnQAjuWbGK6TxLG1rqVrqNvbRm4s8AKx3LKoGCrZ7EcV7mC9hVi6FWN02ne9mmtrPzOytRlHlqU/iu36+R5vcWsV9aPMEaSEMBO0RwAcjbz2zisqe2uV2eVq9ykMYIWKdyyp6Y9umeK6jV9GDs2ueHFMFnK+2S3Mn3fUOo6AMQORwe+CKp2trd3uq3Gmm1S2vII3eaKaUJ8qrliCeCMc8V6tNPDTvCfNTT1Tsmvk/zR6tGrTxEOepZPo09jLuLC7ltw97d2KXER3By3zHPQHt6+1Yy2b28ttq9rcHT7yOT/RryL/Vu69iRwreueDmuu8E6HpskOp3TQPeXuklZJ7W4Tf5kJYAMmPvDrkdvXmjdoukeIZoTfQ6l4f1AKbiFflBR+r7QNyOh5HGcAj6/VUM0pOUsPGF100sn5Lz7XPGxKjiE+aN2rp3eun/AJ4Jr+UNq39iT2Nr5STapHaphY5AxHnKoyNjjnjpz2Arq9Rit9Sjkv5rUrpmn2m/bJcjexdQyqcZHXBDLwQexzXIeHNY1Lw7q0H/Etv8AVvDZMhhZx5TNC2QGLd0GOA3GT711OiajYaxDrv8AYqzTWElq5FuRgRFWOxMdRnPQcAivis8pTq2lSjotbp6Wffs0c2Fm6L5It2jsuybWzOPjtYbCWS2ZZG+0JGwM7kC0ZjliOMsNvarkF79kW5Q2aX9qjrGsk6lSoOeFHbd3+lbOp6h9l8XatK0J+1bWgVWjysPyqNwPOccjtXPafdLpWsR3TwQziNmP2e4bMbjGPvdvUV59KnPESUYrVq/q+x9dSk50+azs0na/XyNzyV1vQhC8jSanpaxxxshAE0DMArFj08snGe2RVifw5a32t2dtrum241SMxRXFqhw19GSx+0ZH3WVA2e5OM9qwdKuzaTi+so7mR7UL58EiELJvzuhBGeCoODxyK1rW+tbbX59UTU3KmynubSa8JDHcAqox7n5iOP7tenTjiKKfLpdSfmpW2Vuj/wCG2PJxcIz/AHafu9NNbt7GPqCSLDb6fCJpBBkq7yFmlVmwnHfAwB+NZA/cyOsqOCpKyIDtIYf1q3Yut1qJjtJYQZm8vLEHYpPXnpj1rU1XQbWx1RreLWbV4zG7GVm+646ocZ5JxyP6V4FXmg056c13927Z60XCjam+za07GCivMYk/dytLlQrjdjtz6UwKkStCY3giOCEiY+Xu6ZOOn1Ipzw3FtbRXrwOsEjMEdOCSOuPpkVueJlsbLTNLjhsriG6jDw3LxQMyyyAjgN0YjnJB713U5SVOKcFJXtbr3vfyLniIwlGMut+2hHYRQLoc18NajguIXaKLT5V3O4IBJxn7vv04qnaagNMv4rzSi8E0aLkSjcGYjD/8BPoapqgvRERaXBYSDy3aIrknsD6VY1u6nl1K4e5Nv5x2iQW+0xqAo2hcegwDXJiuV1Wlon0dtFp2IdpSd2mn+XbQjuljWJfs9zLtkUPOB8q78njGecV7X8OLx9Y8GLbTNuuLP90Sepxyp/KvLtOEF54WvlRAJbdo7kFjyQPkcD2+YH8K6z4LXqRa9fWIclLmFXXP95f/AKxpQ0lZnm5pTVXDSfWLv+R6lo3Kiuts/uflXNWUXlXUiDoG4rprThD+FdB8OynqX/Hwv+7/AFqrVrUv+Phf92qtBJt6T/x5r9TRS6T/AMea/U0UAZeof8fkv1qvVjUP+PyX61XoAtyN8o+lUZ5MZqe4fav4VjXlxtzzUSlY2pwcmVtXugltIc9q8/hiOt+I7bT9rSRlt8ir1ZR2/HgfjWx4l1IBTCrdOW+vpXM+BdclsPH9iI4hKt4WtnGcFQ3O4fTFePVqxqVlG+iPpqOEnSwkp21ep7Ba+H7lV33ACgcKAcBR+Fcxr+kTXk0kNlNvlHHJ4rvbt5N1vF5zo8+dseCQccnJxgfjWB4ohmtrQPG627k5BiOGPvkV6EKeGXvNs8FVajdkkfPV4k+ka7cWc6GJw2Sh7Enn8K67whcm4161jJz5QaX/AMdI/rXHePdQu7nxWJryVZZPLCeYBgvg9T79K6P4aEy6jfXh+7FGkSn3JJP8hXn2TrK3c+ii2sI5Ptb7z16GULazOT0GKqeHdDuZln1qG8SOaZWWJepCg/1IqrdXPlaPK2cZz/KuhuWtbfSopfs0QRIBxjleK1vGVZuR4rjKNNRieOaq1/H4i1CG+x5qsDwMAg//AFwa6n4b2W3TLq6I5uZ2cn1VflH65rmbu7nvvOvJ3LhN6RFuWEYY7QT3rvNHK6V4UgB4ZYlB+uMn9SamUlFycfQ6JJ8kFP1MPxTKUkcNhlas3wvrDwXqWDyFraY7UDf8s3PTHsfStTTrG01q1uL3U7l4lJYQqpwDgVxNorrqcMIYGRLpFyO+HFKi3TaZpXcayaPVw1PRqql8sfrT0avZPnjShatO1bkViwNWrat0oEaxOYahb7p+lSA5hqNvun6UAee3Ef8ApMv++f50gjA7VanX9/J/vH+dIqZbnoKRsiIJgY7nrUiJnp9BTlXc31qZVycDpQNjFUfePQUBd2SakPPToKlSM+WOOWoBDIU+Q/SrE0PyRxDj+I/SpbSHOBjrxUrjM0vpjatJ7D6jI4N1xDxwcGnSRCS7um4OwKmPwzWhZRhvLfHQGqVs6idnfpcM+D6fNgfyqZK8So6tjtuPDFyf9h/50zwxdrcWrwniSAjI9uxqW4G3QryPptMgrkbO/Ol+Ird2bEM6LG/49/zpKWiZ006XtISS33H+Kla11TU48YRoPNHuNwP881R8GzgWdo4PS/b9cVp+OntzGLyUkL5L277evPKn864vwlqKiIWpOHS6SX8Dwf1FcU7qrfzR3U4c9Ad8RLvGpX20/eTt/vGuM8GDzPECOf8AljYs30LNWh48vd1/Oc9Ys/8AjxrP8CMDql8e62cYH6f41LfNWudeHpuK+Rv6XDJdeMdNtJlxBcXiyA+0a53fnXc67YzTXXkFdocgs56Kv976VxPg4FviNz84htpZFUnuQB/Kuw17U7SC2aNbOYaiWVYHEvDEsBg89D0P1r2MPRc1eOr8vwb9DTF1HCpFrovu8zzvUDdWsxn02ZpEi3S3kaYbKZ2MRnjBDYx64Par+vwSz2sE1pDJaWUcRe0WX/WNA3Dlzz82fvD0xVnxVoUmnH7BpOpX82uXO03lkEEgkbrgY6Y3dScGszSDqnh7xBa6X4n0uO6TBeBGuf3SyYyUKjK7j3BxzjmvWxdOliaSrKS5k9no5JLf7/wMqOKUZqpy2v0+6z8rmNb3dxY+IdDlTTbmzk/1Vyxu0SO8jckFQxxgHjG7uOorb8rTvOvI/DTW0a3MLrcrcplJfKHmB0kAypAGDgkZzTNXhm1O3M8oMJAliFtdIqSRxow2llzxkMCMdxWz4ZuVtdE0K41q/uToiwyIHtYjut5kyGVhj5chuedrY6ZrH20p0eamrSWlr772DEpUqnt1rzJ79/Iu28Fwlxqlnta40+9jhgitUO17eOSIysin+FV4OPXjoax/D/h/WNB1C+n04CG9t4EuPsJkAjnhYZxkZG7KkFTgc8Guw0GaZotJ1y7l820hlmubi62jM+MxRglR/wA88HBx1rkNO1m6uPFkkk9uwhu/MtZrVQRthO4hBnoyk5HuK8/6zJVZ0YtWtaSd7XXR+pxYehVrynazild97rojH1eSSe4udYhSa2nmuDJNAwz5DHkqwI7k8dsVmQyIA8cxUOy/Jgg8/Q+1a2qXM95atIxmkWNhC9ywyZAoyqPj7zKOh9Kkt7TR7KG7bWbJGa7tElt5PK+d2OcbDngDHOaajTptuomo7JLfpZL+vU+tg506aTWq0t1IDc3TQXQkvxHaW8aRFIox+8cZKKcdx8xz1q5DGT4JmupbiRGF2ttaqckFOXdAOgAY5+pxTLBLi80d7O1to306CYSXMm35bUkgF94+8dvUHOKveJY7fStH0zSo5Jrq4WA3nmRfLFEJGOG45LYUcnsBVTlPDpuMrNtW0106tfgYTmpzjB6yTvp0SW9zkGMqgPbNbM4HIkiI57Uye+1ePMusRNcqGJbYqqEJGdqlflxxToI5XV9sssuxd7MQDgZ71v8AhrU4dFvYptWzDHarJcxRyqTFLLsxGQMdfmzzxgV6eHxUqsubERVSKT6JNaX0sdGJjJRdSHxJO3b5jL/VNFm8M6PHDqrrqcEeDbNDsRHc7pCXPDfwgYPamxarJbaNdWbwS3bOVeJw+424z8xUHs2eSPapLbQNOu9O1/VknVXto440miKmJ5C+5+PunOAMYq14L1HT9OubqK+OyC+jZJJkBQxbRuj2AcL86jp6jiuCbwqlO123q09LNpSsmcNKc40ZQknJxa1W/R/qReKGhvo/7WtX22XlRxWaqwLFFGCWA+6ck9cGqvg62tb3W7eSSCGZrYCRbYrkTlT8y4zy2CSPcVmw3E6Syy2r+SLjPnQf8s3zyQR2/wAav2Uj6fKmp6ckcTGdY1ikYGSKRcNuX/ZIBGfeuX2cI+9B3UlbXdNr+v8AgHZKnP2XI3utCjqrW0OpX1tY3Eps1lcW5VCN6Fuh4/DB9K3fhZOYvF9pMgfajBJC2AFDDFWr/S1urVPEQlWztbpGlu5HxsWUu2Y4h1J46VNpGtW93qFlFCj29vbTxR2sC4BJLDc8hA5JpweGhDllFua0euzTs76HNUlGpQcY66NP8vvue9mPbfHjqAa2rUYQ/hWdcLi8X6f1rTtx8tSfAFHU/wDj4X/d/rVWrWpf8fC/7v8AWqtBJuaT/wAea/U0UaT/AMea/U0UAZeof8fkv1qvVi//AOPyX61XoAgvZNq1ymuX32aBpM/MeFHqa3tSkxmuA8UTmS6WLPCLn8TXl4yt7ODaPpcpwqrVYp7bs5/Up2ZGJYknkn1rjZNTm0vWbPU4OZbOdZlB77Tkj8RkV1N+3yGuF1o5kNfP0JtyufbYqEfZ8p9jWN1FqGj2t3bNuiuI1kRh/dIzXL+MAxtiG4HOD/h6VV+Bd4198M9N3tuNuZID/wABc4/QitPximbVmQZ65wK9aUryTPzhQ9nWlDs2fKHiy+kufFtyu3b5B8v6n1r0/wCH8H2bQomP352Mp/HgfoK8y8TWvk+MLzPSRt4PrXeeDNWvLoR2ZihVI1ChlBzgfjUqrGnO8j6p4WdbDRUPX8D02xt49QnsrGaQJHI258n7wHOPxrW8diFdLmFrdKx8pl2qOnFUfDMcMuu20MqhgIn257EDr/OrHxMEFjo9zIikSsuF57nj866cO6U05Tvqz5vFKUanInsjzCzTzNOs48Y83y1IPXnFd5PE96dO06JUbzn3srHAK5yc/hXGROkD6e13Mqcjc7cAtjA/M13/AIbikm8TM4QmK0tyhP8AtHAA/Q1nFq3z/I1xd1KK7L8x/ifT9N+ytFcW40wIDskX7h9MkdK8i0GEJ4gsYGfIjkaVmPcL0/MkV6X481RpoU0s9XmJbPYDkj9BXCeG7YXPjy1H/LOEB2HY4OR/6DW06ydny2tqZ0aT5Hrvp/mdxd+baY82JueflwT+VLbTxzRiSJwynuP5VN4gntbjKeaFkHQg9K5XRJp7bVntZSGSYHDD+8PX8K0oYmU3aRjXwkI0+aB2cDVrWjdKxLdula9m3SvRPKNtD+6prfdP0oiP7qg9DQBxkwAmf/eNRn7h9Wqadf3sn+8f500AEgelI2QiLtXI5JqXbtAXuetKOW9l/nToxuJPrQMQrgAD6Crip84H91ajij3TL6DmraLliRzlsCpewMltlEULynoo4+tVossseeWZv61fuExH5K9EQyP/AE/Wqdqu6ZPSNdxobsi4LRs0bc+TaXEpHESkg/rWIxMNvbRt/rN4H65P6mtm8O3SYoScNdSqp+hPP6Cuc12Xy9ZWEHgyKVHsSD/SpekdTehG7f8AWxsaocaXqGD97cR/3zXmfiKbzLa1uUPzAYJ/AGu61q7xpd4wPVGP6GvMdTuMWvkk8DB/SsHL3Uengab1Zvazffa/D0spw5Nvvx/tAVxNoyxvp1+qfZ5IsRsAciUEH5v8+lTWuohtNurIyAtyEGecMOa5Cw1N5bpbNiD5YJ+m0GsJNtpnp0MOldLYb4y1BGv5VaQBmgXaCevzGrPgKb/icXy/37dAPwwa5XUb1bh71ZEDsQirkfdxmrPw9ufJ8TQIWJWVWj5Ptx/Ks46TuzvlQ5IN+p6LoV2LP4m2+51SO4/0dnYgKu5RyfxxXoWu3FrZrJDAM4/1k7IDJL2KqT9wYzz1rx7xehj1LzBkN8sikHuP/wBVek6feR+JPDsGpRHMmPLnXukgHI/Hr+NenTm4+6tn+JyYujF8lR6qyXzKHiLWLjS9PS304Q2i32JJjCSZyOv+s6kH19iK4Z7xTcNIYfNyWLLMxbfuH8XqQec+tdLdRW8Usy38Tyo0LRxkcmNuqkfjXISghiCABj0rKyhJ6vXr+h1YaEIxcV11fmb9iTZ2seu6ii3WD5dpb3A3eYyjhyT/AAKMcfQV0/w61B57nVNOlcTQ38M1zdP90kiMrjpgfeJJx6V5zLNLMV3yltiBF3HIUDt9MU6G4uIi3l3LRZVlygKnDDBGc9MVvCd78zVmrW16bbF18LGvBxlu7W8rGzqkF3Y+I9QPhG5RrJmH+gxksk6qOflzhu59e4qhod3HqMk51K4XSo4JRJKGkzM4PXygcEsffkZzUVmwhJMzvKigYCEK2enHpzit3X9Ojj0+0nuPs8GpK4l8yK4Ek7naCGJ6KgyAFxzzXp08Rh4pRq6yaSvbX1ff9PQ5p4X2FoUW/e3+7V37k076dCLf7DpyfZjKZhidpN0aj7pUnIPJ3evGKl1qCy09ILm6ZbuDUoneGMylTZIWymOTgDcfl9BWFZ61b2tvLBd27213PF5X2u2wYbnLjPmA/cOOOODTtafTvtJuIreWJpFZprbyjtQjAwrc8H0IyKwq4epOpGNK7in0er7en9XsdMIrRXaSvvv5al+/1LTLW4EOlGc2csbK8MuVjkJIBljB5+YDvWi0z6vaapeOvk20a7FghO5oYTjDDn5lG0Ajpya5S+uIJXt45tREsVvGkaHPEaddoyO3PFa9isz3M2paNus7aDZGz2s2AsbMFw3POc8j3rP2MrclRO7013XZtlSp2ppx1kut/PYzPs8treQlxHtKhwJCNjDqM+oNdjZhLiFriAW51TVUcLCWHk2MHRmOenTv6/nh6xpUdpr17p1zc3H2e3YxW7PjMW75lZuPmGDzVeW8uNM0u40mKxt/MmYfaLotl5ouwXPG0nHTrisKcqcVdfLon5P8L/8ABFN+0hFrfR+TTNG/sNNmtf7O8N21+r2zq8t7HmKG5UKeWUnb94nBxwPrWRKIIxFb3AVbiZ1ECJCT5u7IyCrY+9gYx1NRTm8uT5AM88VrHz5Z3oijqRjgCtfw3qVnpFhf/ZXSy1CayjjeaRDI1zKJMtksDtUqegwOK9ClzYiE7xu3qrbt7at9PKxnONWhBKir3e7e17asy9V0650q9NjdI4kDFSQMI/P8JPX60wiBZZklhMbDKhQ4yO2AO5zjvWtrcEl5fNBbal/advawqZLh5QY42IyUVumMkDHXJqhFp11dWLyrC88cTKr/ADDKljhAuOck54ry8POTj+836tdGdNKtempTavp9/wAzS8RXsUvh7QtPj2yCO33kA48uQsQcj1Ix9PxrX+FejfbPECTyQO1vayZZymUaTjAB7+tc3rOnSaXcW9jPIL2URKWSBf30LMPuMOjn6V6N8Dr22a9udMUNM1wBc+YVI8l0+Qo2epIwfbBohSbpzqQad7tO+93r80eRjqrpYOToLdvXyb1aPXphm6X/AHf61oQjA/CqTDdeN7ACr0Y4rU+IM/Uv+Phf93+tVatal/x8L/u/1qrQBuaT/wAea/U0UaT/AMea/U0UAZeof8fkv1qvVjUP+PyX61XoAwNUfBbmvP8AW23X0p9MD9K7rVW+ZvrXB6xxdy/UH9K8DMPgPu8iSU/kYOoNhDXDaucyGux1V8Ia1fhz4Z0jXNPvLzUYEll+0/Z4mduF+UH7vrz1NeNS93U9zHVo0480tjvvgW4034ZW8kx2GaaaVd3cFsD+VbGq6la3Ng0zSqJdu9VJ98EfiOeapzaM2m+FxZR3T7LZWMKRIp2jqFwO3X865a6tY5bCIW+p2ss6AOYkBLnPUYPI4POa9SM/aarofIQpUas5TlKzbPHvGbF9RS8VSH+6/YZOePrwa634bSW4iLlh5rdQe1ZviHRLu7nnU7Y1iPzTtna2Dyw/TA9Kbp+n3WhNbtcSL5kvzbR0KdmBzz7iitFTV0z2KGIp0Yui5eh7P4UmEnjCxRecJITj/dpnxku18y0sxjc8i5+g5/pTfhBby3uqXeruD5UCeShPdjy35DH51mfFkmTxZZAA7QSp56naa6KUXGl9587Xs8XZdLfmYLxedqWmRkZXzVbH05r07weNQt7S8vYVhdbiXcit1IHHWvO7dk+0QSnhoMsM/TH9a9N8C7o/CCXT5KlpZB7ruOKWHk4yvYvMbPlR5949bPiGNJlaG6RWlKKBtIPHX8awfB77dav7nIDf6tSTgDgD+bVr640l3e32ozndI7bEzztUdvz/AJVT+FdlHqOuXUc8XnQozSSIRkN6A/pV1ZKpJ2Vh04unR17N/fob+tQ3eiaPPHdWyzG6OTOPmC9gB6Vz1tuGo2jk87xz+FbWralcQXN5pyXDrbSOES2lG7AJ/hz0/Cuev5pkv7eCxQPdNIqRKehY8CtXyKUeXYxpKTpy5v60O3t2561s2R5Fcfa3dxa6m+m36qlxHwdpyM11li2cV6cZKSujxpxcXZm/Ccx05vun6Uy3PyU9vun6VRByFx/rH/3jTV65PanXBw8n1NMU8E0jYeBhPqaniAAqEtgD2GaljzsGOp5pWGW7VcHcfc1dskUfvX4VBk/Wqsako4QZY4Rauuo/d2i88bpD7f8A16Euot2Kqs9vNMw+aRScegxwKgtIT9mJA+eZhGv0q6GDRXSA/cTP0qxbRIjK3Ajto92fw6/zqJK7UTROyaKGpup1GOFT8lvGfwJ4H9a5/wAQw7tcsJ8fK6lj+GTVy4udwec8NN859gTgfoKxtU1AT6XY3WfmhmaJvYMDj+lKo/dZ2UoyjZr0+8ra3Pt0Gds9UNeYandYAGc8c12Xiy9EPh5EJwZFH6mvM7+6JaVthaNRhmBxt9K5JOyS/rY9zB03yv1ILe5ZtSQKQS6msvRYlPiG/Eir+5hmZj68cfzqvp0rTayqh1RQN4zn5iOcDH0rflSFJ9XdURCikNJ3YNggH6YNRF9T09IWXf8AzOBlWTzZJSrCOQkKxXhsehqbTZZdI1SyvJVwyuku1gemf6iu58MmCbwy2hX4DW19CZI5CoJhlD/K6nqOuCPQ1B440WC68L2euRybNQtpDZX9r/cKDh1/2SBT5L3khTxCvySW7f4nXeJHtJ7WNmtVaJ1KGVRl0UncrD6c59QazvBepnwv4mNjfsBpuo7YpWHRc/6uYZ7ZP5E03wtJLrPguNmB82BfKY/7S9M/UYrG1JWkQSykyyhChDcgDGBz7f0rscrwTtqvxXT5jowVSnKm9v6sz1PxbpyxBofL+dSSzjnPpj2rza/hZZtgxuPSvQ/D+ptrfgjT5ZgrTwBoZH/iJU4Gfwwa5HV7dDNIr7VOGIYtgA/41as9bnNhZShJwluipNpcdtpdvqyA3dvMhVwDjypecKffjPvVPTbWC4u0S5ufs8JO1pcbthPQn2zjNaVszXOlTQq7tat5Zu3MPy22DhCpz8zHJ/OseBdrqy5GW24bj/JroeGnzuSV4p9Oif8AkenTUpNpsl1GzmsbmS1nXa6Hschh2IPcGooZZItzow3SIU6BjtPXr0Na+rzo1lDaMpnlhC7J/wC4COY/cA/1rJjaRH+UZIbOD0zXGrNuLenfv8i0242kQxuVPAUjuCMgirYury4a3hDj5AIovlA2gHgZ7/jRqNrHG8M9vIHinTzDgYMZ7qf896pZI46CnCbhNS6p/ihrdNrVFm4/tKGWW1220cilldXj5/XvW34es9E1azmRFWS8cCM28QlSWF/74A+V8dcE9OeBXPeY8x/eSAspzljkt+Na3h6+gXfeaddb9QVh+58s+W8QGTIzfwlTjDY9c8ZFe9TxWKxlGS+1FXutumjt/SODGupGnzU2m+z6+hp6x4ejtjZ7tSuIJ2geS8mmuvMV5E4CD3AAGBVZLWeXQ4LvVJibM7orRDhZHcjhskElAev1rQ125tda0Wzkhyl3bM4mjUhkJZiSVx1OTjOelYNxFciC2DXLziFSEjOT5Kg/pk14L9u041d2+3fqmPDxlKlG9079f0Nq1j/sfwxqDsCl1fSi0GD/AAJ80nPvkD8aZbtaX5tfsiG3up2SGeP7IWjWE4VpRk9RyTU3iqBlm07RIDkWNn5rn1kcB3J/SqMMWy0ivIbiF5Wy/wBm35aPnAz/AL3PFelhnCzUt29GtPRPydjVXnS5k7NvTS+my+87KLTbe08LeKPD98fKGn3LXKME27yVUgkdMEjj6itS0u9M0Hwt4omKwq8l1Hc2WEBDs8KFAB1+UlvyNZHh7V1vvE99b31v9pnvLMrcWqsGSXCjaUJOOnVexzXLeOoHtf7Mt3x50Nu0MwBztdHIwT3wMV5uOjVhKUJtWqJP/P8AL8TwVhlWqeym9mnZbfd95gMb2bzNU3OxWUF5t3IkPIOeuetet/s8WElzqGr65ONzKqwiVursx3MT68AfnXiwZ+Ad2CelfVXw80X/AIRvwHZ2rpsurlfNmHfe/OPwGBSpLtojqzisqeG5Fu9PkdDbfPI8n945q+owfwqtZptQVa6MfpXQfEmZqX/Hwv8Au/1qrVrUv+Phf93+tVaANzSf+PNfqaKNJ/481+pooAy9Q/4/JfrVerGof8fkv1qvQBy2qt8zfWuI1vi4Y+oBrtNWPzv9a4zWh86t6givCxyvBn3GSytUXmjkNXJ2GvY/A9tDb+FtIW0gQObdZCAv3mPLMT6k15Dqke5TXU+GPEmsNollZ6LKEurIiF0mYNvHJBA/u4/LFeTRhz+7ex150pciaWlzvr66muLq5jhD+ZGB5mSAAe3v/wDWrhdQ0tYHee4llZJnZfKU7Y0bH3hz82Pf8q6G3kuJZnuLiTbNJ8+9DjnGGyR16UuuQXoa1AlUq6suWUHkrwTXo0cPCnq9WeVTUYpbHkev6veWAmsLaTbbXEgVopV4AYjLD071a1+5F0LKWaeNpYo1CwIm0ggcs3Jyap+ONPMLeS6nfvAbP8LAHAHoMA4rG05cQMRwcfrW8oJK9huVKrU9D6a8DahpWn+E7BbGOW5Tyg0ksS/KZDywJOOQa4f4hyrqF0NQtUAlt5Ud484YLkDOPTntXotgsdpodvp1rbLFb2sKxqc9cLyfzryLxncSf21BE0ZUF8bxx+Fegp0HT5bapfieCoTdXnvu/wBSe7XbasVGSRhcdTXrVrDJo3gG1tpTiaK2VW9mI5/U15x4eutMttWtJdWfbbxgsoxnc/8ACK77XdVj1S1awhzbzkZRJWClz6e/0rnw1GcoSklc6sfUSnGL23PM1Al0+Xv8zHJ781q/B/TvsthrWtx3bLP9paIxAAqECqRn3JNZcCtFYTpIu1lZlI+hrpvhHbOfDuuz7cxy3WF9yqDP865qblGT7o6MVZ0ovo7GB4uvkvdVtLmaJUuIyzFoz8rcEdOo61ieGDBfePrGCf7QcCSVDbjJVlHBPovv9Kh1eZrjWbmUniM7RjpnqavfB61F94v1i/S4eO5s7TZEFPZzyf8Ax0V1KSnU5pLY5n+7o2XU0fFNi1rqo1OO4eSQyAOrjkj1zXXaY4aNGHRgCKzfFonlsoTMsJmY4d04Jx6j8qn8OsWs0U9UO2u5OKnaOx504twUmdZbH5KlbofpUNqfkqZvun6VocxyFyPnf3akjXA/Cp7lM7z6HNMQDABqDdbDGHysT3qS3Yt90Zxio5P3kmwHgck1egjRI8EYHU/ShXZT0RZgZYIPNYZPRB3JP+NSwP8AZ7eS6mIMsnP4+n0FUBOPO+0OfljBWJexbGM/hVG6vvNv4IADIiDLqvpj/GlOaiioQcmbdi4+zXshPzNDyT2BIxUniO+Wy0yG05Fxftgr3WMdf0/nUGioGglmuiFjLiSQngBV5A/P+Vc9dX39palNqc+798VS2Q/8s4QeXPpuNZ8/LFN7suMear5ITxHc/ZrOQ9MIFGPp/wDXNc5eSPHosdvjEryJK31Lf4Yq34ku1vLswoRsVxn2AGSTVCaUzwtcqDsTBBPt0rCU1KXKv6R68FaCT/rscb8SNWVZ7azRuAwX8FFc34bii13WodPubgRWwbe57L6k/QCsjxhdyXOs3E+SY4SYVPYt/F/hVGKYadCk8U7faLhWR1A4VSP51lz3lc+jo0eSho9XsWHZG8SXY066lTSlnYRXEMOWIAIGAegP9a1tdkMGlalKXwZ50iB9goB/UmsLQbi4k+zWETskKSmWfb/dHc/hkV0OpJaXEtpY38vlQqr3Ex/2jnaPzP6VHM7EuFmupyszXEDQTLc/brS1GVEbFTGM916jmu1uEs9T8LWd3b3y3F9fHyZIV4ZXP8LL6DqGqHwXpWh6p4s07TLeQ27NHIJmMokWX5Dxjt6enNJ4PuzYvquiaXYW0lzc3AktZLnG602ghiHPAA9a1grq/c56zlze7utf+HOv8HXui6F4MXT7aR7m5vbzbcu67RGwX5cA9ucH3rM1yzVJGbgLLnAx0NZmr6La/wDCK6jNdeIIF1GweNlgiOVl3dlPqK0PDGpx+ItDMMzYvIAFk9fZ/wAa357SSkThpKlJzTbTept/DNsabqlnniOdZAPqMf0qHxPCA78VJ4BHkXWsxtkbSgAYYPena86yMR1PpXRBXia8t8Q2uv8AkcDK7ozx7227slc9cVYSZHISUkZAy8fX8fWkv4cSEgYqCCESMFaURsTgFhx9aqlXq0JN05Wfkdl5R0NvTrfbC4lhlufOHlwGJgiiQngnPXjtxVvUoLbSbprJ1866jC+ZKSCkT8HAXow7HNZ1tdlYDEdwYPuUqcbT3qW8k8xIG2jhdpO0Dp39z70q1aVWr7RJJ9bK19N7DUW5Np6dv+Caeg6pDfeJoX8RTx2dtb5eNVg/cSLwMKo6c4JFZfiiJItev/Jtntrdp2eKNl24QnIIHoetV7mBbq1MUm/aOcKTlDj7w9DXQwKuueH7t76SaTU9OjQiUNvEsQwu7B5GOpGcdxitMXOEqcaiVnFWaW1n1X6nJNSoVlN3cWkt9tdNP1OS3cbTz6DFafhu0WKDUp7V2t44bWQyFWPKv8mz6EnpVKK1kkuVh4Us4Xc+QBk4yfatG9F1o66noMkSGV5kEsik8heQAPTnNc8atSmrRbSfyvY6p8krRaTe6v2v0Me1nl037OZL6dcyFHYKojKnowPXcPT24NekeEJ9K1K21+6vke8ndIpjFCmxZShPPy8gk4J/GvN2ztaORBJGcBgwyCPQitPRL2SwW2i01fstxbOzC4VyHdTj923YqMV62Lxv9oYf2Lj+82TWnzbOGthKs1yU5dU1dtWs72v1TJL7Ubi71q5uZrwF53ZWlBOAp4wO+MYFXvDmnjV9Qt4bgSOGDRxR2+FeRlQsBzx1GM1evba903Vf7Vv9MjBvUkVEjVWUSkYyF+vIra0q2fRUSysDHD4guBIEdmLfZYxGcxhugbvn3rxqM6aheTtpZeuv4LuaVq7jSUaW7Wj6K25R8SafaeHtIgtnuVHiYTR3KSwZ/wBGQdVyOcEcH1PPblnifQL+Hw2upXFxJfTM4lMrHcfJkAIOfYgAnvmsfxVfadc6rDc2CvN+6H2h5GOZX+vUnGBnvXR+Hbptc0I+H4X87U7YbrKItjzFP8PvjLDHp9K5sRiKtbDxm17yfbo9LJdjzZQqU408U73b9666P9EUPg/4XfxH4sieePdYWGJpyRwxz8qfif0Br6Su5fPvBGn3IuOPWsXwhoFt4L8MxWEW1r2f555APvSHr+A6CtewhxyeprvguVHgZji/rVa6+FaL/P5mhCuFFPP3j9Kcq4FNP3j+FWeaZmpf8fC/7v8AWqtWtS/4+F/3f61VoA3NJ/481+poo0n/AI81+pooAy9Q/wCPyX61XqxqH/H5L9ar0AclrH33+tchq67oyf7pzXYaqPnf6muV1BQ25T0PFeViYcyaPqstrckoy7HM3ce5SK5XUIWjl3oSrDowOCK7MxlgQRyODWHq1twTivno3jOx9fikpRujs/hFdPdaWLWR9zWsxUEnnafmH6k16fqUKSQZ2byB6Zrxr4QzGHXru2P3ZIN+PdT/AIGvZpNr2xBBAx1BxivahJygj4nE6VGjxH4iKFkfOBnapJHOd2P5GuUhjTEqx52chT3I9a634pK0dyoPIeRRn15rmLdMRN9K0k9Egwu8pM+hvCWr/wBr+GbG9OA8sAV1/wBpflP6ivLfHbEeI4LUZwZPM5HQDt/Kuv8AhLk+Dbc5JImlA9hu6VzXxAi3eLbSQAnKMufcDNQt2Ycq5kvMt+GLRr7XYpMAraJ5gz03dB/U1Y8eXV7DaMJmWVWBIYpg5xmjwBOV1+7tyPke2DE9wQwx/Oj4rSr9ihiiOHlbYGJ9adObjJJMrEK7dzGt5ZW0i3iQNNcTIgVUGS7EDgfia9W0rT38MfD82x5uRG0km09ZG5P+H4V5V4aXVBrFidGht3ezAJa7OIY1xgFj/IDmu48Sa9ewW/kaleW2oK4w62REW36ZJzW9Ci5ptNIyxlR3jDojzJ/9TcSt1Z2J/Otb4AxO/i/XLnny0tlRj2yWyP5GsXV3SK3aO3DN5rny1P3uTwK9Y+Hnh1fCXhqR7o4u7s+bO4/vdlHsBx+dQr3aRdZ2hFeRj63MLjV3jXlVZqtaENrSJ9DWaAW1SaR+eWOfXmtXSsCZyPQVtRuqljCsk6F/63Oqs/u1O33T9KrWRytWW6H6V6B5RhNFuZgR1Jqo0RDiI5B3Y+orXEfOcU25tRLFkNsdeQ1Q0bRlYyYIsyYxgs1T3JPEMfU5ZiegHvT7WIlw2CQOM1X1aYW1nM2eTnJ9aaajG5pbmlYybi4e5ufs0BKqgwX/ALo/xNWdLtz9pcRghE+UE9Wb1NJodqzTQRt95j5sh9z0q/I6WcDOBuZ2OAOpHf8Aw/GsuR1LN7fobSko+6g1WdJbdrJSfssIDT46yE/djHu3U+wridf1b7Kxs4la51G7IBjhG48dEGOgHc1p+IL+fTbONX5uZWL+WvXzG/r0A9Kq6Lp3l3PlkK1wg8y7nHJLdo1PZR+pqKi55W6m9FKC52ZFjpWoTw7bk5lkkIaNDnoecn68Y9qteJ5VsrD+zLMqbl+N3UBsck+yj9cVsX99HpWlxTxMvmOmyInpnku/0GcfnXnk8t9fvJdYa2t3G1JZRgsg/ujqcnnPSs3SlRg3a8pbeh005urJN6JHFeILWF5Esbf7kA3M5H6k+p5Nck1xiWXYodT8gGMk544rsdccTztpdiwV2BeaZ+RGg6ux/pWXaaPNex79IhLWkLgtcSxtmQjq5PYZ7VyRi46bs+npVk6dnojS0KySw0l5ZBullXzJePuIvb8TgVl3iQXdrLqWoyOnnN+7VR1A6fQdT+NdHf2tzFpC2kjD7XfukchB4Vc/d+nU1xviO4867FvCuEt/3Q/2sGm/dSXU1pyUm3uVrK+Gn6tb3lr8vlPuUZxxTomlur6eTzSrTbstnA5PP4VDbxW0SO8wd5sYjx0Dep9qms3aJZHWESAjaxIzgGkpWsrnRCm7tyViXWLy9upgt7KZJI41iBz/AAqMKPwFLoV9caVqEV5b/eBCGMn/AFg7g1RY4YNtHqBU1kCZ02qXkZgsajqWPSnF80yK8YRg+bRL8j3zwPpjeJE1C60pv36whlU/xsOqH3rmNUkmS6khnR4pUJV0YYZT6EV6b8FNGuPDtgbp1JedAZVPf/69dT488C2Hi61Oo6aUg1NR98jCyY/hcevvXsU/dVj5TBZrCNZqp8L2fb1PnG6TcvA+vNGmXEMJnilhjkjnj8pi65Mfo6+jCtDVtMvdJvJrPU4DazR9Vk4GPUHoR71nzWs0StMYXVFYISy4AJGcc96UoSS5uh9VNwmk4vRm1qljbXGjWOrWEKwhAba7RBgLKv3Xx23rz9QaxyxdQGYnjA/+tSx3l0lpNaRSsIpwpljxw208fTHWmJDM1m9yxVYUcL8xwWY/3R396zle7a06/eZwTpaN9dC680t1KZZdiFUVFCjAwBjP1x3rS02/k0jWLTVgxmXIFxHtz+76MvPX5f6VhRys+xBnaDkD3qzLdC3RridTtXAcgEqe3I7fXpXThl7VqKtdaWfVPfUupTjVg4vZposeJNPOiaxJCJjcROPNtpR/y1hJ+VuPYfpWE0zy3BnkXzX3rId5zkg559emK6y+FtqfhWykhIa8092izuyXgPK49QDmuf0+xjnnH2iYRREMHZVLupxwcD+H1rmdGcKri07q6+X/AAUZ02/ZXqataOy3815En2Ga+aea2gORA1w4yAqYPzcDtzwOtUooyrkElCBkcZzntXViTUbM2kt+BawxKht7MR4NxE45wB94HnOT/hWLJc3d01yu1YQWMhAUAgjoCT6DjFKEVKpaG3e+xdOblqrcvRp/1c19Ei1q1aHWJLKa5WaN4ra4bDPGijJZATjgA9axNOvryG7OopNumbeN0hJLblwSfXrXV63rVrbeGvD+n2VzHeXkdpvbYpzbl0UFSM4Lct9MVy+l6Zd314tjYwm4vHIWOOAbiD7npj9KUaMHVavZO6T9NvvOfCz9pTdSquW918k/wuimsMk7QJADJJJhUjjXLZzwPcmvoP4VeBI/Ctide1pAdVmX5UPPkKf4R/tHv+VWfh94DtfClt/amtSR3eqsdwbaMR57Lxy3vXTzSy304dxtQfdT0/8Ar1oqdnqfOZpmntr0qPw9X3/4AqtJd3BmkHXoPQela9tFtWobSDaBxWgi4FWfODSMCoj94/SpmqE/eP0oAzNS/wCPhf8Ad/rVWrWpf8fC/wC7/WqtAG5pP/HmP940UaT/AMea/U0UAZeof8fkv1qvVjUP+PyX61XoA5TVBl3+prmb5eTXT6l99/qa529XOa5qkLnpYatysxVjzOy/3hkfh1/pVHU7XKE4rUbCTI56Kwz9O9XtRsf3Z4rwMTR5al11PsaGLVTD8r3WhzHgAm28ZWw6eakkf1JUkfyr2mJlaI7gOmM4rxrSYvs/inTpOm24Xn68f1r1y3bzAVztIFdVNe6fPYmV6h5d8WodsRmAI2tuz24Oa5DG2BiPSvSPiLYm60+UAe+QMfnXm2lt51kiP95R5bA+o4rZr3UyKErSlE9h+ETBvBEPHSeYH8+tc146cHxLaY4GWBBGOSp/wrpvhKdnhJ4h/Bdyj+R/rXM+OxjWreXj7/UdD1FS7XZO016lrwCQdfviT0th/wChCqHxHud89tGO0w/GtH4cIZdd1HHa2XP/AH1WR8Q1CXNu45UyD+dTFe8Oq/f+Z0Pg2NJNGB2qWadtwHf0z71mfFC3sxLC0YEbeUV+TjntUfgAyvqd8oLGFYkZlB43ZIB+uM1i/ES6kbWoIWckIuTnr04oj8RNSOti54Q8KSeJnWS5uns9NswqySq37x5AAdq5/MmvV9QO22QW2otPJCoVfPbfuA/vfX1rzv4UzSTaVdxq5A+1EfQbVrpPFBgs7RIklInkz8ymuujiXTlypGNan7TVsy7q/NxqDn7IloRwURsgn1Fa+kcqW9WrlI5hLqBwSSiKGP8AtdTXV6P/AKlPck/rW0HzVXIiv7tFROosfu1abofpVWx+7VpuhrrPMGJHwOKivhstWx1bC1oRR5RfpVfVkxar/wBdBSlsXHdFOCECAHuOa5jVm+13y2i58tPnk+g/xNdDJLKIpmRgsa8ZIJzWPpVuZ2eRwN88h5H90cD+tc8nfQ66a5byZb0uExf6Sw+Z+R7Cm+UlvCt7cAM+zbEh7dy2PUmtlhDaqNxGAoFcf4u1jbF5UALyyMI40H8THgAVrOuqashU4OrOyOcuJ2vtakvJBvSwUyD0Mh4QfXqfwra0iBoNMuNzfMyMWc92b5c/hzVSx08JIlgHVmjYyTvnh5SP5DoK6029pbWYSQq2MHGepBzXPQnducjrrNJKMTmY9JFxN/amoxiO0hTyrO2cdUH8bD37A/U1598TtWW2jaRcAx9h29q9A8S6wdjzSMMgfKq9Pw/xrxi7hHiPXlS7Zl0y1YS3jDkkZ+WNfVmPAH40YjEc2h1YOlrzS2Q6LT5LXwsl44ZL/U0+0yvjLJGT8gx6BecVveEtOUaTcta6pPJZRNnyCTsJH8Z98/gKsarZXE0TaleTramddtvbREMYogMfN744Aqjp+up4fjSxVWk06RfLcbNjY/UHuea4ISdOfNJbndKTrR5YPYjvkMMlrc3IZbdnIaQgEID8oY+wzye1cBq2h3VrrzWiZkSRmdHJ7dTk/wBa7vVpBeWc9zCVntBlIgh5dcZPy9eaxtOtPssBnlneVY4isYJ+VC33lGfTipdVvSS1O3COUZaM4eaEI7IxORxmpI5tseEDI2MEqcBvrSXrbppXVe5IA+tbHhfwXq3iKdQsbsp7DhRW9KlKbbTsjqzHM6WCajJXk+i/U54uhbHMjnoqck1698GPh9calqEWrajDiOMgxoegrvfA/wAD7W18u41IKSMHZiva9H0W00yBYreNVVegArvp0I09d2fHY3Na2LXK/dj2X6sp22mrbWoRVA9qrlZ7SXzYGKnuOx+tdI6AiqVxbhu1bnkmLqdjofiaGODVrOIzxHdE7Abkb1Vj/KvIfGnwr8RW11Le6c51e3Yl2BbEoPuDwePSvZLmzznimwXt7afLu82Mfwv2+hqlKx3YXG1sM7w/E+UJFuLZmgkje3kXKsrghvoc1FPkYHKhRwuelfVmq2XhjxDH5Ws6ZCzkY8x0+YfRxyK4vVvgpod4Gl0XVZ7Zj0ViJUH9aTUd0fR0c7ozVqiaf3o8AhkKuDu4zWmkhKAZGD1z3Fd1f/BHxVblmtLuxu0HT5mRiPoRWX/wr7xjbEo+izSY7x4IrKpHqjvo46hLaS+84xba8tbkSaS+zewzbMfkZieNp7MT0Fdt4e0a41K3uGhaaz8TQtlbSTbHsXGOc9dwJ5710/gTwJrEWqpe6rpcsUVt8yK4HL/3sd8DP4mrOsfDfxd4k17+2bq4tNLdAI4DHI3mRxgnapKjnqcg8Vpia9WvCNCT1SvzdV2X+Z5+Jxq9u6dOaUUk273Tb6Jfmecm9lkspdJngvJbyzbfbsG3NBjAdCeoTA49KxS8lyfIt4XLO2VUMWZsnjjufevf4/hNpjvHda3qTGVU2yfZV8hZPXdzk5rpdI0vwp4cTy9F0qES4wZVTLn6uea54wlu9L79r9/mT/a2Gw8OWim/LovTyPLfCXw01PWdDgg1Oy/srZdGU3EgBkeMrjaF69fWvV9H0rw/4Ttha6RZx/aNoV5AAXY+rtU017e3eV3eVGf4U6n6mnW1ljtW6ja54GJx9bEXUnaO9lsM2z3cvmztuPYdh9K07W3CgcVLBbhe1XI0wKZwBGm0VIelAGKDQBG1Qn7x/CpmqE/fNAGZqX/Hwv8Au1Vq1qX/AB8L/u1VoA3NJ/481+poo0n/AI81+pooAy7/AP4/JfrVerGof8fkv1qvQBymon94/wBTWDd9629RP7x/qawrk9aTVyouxnTKGyD0rqIIftWkQT4yWjGfqOD/ACrmZetdh4T/AH/h9l7xSun4cH+tcOKppwuelhMQ4yce5w1/B9m1O3mx9yZGP4MK9Gt2y/cbjnFcvrNl5t/DGq8tIo/WuvsbOVwo6E9vSuSmvdN5y5pXMzXbN9QsW2KSBkZrxTWbWXQ9YlEq7baZuSeNjev0PevpC9vdI0e026jdwRM/Gxj87fReteSePDp+pQTvbo/lsrYLIQPwrdRdtVoYe097mi9UdJ8HmD6Hfgn7t2ePTKLXP/EUqL/crDCFWyO/NWfgPdZ03VbVpFLq8b4PptKk/oKg8eAT3Fwucnlcn6Vha0mbc13zF74TnzPEOpRd2tVYfg3/ANes74oRFS27IMcgPK4xg1Z+C+6TxVdOD/y4j/0Na0vi3bK0jrswGU8dO1EVZhUl+8aM34Yw7rXVLju0qoMnsq//AGVcT46JHiCUnIVEIGTnvXqnwgtUbwlPKV3GS4fd79K828Z2jXXi620+Mlnu7gQjHu4HH4Gpj8TLck537Hf/AAy0n+zvCMVzIuJJ91wx9M9P0xXJ+L9XdZ3ZCpmkfZEOoVR1P+fWvWdcSPTPDssUYKhIxGn8q+fryY3/AIil5zHC3lr+HX9aI6u7FH3mdRoSlYQ7Elm5JPc13OkjEEX+6DXGWK4jVB3wK7exG0KB24ruw2rbMMdpGMTorHpVtvun6VUselW2+6a7jyjUhT90h/2RUOp2zTWMixjLrhwPXFXoF/cx/wC6KkxQ1cadnc4q9nDac8cJAJB4K55qKwY28KLFH5ku3agA79zXU32jWN2xd0aOQ9Wjbbk+9czbzR20jw3MYEkZKnPBFcs04tXO2ElKLSRj+JTJYoWnuJTcY3HBBX6YrhtNvpr6/fVBGZWt8x2yf3p24z/wEZ/Ouy8Y3Sy2MiRDf8pwsh3Y+h6iovDVhaWNvZQRyPE0cKlnAGS7fMW5HXJ/SuSaUnZHfTlyUrtas57V47vSAHk1FPtGN7w+UwOfTcD1q1Yi81nTItQjmK27jjce/cVq+JtPUt586x3akYDkbJAe3I4P4isy3uYtJ8PW2nI6sYEO5h0LHk1lJKMvIpT54Jr4jlPGd2mnWcyvJuJGSSetUfAUCNo9jMi273F2sk2bmPenmMSAxGRnAAHtXM/EC+kv3eGNgfU56DvVv4a6kr6bDpryBbuzZjErcebGTnj3GamKlJOS6HfPlp01CT96R315qS3EbWd0tjpdzbR4eO6sUdHI/u4xweo56VzGrWtrJBBC0FlPK4SY/YyyFSTxhOc+4rvbHXkaDybhEbb2ZQcH8apape2uDKgjVsdVUA/nVSd1e9/U46UZQly2KmnvY6Z4PXTb+wimvvK2+cFGVGSQCfbNeZeLNQKI0SgDI2gDpitzWtXXLBmwB6VD4T8D6t401NH8mRLQHltvb1J6Cqjz1mlbY9mh7LCRdWs7Lf1fkZPw98H3XiTUoo1jPlbgztjge1fW3g/wtYaDYRxQwrvCjLY5o8F+EdO8M6fHb20Y3gctium6V6tOChHlR8hjcVLFV5VZddvJCjAGBRmm5pas4w601lzThRQBXkhDVTmtQe1amKQqDQBz01iD2qo1m6tuQsp9VOK3dVlNpDFIqK5eeKLDdgzhSf1rIudXSGa7ga2ZmgaTDLyoRFUlm59WxgUAMWbUIuFuZMe5zTxf6mP+WoP1QVNYXcV9FJMttLHAql0lYDbIASCRznt3xWfb61a3SgW9nPNNuIMUZQkKFBLZzjoRxnNAFr7fqZ/5agfRBTGm1CXhrl8exx/KoYtWSa7ht4bVpA1x5EsuMJGfmwOuc4H05q1c6lBbNc/6HcSxW7CNpUAwZPl+UZOc/MOelAEC2bu2XLMfVjmrcNiB2qGfXbK2ilZ7ebzIDiWPAzGd235jnAHfPTFNk8S21uJpJrR1hR1COJE+dSgcsOffoOtAGtDagdquRwgdqxrHxBFLfJZTQmN5JZERsgKQrEDr1PHIHTIrogKAEVcU6iigApDS0hoAjaoT94/SpmqE/eP0oAzNS/4+F/3f61Vq1qX/AB8L/u/1qrQBuaT/AMea/U0UaT/x5r9TRQBl6h/x+S/Wq9Wr6ORruUhGIz1xUHlSf883/I0Ac5eaTdzOxQx8nPLf/WrNm8N6i/Rof++z/hXa+VL/AM83/I0eVJ/zzf8A75NAHAP4U1Rjw1v/AN9n/Cug8LaXdabZXVvdFCZZA6bDkdMGt/ypP+eb/wDfJo8qT/nm/wD3yamcFNWZUZuLujnLvSbtr2C5h8s+VIGwzYyO/b0qzrqa5JAIdGeCAkktK7EMPpxW15Un/PN/++TR5Un/ADzf8jWcaMIaI0dabOS0zwjBG5uNRkN3dOAXdyTz/M1qX+g2M1sY0UHnhSMDHpWz5Un/ADzf/vk0eVJ/zzf/AL5pSoRm7tsI1pRVkeaeHfBesaP4ij1GOS28kgibDkF+COgGPT8qs6z4V1i/uZJgbcbumZD+vFeheVL/AM82/wC+aPKk/wCeb/kaXsIFe3mcL8O/DGqeHtXkur5oDE8JizE5J+8COMCtXx3o15rzK1mUUrx+8bGR+VdL5Uv/ADzf8jR5cv8Azzb/AL5NHsICdebfMznfh3pV74f0O50+/aMu0vmRtEdwwRznIHeudi8G6i3xCsNfuTbmxtXeUqrncW524GMfrXonlSf883/75NHlSf8APN/++TS+rwD289fMyvGVrc6pYiCw2hup8xtoJ7eteU6R8NfEdtM0txJZEsSxKyseT/wGva/Kl/55v+Ro8qX/AJ5v+RoWGgioYmpDY89s/COqRSxtI1vtUgnDn/CuittKuY/vFPwNdB5Un/PN/wAjR5Un/PN/yNawpxpq0SKtaVV3kVLaF4x82PwqcjINSeVJ/wA83/75NHlS/wDPNv8AvmtDEtx6iVjVfJzgAfep39pH/nh/49VLypP+eb/98mjypP8Anm//AHyaALh1E/8APH/x6szVbaz1I757dkmAwJY3w2Pf1qfypP8Anm//AHyaPKk/55v/AN8mk0nuOMnF3RyWo+EFvAyrq13CrcfKqE/niox4TuIbWG3g1N5DEgUSzL8xx0zjrXY+VJ/zzf8A75NHlSf883/75NZypQas0bKvUTvc4+fw3qU8Qjl1BGA6fKeKyNQ8BahdRGNNUiiBGP8AVk/1r0fy5f8Anm3/AHyaPKk/55v/AN8ms3hqb3RccXVh8L/BHjTfBszSAXGrK0WcsFjOXPufStu2+E+gwxqCXMi8h1OCD6ivSvLl/wCebf8AfJo8qT/nm/8A3ya2hTjCPLFaGVWrOpPmk7s87Pw4RpM/2zchMcfIpb8+9Vp/hZDM2H1+92+gjTNem+VJ/wA83/I0eVJ/zzf/AL5NQ6FNu7RvHGV4K0ZHB6P8LfBtjOlxeWl1qsqEMPtc/wAgP+4oAP45r0SzuraygW3tLCO3hQYVI8KB+AFV/Kk/55v/AN8mjypP+eb/APfJrSMVFWSOedWdR3k7vzL/APax/wCeH/j1B1Un/lh/49VDypP+eb/98mjypP8Anm//AHyaozL39pn/AJ4f+PUv9qH/AJ4f+PVQ8qT/AJ5v/wB8mjypP+eb/wDfJoAv/wBqn/nh/wCPUf2qf+eH/j1UPKk/55v+Ro8uX/nm3/fJoAv/ANqn/nh/49R/ax/54f8Aj1UPKk/55v8A98mjypP+eb/98mgCzeXcN5bPbXNoJInGGUtj/wDUaqxRabFD5S6cCpR0JZySwY5bJPJzgUvlSf8APN/++TR5cv8Azzb/AL5NABbpp0BnMOnKvnqVkG7IIPUY7A57VALHRhCIRpS7d27/AFhznGOvXpxip/Kk/wCeb/8AfJo8qT/nm/5GgBqw6Wl1HdLpiLNG25WDHg8849eT+dLNHps1y9zJpytK+Cx3nkjHOOmeBz7UvlSf883/AO+TR5Un/PN/++TQBEYLOSW+kubYzteyK7kttxtACgEemOvvTZbHRpcB9JTAUKAHIGANuOO2APyFT+XL/wA82/75NHly/wDPNv8Avk0AII9NE8c401fMjYup3nhiSc49ck/nWh/ax/54f+PVQ8uX/nm3/fJo8uX/AJ5t/wB8mgC//ax/54f+PUf2sf8Anh/49VDy5f8Anm3/AHyaPLl/55t/3yaAL/8Aax/54f8Aj1KdVP8Azw/8erP8uX/nm3/fJo8qX/nm/wCRoAunUyf+WH/j1MOoEnPk/wDj1VfKl/55v+Ro8uX/AJ5t/wB8mgBbiYzShyu3Ax1zUdP8qT/nm/8A3yaPLl/55t/3yaANnSf+PNfqaKXS1ItAGBByeKKALdFFFABRRRQAGiiigAooopAFFFFMAoNFFAAaBRRQAhpTRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFBoooAKDRRQACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKADtRRRQAUUUUAFFFFABRRRQAUCiigAFFFFAH/9k=" alt="Minh họa bệnh gút: bàn chân với khớp ngón cái sưng đỏ và các cục tophi màu trắng ngà trong khớp; ảnh phóng to cho thấy tinh thể acid uric dưới kính hiển vi.">
+        <p class="cap"><b style="color:var(--urgent-ink)">Ngón chân cái — chỗ gút tấn công đầu tiên.</b> Những cục trắng ngà là <b>tinh thể urat</b> đọng lại trong khớp, làm nó sưng đỏ, nóng, đau dữ dội, thường đau về đêm. Ô cuối là tinh thể acid uric nhìn qua kính hiển vi — sắc như kim châm.</p>
+        <p class="credit">Ảnh minh họa sưu tầm, không phải hình chụp của bác.</p>
+      </div>
+
+      <div class="tbl">
+        <div class="thead"><span>Chỉ số</span><span>Kết quả</span><span>Nghĩa là gì</span></div>
+        <div class="trow">
+          <span class="c1">Acid uric máu</span>
+          <span class="c2 warn">312,00 <span class="std">mục tiêu &lt;200</span></span>
+          <span class="c3"><b>Chưa đạt.</b> Còn phải giảm 112 nữa.</span>
+        </div>
+        <div class="trow">
+          <span class="c1">FCU <span style="font-weight:400; color:var(--ink-faint)">(thận thải urat)</span></span>
+          <span class="c2 warn">0,024 <span class="std">chuẩn 0,08–0,1</span></span>
+          <span class="c3"><b>Thận thải acid uric kém — đây chính là nguyên nhân gây gút của bác.</b></span>
+        </div>
+        <div class="trow">
+          <span class="c1">pH nước tiểu</span>
+          <span class="c2 warn">5,0 <span class="std">chuẩn 6–8</span></span>
+          <span class="c3">Nước tiểu <b>quá chua</b> → dễ tạo <b>sỏi thận</b>.</span>
+        </div>
+        <div class="trow">
+          <span class="c1">Urat nước tiểu</span>
+          <span class="c2 ok">2.488,00 <span class="std">chuẩn 131–16.362</span></span>
+          <span class="c3">Trong khoảng cho phép.</span>
+        </div>
+        <div class="trow">
+          <span class="c1">Creatinine nước tiểu</span>
+          <span class="c2 warn">32.518,80 <span class="std">chuẩn 3.540–24.600</span></span>
+          <span class="c3">Cao vì <b>nước tiểu cô đặc — uống chưa đủ nước</b>.</span>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>Gốc rễ bệnh gút của bác không phải do ăn nhiều — mà do thận giữ lại.</b>
+      </div>
+
+      <div class="vs">
+        <div class="vsb good"><span class="n">8 – 10%</span><span class="l">Người bình thường<br>thải ra được</span></div>
+        <div class="vsb bad"><span class="n">2,4%</span><span class="l">Thận của bác<br>chỉ thải được</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NHÓM 2: HORMONE ============ -->
+  <div class="card">
+    <div class="ghead urgent">
+      <span class="gnum">2</span>
+      <div class="gtx">
+        <h2>Hormone tuyến thượng thận</h2>
+        <span class="gsub">Bất thường nặng nhất trong phiếu</span>
+      </div>
+      <span class="gbadge">CHÚ Ý</span>
+    </div>
+    <div class="pad">
+      <div class="tbl">
+        <div class="thead"><span>Chỉ số</span><span>Kết quả</span><span>Nghĩa là gì</span></div>
+        <div class="trow">
+          <span class="c1">Cortisol <span style="font-weight:400; color:var(--ink-faint)">(8h sáng)</span></span>
+          <span class="c2 urgent">0,63 <span class="std">chuẩn 6,02–18,4</span></span>
+          <span class="c3"><b>Rất thấp — chỉ bằng 1/10 mức thấp nhất.</b> Hormone sinh tồn, giữ huyết áp.</span>
+        </div>
+        <div class="trow">
+          <span class="c1">ACTH</span>
+          <span class="c2 urgent">1,97 <span class="std">chuẩn 6,2–63,3</span></span>
+          <span class="c3"><b>Rất thấp.</b> Là "lệnh" từ não. Não đã ngừng ra lệnh.</span>
+        </div>
+      </div>
+
+      <div class="flow">
+        <div class="fbox bad">
+          <b>Corticoid từ thuốc uống vào người</b>
+          <span>Hay ẩn trong thuốc tễ, thuốc tán, thuốc nam/bắc, thuốc "trị đau nhức" ngoài tiệm. Giảm đau rất nhanh nên hay bị tưởng là thuốc tốt.</span>
+        </div>
+        <div class="farrow stop"><span class="bar"></span><span>não tưởng đã đủ → ngừng ra lệnh</span></div>
+        <div class="fbox flag"><b>ACTH tụt còn 1,97</b><span>Đáng lẽ 6,2 – 63,3</span></div>
+        <div class="farrow stop"><span class="bar"></span><span>tuyến bỏ không → teo dần</span></div>
+        <div class="fbox flag"><b>Cortisol tụt còn 0,63</b><span>Đáng lẽ 6,02 – 18,4</span></div>
+      </div>
+
+      <div class="note alert">
+        <b>Vì sao nguy hiểm:</b>
+        <ul>
+          <li>Tuyến đã quen "nghỉ". <b>Cắt thuốc đột ngột → tụt huyết áp, choáng, phải cấp cứu.</b></li>
+          <li>Khi ốm nặng, nhiễm trùng hay phải mổ, bác sĩ <b>phải biết trước</b> để tăng liều hỗ trợ.</li>
+          <li>Phục hồi cần <b>nhiều tháng</b>, theo phác đồ bác sĩ, không tự làm ở nhà được.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NHÓM 3: THẬN ============ -->
+  <div class="card">
+    <div class="ghead warn">
+      <span class="gnum">3</span>
+      <div class="gtx">
+        <h2>Chức năng thận</h2>
+        <span class="gsub">Suy giảm nhẹ đến vừa — ảnh hưởng đến liều thuốc</span>
+      </div>
+      <span class="gbadge">CẦN ĐỂ Ý</span>
+    </div>
+    <div class="pad">
+
+      <div class="fig">
+        <svg viewBox="0 0 220 136" role="img" aria-label="Đồng hồ đo mức lọc của thận: vạch đen chỉ 53, nằm trong vùng suy giảm.">
+          <path d="M22 112 A 88 88 0 0 1 47.77 49.77" fill="none" stroke="var(--urgent)" stroke-width="12" stroke-linecap="round"/>
+          <path d="M49.42 48.16 A 88 88 0 0 1 107.7 24" fill="none" stroke="var(--warn)" stroke-width="12" stroke-linecap="round"/>
+          <path d="M112.3 24 A 88 88 0 0 1 198 112" fill="none" stroke="var(--ok)" stroke-width="12" stroke-linecap="round"/>
+          <circle cx="141.54" cy="29.84" r="4.5" fill="var(--card)" stroke="var(--ink-faint)" stroke-width="2"/>
+          <line x1="97.05" y1="37.11" x2="92.95" y2="13.46" stroke="var(--card)" stroke-width="8" stroke-linecap="round"/>
+          <line x1="97.05" y1="37.11" x2="92.95" y2="13.46" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+          <text x="110" y="100" text-anchor="middle" font-size="34" font-weight="700" fill="var(--ink)" font-family="inherit">53</text>
+          <text x="110" y="114" text-anchor="middle" font-size="9" fill="var(--ink-faint)" font-family="inherit">mL/phút/1,73m²</text>
+          <text x="22" y="130" text-anchor="middle" font-size="9" fill="var(--ink-faint)" font-family="inherit">0</text>
+          <text x="198" y="130" text-anchor="middle" font-size="9" fill="var(--ink-faint)" font-family="inherit">120</text>
+        </svg>
+        <div class="glegend">
+          <span class="gl"><span class="d" style="background:var(--urgent)"></span>Nặng — dưới 30</span>
+          <span class="gl"><span class="d" style="background:var(--warn)"></span>Suy giảm — 30 đến 60</span>
+          <span class="gl"><span class="d" style="background:var(--ok)"></span>Bình thường — trên 60</span>
+        </div>
+        <p class="cap">Vạch đen = đo bằng Cystatin C (53). Vòng tròn rỗng = đo bằng Creatinine (74). Người khỏe nằm trên 90.</p>
+      </div>
+
+      <div class="tbl">
+        <div class="thead"><span>Chỉ số</span><span>Kết quả</span><span>Nghĩa là gì</span></div>
+        <div class="trow"><span class="c1">Mức lọc — Cystatin C</span><span class="c2 warn">53,46 <span class="std">chuẩn &gt;60</span></span><span class="c3"><b>Giảm. Con số đáng tin nhất</b> ở người lớn tuổi. Suy thận giai đoạn 3a.</span></div>
+        <div class="trow"><span class="c1">Mức lọc — Creatinine</span><span class="c2 warn">73,81 <span class="std">chuẩn &gt;60</span></span><span class="c3">Cách đo này <b>trông đẹp hơn thực tế</b> ở người ít cơ bắp.</span></div>
+        <div class="trow"><span class="c1">Cystatin C</span><span class="c2 warn">1,31 <span class="std">chuẩn 0,61–0,95</span></span><span class="c3">Tăng — chất báo thận yếu.</span></div>
+        <div class="trow"><span class="c1">Creatinine máu</span><span class="c2 ok">98,30 <span class="std">chuẩn 60–120</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">Urea</span><span class="c2 ok">3,88 <span class="std">chuẩn 2,5–7,5</span></span><span class="c3">Bình thường.</span></div>
+      </div>
+
+      <div class="note alert">
+        <b>Thận yếu làm thay đổi liều thuốc.</b> Nhiều thuốc gút và thuốc giảm đau phải giảm liều hoặc đổi loại khi thận suy. Dùng nguyên liều như người thận khỏe sẽ làm thận hỏng nhanh hơn. <b>Nhắc bác sĩ rà lại toàn bộ toa.</b>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NHÓM 4: VIÊM ============ -->
+  <div class="card">
+    <div class="ghead warn">
+      <span class="gnum">4</span>
+      <div class="gtx">
+        <h2>Các chỉ số viêm</h2>
+        <span class="gsub">Cao, nhưng do cơn gút đang lui — giải thích được</span>
+      </div>
+      <span class="gbadge">THEO DÕI</span>
+    </div>
+    <div class="pad">
+      <div class="tbl">
+        <div class="thead"><span>Chỉ số</span><span>Kết quả</span><span>Nghĩa là gì</span></div>
+        <div class="trow"><span class="c1">CRP</span><span class="c2 warn">21,48 <span class="std">chuẩn &lt;6</span></span><span class="c3">Cao ~3,5 lần. Báo có viêm nhưng không nói viêm ở đâu.</span></div>
+        <div class="trow"><span class="c1">Ferritin</span><span class="c2 warn">661,20 <span class="std">chuẩn 30–400</span></span><span class="c3">Cao. <b>Do viêm, không phải thừa sắt.</b></span></div>
+        <div class="trow"><span class="c1">Máu lắng giờ 1</span><span class="c2 warn">29 <span class="std">chuẩn &lt;15</span></span><span class="c3">Cao. Cùng hướng với CRP.</span></div>
+        <div class="trow"><span class="c1">Tỉ lệ Mono</span><span class="c2 warn">8,04% <span class="std">chuẩn 4–8</span></span><span class="c3">Sát ngưỡng. Không đáng lo riêng lẻ.</span></div>
+      </div>
+
+      <div class="note">
+        <b>Bác nói khớp hôm đó có đau nhưng đã giảm — vậy là hợp lý.</b> Tinh thể urat làm khớp viêm dữ dội, CRP tăng là đúng. Bạch cầu 6,83 bình thường càng củng cố: <b>không phải nhiễm trùng nặng</b>.
+      </div>
+
+      <div class="note alert">
+        <b>Một việc cần làm:</b> hết đau hẳn khoảng <b>2–4 tuần thì xin xét nghiệm lại CRP</b>. Về dưới 6 là yên tâm hoàn toàn. Vẫn cao thì phải tìm nguyên nhân khác — vì corticoid có thể che giấu nhiễm trùng.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NHÓM 5: GAN ============ -->
+  <div class="card">
+    <div class="ghead ok">
+      <span class="gnum">5</span>
+      <div class="gtx"><h2>Gan và đạm trong máu</h2><span class="gsub">Tốt — không cần làm gì</span></div>
+      <span class="gbadge">YÊN TÂM</span>
+    </div>
+    <div class="pad">
+      <div class="tbl">
+        <div class="thead"><span>Chỉ số</span><span>Kết quả</span><span>Nghĩa là gì</span></div>
+        <div class="trow"><span class="c1">AST</span><span class="c2 ok">22,00 <span class="std">chuẩn 10–37</span></span><span class="c3">Men gan — bình thường.</span></div>
+        <div class="trow"><span class="c1">ALT</span><span class="c2 ok">19,70 <span class="std">chuẩn 10–40</span></span><span class="c3">Men gan — bình thường. <b>Gan không bị hủy hoại.</b></span></div>
+        <div class="trow"><span class="c1">GGT</span><span class="c2 ok">40,20 <span class="std">chuẩn 10–50</span></span><span class="c3">Bình thường. Nhạy với rượu bia.</span></div>
+        <div class="trow"><span class="c1">FIB-4</span><span class="c2 warn">1,32 <span class="std">chuẩn &lt;1,3</span></span><span class="c3">Máy ghi "Tăng" — <b>nhưng thực tế yên tâm</b>, xem dưới.</span></div>
+        <div class="trow"><span class="c1">Albumin</span><span class="c2 ok">42,20 <span class="std">chuẩn 40–60</span></span><span class="c3"><b>Cơ thể chưa suy kiệt.</b></span></div>
+        <div class="trow"><span class="c1">Globulin</span><span class="c2 ok">31,20 <span class="std">chuẩn 30–45</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">Protein toàn phần</span><span class="c2 ok">73,40 <span class="std">chuẩn 60–80</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">Tỉ lệ A/G</span><span class="c2 ok">1,35 <span class="std">chuẩn 1–2</span></span><span class="c3">Bình thường.</span></div>
+      </div>
+      <div class="note">
+        <b>Đừng lo vì chữ "Tăng" của FIB-4.</b> Ngưỡng 1,3 là cho người <b>dưới 65 tuổi</b>; từ 65 tuổi trở lên ngưỡng là <b>2,0</b>. Tuổi nằm ngay trong công thức nên người càng lớn tuổi số càng tự cao. Men gan bình thường → yên tâm. Cứ hỏi lại bác sĩ cho chắc.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NHÓM 6: MỠ MÁU ============ -->
+  <div class="card">
+    <div class="ghead warn">
+      <span class="gnum">6</span>
+      <div class="gtx"><h2>Mỡ máu và đường huyết</h2><span class="gsub">Có một điểm lạ: cholesterol quá thấp</span></div>
+      <span class="gbadge">CẦN ĐỂ Ý</span>
+    </div>
+    <div class="pad">
+      <div class="tbl">
+        <div class="thead"><span>Chỉ số</span><span>Kết quả</span><span>Nghĩa là gì</span></div>
+        <div class="trow"><span class="c1">Cholesterol toàn phần</span><span class="c2 warn">2,53 <span class="std">chuẩn 3,6–5,2</span></span><span class="c3"><b>Thấp bất thường</b> — xem dưới.</span></div>
+        <div class="trow"><span class="c1">Triglyceride</span><span class="c2 ok">1,89 <span class="std">chuẩn 0,46–2,2</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">HDL — mỡ tốt</span><span class="c2 ok">0,91 <span class="std">chuẩn 0,9–2,0</span></span><span class="c3">Sát mép dưới nhưng vẫn trong khoảng.</span></div>
+        <div class="trow"><span class="c1">LDL — mỡ xấu</span><span class="c2 ok">0,78 <span class="std">chuẩn 0,5–3,8</span></span><span class="c3"><b>Rất tốt.</b></span></div>
+        <div class="trow"><span class="c1">Glucose — đường huyết</span><span class="c2 ok">5,77 <span class="std">chuẩn 4,2–6,5</span></span><span class="c3"><b>Không có dấu hiệu tiểu đường</b> — tin rất tốt cho thận.</span></div>
+      </div>
+      <div class="note alert">
+        <b>Cholesterol quá thấp cũng là tín hiệu.</b> Ba nguyên nhân hay gặp: ăn uống kém, viêm kéo dài, hoặc thuốc. <b>Ghép với Nhóm 2:</b> cholesterol thấp bất thường là dấu hiệu có thể gặp ở người <b>suy tuyến thượng thận</b>. Nhắc bác sĩ nối hai chi tiết này lại.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NHÓM 7: MÁU ============ -->
+  <div class="card">
+    <div class="ghead ok">
+      <span class="gnum">7</span>
+      <div class="gtx"><h2>Công thức máu</h2><span class="gsub">Ổn — chỉ mỗi hồng cầu hơi to</span></div>
+      <span class="gbadge">YÊN TÂM</span>
+    </div>
+    <div class="pad">
+      <div class="tbl">
+        <div class="thead"><span>Chỉ số</span><span>Kết quả</span><span>Nghĩa là gì</span></div>
+        <div class="trow"><span class="c1">Bạch cầu (WBC)</span><span class="c2 ok">6,83 <span class="std">chuẩn 4–10</span></span><span class="c3">Lính đánh nhiễm trùng. <b>Không nhiễm trùng nặng.</b></span></div>
+        <div class="trow"><span class="c1">Hồng cầu (RBC)</span><span class="c2 ok">4,63 <span class="std">chuẩn 3,8–5,8</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">Huyết sắc tố (Hb)</span><span class="c2 ok">14,52 <span class="std">chuẩn 12–16,5</span></span><span class="c3"><b>Không thiếu máu</b> — rất đáng mừng ở người suy thận.</span></div>
+        <div class="trow"><span class="c1">Tiểu cầu (PLT)</span><span class="c2 ok">239,80 <span class="std">chuẩn 150–450</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">MCV</span><span class="c2 warn">96,90 <span class="std">chuẩn 80–95</span></span><span class="c3"><b>Hồng cầu hơi to</b> — chỉ cần theo dõi.</span></div>
+        <div class="trow"><span class="c1">HCT</span><span class="c2 ok">44,90 <span class="std">chuẩn 35–48</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">MCH</span><span class="c2 ok">31,40 <span class="std">chuẩn 26–32</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">MCHC</span><span class="c2 ok">32,30 <span class="std">chuẩn 32–36</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">RDW-CV</span><span class="c2 ok">14,10 <span class="std">chuẩn 11,6–14,8</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">MPV</span><span class="c2 ok">7,67 <span class="std">chuẩn 6,3–11</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">Tỉ lệ Lympho</span><span class="c2 ok">19,24% <span class="std">chuẩn 17–48</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">Tỉ lệ Neutro</span><span class="c2 ok">70,50% <span class="std">chuẩn 43–76</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">Tỉ lệ Eos / Baso</span><span class="c2 ok">1,95% / 0,27% <span class="std">chuẩn 0,1–7 / &lt;2,5</span></span><span class="c3">Bình thường.</span></div>
+      </div>
+      <div class="note">
+        <b>MCV 96,9:</b> nhỉnh hơn ngưỡng chút, tự nó không phải bệnh. Hay do <b>thiếu vitamin B12</b>, <b>rượu bia</b>, hoặc <b>thuốc</b>. Nếu bác uống rượu bia thường xuyên thì đây là thêm lý do để giảm — rượu bia cũng làm acid uric tăng.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NHÓM 8: TIM ============ -->
+  <div class="card">
+    <div class="ghead warn">
+      <span class="gnum">8</span>
+      <div class="gtx"><h2>Tim và cơ bắp</h2><span class="gsub">Chưa tổn thương, nhưng sát ngưỡng</span></div>
+      <span class="gbadge">CẦN ĐỂ Ý</span>
+    </div>
+    <div class="pad">
+      <div class="tbl">
+        <div class="thead"><span>Chỉ số</span><span>Kết quả</span><span>Nghĩa là gì</span></div>
+        <div class="trow"><span class="c1">Troponin-Ths</span><span class="c2 warn">13,37 <span class="std">chuẩn &lt;14</span></span><span class="c3">Dưới ngưỡng nên <b>bình thường</b> — nhưng chỉ thấp hơn 0,63.</span></div>
+        <div class="trow"><span class="c1">CK toàn phần</span><span class="c2 ok">155,90 <span class="std">chuẩn 20–195</span></span><span class="c3">Men cơ bắp — bình thường.</span></div>
+      </div>
+      <div class="note">
+        Ở người lớn tuổi có suy thận, troponin hơi cao là chuyện hay gặp — <b>thận yếu thì đào thải troponin chậm hơn</b>. Con số này <b>không có nghĩa là bác đang bị đau tim</b>.
+      </div>
+      <div class="note alert">
+        <b>Nhưng phải thuộc những dấu hiệu này — có là đi cấp cứu ngay:</b>
+        <ul>
+          <li>Tức ngực, <b>đè nặng giữa ngực</b></li>
+          <li>Khó thở, vã mồ hôi lạnh</li>
+          <li>Đau <b>lan lên vai trái, lên hàm, hoặc xuống tay trái</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NHÓM 9: MUỐI KHOÁNG ============ -->
+  <div class="card">
+    <div class="ghead ok">
+      <span class="gnum">9</span>
+      <div class="gtx"><h2>Muối khoáng trong máu</h2><span class="gsub">Bình thường cả bốn</span></div>
+      <span class="gbadge">YÊN TÂM</span>
+    </div>
+    <div class="pad">
+      <div class="tbl">
+        <div class="thead"><span>Chỉ số</span><span>Kết quả</span><span>Nghĩa là gì</span></div>
+        <div class="trow"><span class="c1">Kali</span><span class="c2 ok">3,78 <span class="std">chuẩn 3,5–5,5</span></span><span class="c3">Giữ nhịp tim đều — bình thường.</span></div>
+        <div class="trow"><span class="c1">Natri</span><span class="c2 ok">135,00 <span class="std">chuẩn 135–150</span></span><span class="c3">Bình thường, nhưng <b>nằm đúng mép dưới</b>.</span></div>
+        <div class="trow"><span class="c1">Clo</span><span class="c2 ok">97,30 <span class="std">chuẩn 95–110</span></span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">Canxi toàn phần</span><span class="c2 ok">2,35 <span class="std">chuẩn 2,2–2,6</span></span><span class="c3">Bình thường.</span></div>
+      </div>
+      <div class="note alert">
+        <b>Cảnh báo về "nước ép tốt cho thận".</b> Thận yếu thì kali dễ ứ lại — mà <b>kali quá cao gây loạn nhịp tim, thậm chí ngưng tim</b>. Nhiều loại nước ép rau củ được mách là "tốt cho thận" <b>lại rất giàu kali</b>. Đừng tự ý ăn kiêng theo mách bảo — hỏi bác sĩ trước.
+      </div>
+      <div class="note">
+        <b>Natri 135:</b> hiện không sao, nhưng <b>suy tuyến thượng thận điển hình gây natri thấp</b>. Nếu Nhóm 2 nặng thêm, natri là chỉ số tụt trước tiên. Đây cũng là lý do phải hỏi bác sĩ về lượng nước.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NHÓM 10: NƯỚC TIỂU ============ -->
+  <div class="card">
+    <div class="ghead ok">
+      <span class="gnum">10</span>
+      <div class="gtx"><h2>Tổng phân tích nước tiểu</h2><span class="gsub">Sạch — chỉ mỗi pH quá chua</span></div>
+      <span class="gbadge">YÊN TÂM</span>
+    </div>
+    <div class="pad">
+      <div class="tbl">
+        <div class="thead"><span>Chỉ số</span><span>Kết quả</span><span>Nghĩa là gì</span></div>
+        <div class="trow"><span class="c1">Protein (đạm)</span><span class="c2 ok">Âm tính</span><span class="c3"><b>Quan trọng nhất bảng này</b> — màng lọc thận chưa bị thủng.</span></div>
+        <div class="trow"><span class="c1">Hồng cầu</span><span class="c2 ok">Âm tính</span><span class="c3">Không chảy máu đường tiểu, không dấu hiệu sỏi cọ xát.</span></div>
+        <div class="trow"><span class="c1">Bạch cầu</span><span class="c2 ok">Âm tính</span><span class="c3">Không nhiễm trùng đường tiểu.</span></div>
+        <div class="trow"><span class="c1">Nitrite</span><span class="c2 ok">Âm tính</span><span class="c3">Không có vi khuẩn.</span></div>
+        <div class="trow"><span class="c1">Glucose</span><span class="c2 ok">Âm tính</span><span class="c3">Không có đường trong nước tiểu.</span></div>
+        <div class="trow"><span class="c1">Ketone</span><span class="c2 ok">Âm tính</span><span class="c3">Bình thường.</span></div>
+        <div class="trow"><span class="c1">Bilirubin</span><span class="c2 ok">Âm tính</span><span class="c3">Không tắc mật.</span></div>
+        <div class="trow"><span class="c1">Urobilinogen</span><span class="c2 ok">Âm tính</span><span class="c3">Gan xử lý mật bình thường.</span></div>
+        <div class="trow"><span class="c1">Vitamin C</span><span class="c2 ok">Âm tính</span><span class="c3">Không làm sai lệch que thử.</span></div>
+        <div class="trow"><span class="c1">Tỉ trọng (SG)</span><span class="c2 ok">1,025 <span class="std">chuẩn 1,005–1,030</span></span><span class="c3">Trong khoảng nhưng hơi cao → <b>nước tiểu đặc, uống chưa đủ nước</b>.</span></div>
+        <div class="trow"><span class="c1">pH</span><span class="c2 warn">5,0 <span class="std">chuẩn 6–8</span></span><span class="c3"><b>Quá chua — dễ tạo sỏi acid uric.</b></span></div>
+      </div>
+      <div class="note">
+        Chín trên mười thông số sạch. Không có đạm trong nước tiểu → tổn thương thận của bác thuộc kiểu <b>âm thầm giảm chức năng lọc</b>, tiến triển chậm và <b>kiểm soát được</b> nếu giữ acid uric thấp, uống đủ nước, tránh thuốc hại thận.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ VÒNG LUẨN QUẨN ============ -->
+  <div class="card">
+    <div class="ghead urgent">
+      <span class="gnum">★</span>
+      <div class="gtx"><h2>Vì sao bác bị gút</h2><span class="gsub">Sơ đồ nối tất cả các nhóm lại</span></div>
+    </div>
+    <div class="pad">
+      <div class="flow">
+        <div class="fbox bad"><b>Thận thải acid uric kém</b><span>FCU chỉ 2,4% thay vì 8–10%</span></div>
+        <div class="farrow stop"><span class="bar"></span><span>acid uric không thoát ra được</span></div>
+        <div class="fbox flag"><b>Acid uric ứ trong máu</b><span>Hiện 312 — cần xuống dưới 200</span></div>
+        <div class="farrow stop"><span class="bar"></span><span>ứ lâu ngày thì kết tinh</span></div>
+        <div class="fbox bad"><b>Tinh thể đóng ở khớp</b><span>→ Cơn gút cấp, CRP tăng lên 21,48</span></div>
+        <div class="farrow stop"><span class="bar"></span><span>và tinh thể cũng đóng ở thận</span></div>
+        <div class="fbox bad"><b>Thận hỏng dần</b><span>Mức lọc còn 53 → thải acid uric càng kém</span></div>
+        <div class="loop">↺ VÒNG LUẨN QUẨN<br>thận yếu → acid uric tăng → tinh thể nhiều → thận yếu thêm</div>
+      </div>
+      <div class="note alert">
+        <b>Chỗ cắt vòng: hạ acid uric xuống dưới 200.</b> Khi đủ thấp, tinh thể cũ tan dần, khớp bớt viêm, thận không bị tấn công thêm. Đó là lý do bác sĩ đặt mốc 200 chứ không phải 360.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ GHI NHỚ ============ -->
+  <div class="remember">
+    <div class="pad">
+      <h2>Ghi nhớ — 6 điều</h2>
+      <ol>
+        <li><b>Acid uric 312 → mục tiêu dưới 200.</b> Còn 112. Phiếu ghi "bình thường" không có nghĩa là đã đạt.</li>
+        <li><b>Uống đủ nước mỗi ngày.</b> Hỏi bác sĩ mấy lít, đong sẵn vào chai, để trước mặt.</li>
+        <li><b>Không tự ngưng thuốc đột ngột</b> — nhất là thuốc tễ, thuốc tán, thuốc nam.</li>
+        <li><b>Mang hết thuốc đi khám</b>, kể cả "thuốc bổ" và "thuốc gia truyền".</li>
+        <li><b>Thận yếu (53) → nhắc bác sĩ chỉnh liều thuốc.</b></li>
+        <li><b>Tức ngực, khó thở, đau lan lên vai/hàm → đi cấp cứu ngay.</b></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============ CÂU HỎI ============ -->
+  <div class="card">
+    <div class="ghead ok">
+      <span class="gnum">?</span>
+      <div class="gtx"><h2>Câu hỏi mang theo khi gặp bác sĩ</h2></div>
+    </div>
+    <div class="pad qbox">
+      <ul>
+        <li><b>Một ngày con nên uống mấy lít nước?</b> (Natri con 135, sát mép dưới)</li>
+        <li>Cortisol 0,63 và ACTH 1,97 — có phải do thuốc con đang uống không? Con phải làm gì tiếp?</li>
+        <li>Để acid uric từ 312 xuống dưới 200, con cần đổi thuốc hay tăng liều? Mất bao lâu?</li>
+        <li>Mức lọc thận 53 — toa thuốc hiện tại có cần giảm liều hay đổi loại nào không?</li>
+        <li>Nước tiểu con chua (pH 5,0) — có cần thuốc kiềm hóa để tránh sỏi thận không?</li>
+        <li>CRP 21,48 — hết đau khớp bao lâu thì con nên xét nghiệm lại?</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <p><strong>Đây là bản diễn giải, không phải giấy tờ y tế.</strong> Trang này do trí tuệ nhân tạo đọc phiếu kết quả xét nghiệm ngày 17/07/2026 và giải thích lại bằng lời thường. Nó <strong>không phải văn bản của phòng khám</strong>, không phải kết luận của bác sĩ, và <strong>không thay thế việc thăm khám</strong>. Nội dung có thể có sai sót. Mọi quyết định về thuốc men và lượng nước uống đều phải do bác sĩ điều trị đưa ra.</p>
+    <p>Toàn bộ con số lấy đúng từ phiếu xét nghiệm, không thêm bớt. Mốc mục tiêu acid uric dưới 200 do bác sĩ điều trị đặt ra, chặt hơn khoảng tham chiếu 140–360 in trên phiếu. Bảng màu nước tiểu là hướng dẫn chung, không phải kết quả của bác. Địa chỉ nhà và mã số bệnh nhân đã được lược bỏ.</p>
+  </footer>
+
+</div>
+
+</body></html>

@@ -1,0 +1,643 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Cortisol và ACTH — Giải thích cặn kẽ hai con số</title>
+
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #EFF7FA; --card: #FFFFFF; --tile: #E3F1F5; --line: #DCE9EE;
+    --ink: #16232B; --ink-soft: #4E606B; --ink-faint: #7F8F99;
+    --teal: #1B8FA8; --teal-ink: #12657A;
+    --band-a: #4FB3C9; --band-b: #2588A3;
+    --ok-ink: #1A6845; --warn-ink: #855900; --urgent-ink: #93190F;
+    --ok-bg: #E6F2EC; --warn-bg: #FBF1DC; --urgent-bg: #F9E9E7;
+    --bar-ok: #1A6845; --bar-warn: #8A5A00; --bar-urgent: #A32018;
+    --bar-ink: #FFFFFF;
+    --organ: #C0666B; --organ-line: #8E4247; --gland: #E0A03A; --gland-line: #A87121;
+    --bone: #E4DECF; --brain: #D9A7B0; --brain-line: #A9707A;
+    --shadow: 0 1px 2px rgba(18,101,122,.05), 0 8px 24px rgba(18,101,122,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --bg: #0E1519; --card: #16222A; --tile: #1E3038; --line: #294049;
+      --ink: #E6EEF1; --ink-soft: #A9BAC2; --ink-faint: #7A8B94;
+      --teal: #2A9CC0; --teal-ink: #7CCBE0;
+      --band-a: #1B4C5C; --band-b: #123946;
+      --ok-ink: #56C68F; --warn-ink: #D9A62A; --urgent-ink: #F2879A;
+      --ok-bg: #132E22; --warn-bg: #2E2410; --urgent-bg: #35191F;
+      --bar-ok: #175C3D; --bar-warn: #6B5010; --bar-urgent: #8E2733;
+      --bar-ink: #FFFFFF;
+      --organ: #9E5257; --organ-line: #C98186; --gland: #B8822C; --gland-line: #DCAE5A;
+      --bone: #C9C2B0; --brain: #A97C85; --brain-line: #D3A3AC;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.22);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0E1519; --card: #16222A; --tile: #1E3038; --line: #294049;
+    --ink: #E6EEF1; --ink-soft: #A9BAC2; --ink-faint: #7A8B94;
+    --teal: #2A9CC0; --teal-ink: #7CCBE0;
+    --band-a: #1B4C5C; --band-b: #123946;
+    --ok-ink: #56C68F; --warn-ink: #D9A62A; --urgent-ink: #F2879A;
+    --ok-bg: #132E22; --warn-bg: #2E2410; --urgent-bg: #35191F;
+    --bar-ok: #175C3D; --bar-warn: #6B5010; --bar-urgent: #8E2733;
+    --bar-ink: #FFFFFF;
+    --organ: #9E5257; --organ-line: #C98186; --gland: #B8822C; --gland-line: #DCAE5A;
+    --bone: #C9C2B0; --brain: #A97C85; --brain-line: #D3A3AC;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.22);
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --bg: #EFF7FA; --card: #FFFFFF; --tile: #E3F1F5; --line: #DCE9EE;
+    --ink: #16232B; --ink-soft: #4E606B; --ink-faint: #7F8F99;
+    --teal: #1B8FA8; --teal-ink: #12657A;
+    --band-a: #4FB3C9; --band-b: #2588A3;
+    --ok-ink: #1A6845; --warn-ink: #855900; --urgent-ink: #93190F;
+    --ok-bg: #E6F2EC; --warn-bg: #FBF1DC; --urgent-bg: #F9E9E7;
+    --bar-ok: #1A6845; --bar-warn: #8A5A00; --bar-urgent: #A32018;
+    --bar-ink: #FFFFFF;
+    --organ: #C0666B; --organ-line: #8E4247; --gland: #E0A03A; --gland-line: #A87121;
+    --bone: #E4DECF; --brain: #D9A7B0; --brain-line: #A9707A;
+    --shadow: 0 1px 2px rgba(18,101,122,.05), 0 8px 24px rgba(18,101,122,.07);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Segoe UI", Roboto, system-ui, "Helvetica Neue", Arial, sans-serif;
+    font-size: 19px; line-height: 1.55; -webkit-text-size-adjust: 100%;
+  }
+  .wrap {
+    max-width: 46rem; margin: 0 auto; padding: 0.9rem 0.7rem 3rem;
+    display: flex; flex-direction: column; gap: 0.9rem;
+  }
+  @media (min-width: 34rem) { .wrap { padding: 1.5rem 1.1rem 4rem; gap: 1.1rem; } }
+
+  h1, h2, h3 { text-wrap: balance; letter-spacing: -0.015em; }
+  p { margin: 0; }
+
+  .card { background: var(--card); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .pad { padding: 1.1rem 0.95rem; display: flex; flex-direction: column; gap: 1rem; }
+  @media (min-width: 34rem) { .pad { padding: 1.6rem 1.4rem; } }
+
+  .topbar {
+    background: var(--card); border-radius: 14px; box-shadow: var(--shadow);
+    padding: 0.8rem 0.95rem; display: flex; align-items: center; gap: 0.65rem;
+  }
+  .topbar .glyph { width: 36px; height: 36px; flex: none; border-radius: 9px; background: var(--teal); display: grid; place-items: center; }
+  .topbar .glyph svg { width: 20px; height: 20px; stroke: #fff; fill: none; }
+  .topbar .who { font-weight: 700; font-size: 1rem; line-height: 1.3; }
+  .topbar .when { font-size: 0.76rem; color: var(--ink-faint); line-height: 1.4; }
+
+  /* hero */
+  .hero .eyebrow { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); }
+  .hero h1 { font-size: clamp(1.6rem, 6vw, 2.15rem); line-height: 1.2; font-weight: 800; }
+  .hero .lede { font-size: 0.95rem; color: var(--ink-soft); }
+
+  /* thước đo */
+  .gauge { display: flex; flex-direction: column; gap: 0.4rem; }
+  .gauge .gname { font-size: 0.9rem; font-weight: 700; }
+  .gauge .gname span { font-weight: 400; color: var(--ink-faint); font-size: 0.78rem; }
+  .track { position: relative; height: 30px; background: var(--tile); border-radius: 6px; overflow: hidden; }
+  .track .normal { position: absolute; top: 0; bottom: 0; background: var(--bar-ok); display: grid; place-items: center; }
+  .track .normal span { font-size: 0.66rem; font-weight: 800; color: #fff; white-space: nowrap; }
+  .track .mark { position: absolute; top: 0; bottom: 0; width: 3px; background: var(--bar-urgent); }
+  .gfoot { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .gyou { font-size: 0.86rem; color: var(--urgent-ink); font-weight: 700; }
+
+  /* hình */
+  .fig { display: flex; flex-direction: column; align-items: center; gap: 0.55rem; }
+  .fig svg { width: 100%; height: auto; }
+  .fig .cap { font-size: 0.82rem; color: var(--ink-soft); text-align: center; max-width: 44ch; }
+  .fig.narrow svg { max-width: 300px; }
+
+  /* nhóm tiêu đề */
+  .ghead { display: flex; align-items: center; gap: 0.7rem; padding: 0.85rem 0.95rem; color: var(--bar-ink); background: var(--teal); }
+  @media (min-width: 34rem) { .ghead { padding: 1rem 1.4rem; } }
+  .ghead.urgent { background: var(--bar-urgent); }
+  .ghead.warn { background: var(--bar-warn); }
+  .ghead .gnum { width: 30px; height: 30px; flex: none; border-radius: 8px; background: rgba(255,255,255,.22); display: grid; place-items: center; font-size: 0.95rem; font-weight: 800; }
+  .ghead h2 { font-size: 1.1rem; font-weight: 800; line-height: 1.25; }
+  .ghead .gsub { font-size: 0.72rem; opacity: .88; line-height: 1.35; display: block; margin-top: 2px; }
+
+  h3.sub { font-size: 1rem; font-weight: 800; color: var(--teal-ink); }
+
+  .note { border-radius: 10px; padding: 0.85rem 0.95rem; font-size: 0.88rem; line-height: 1.5; background: var(--tile); }
+  .note.alert { background: var(--urgent-bg); }
+  .note.alert b { color: var(--urgent-ink); }
+  .note.good { background: var(--ok-bg); }
+  .note.good b { color: var(--ok-ink); }
+  .note.flag { background: var(--warn-bg); }
+  .note.flag b { color: var(--warn-ink); }
+
+  ul.list, ol.list { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem; margin: 0; }
+  ul.list li, ol.list li { font-size: 0.9rem; line-height: 1.5; }
+
+  /* ba tình huống */
+  .cases { display: flex; flex-direction: column; gap: 0.6rem; }
+  @media (min-width: 40rem) { .cases { flex-direction: row; } }
+  .case { flex: 1 1 0; border-radius: 11px; padding: 0.85rem 0.8rem; background: var(--tile); display: flex; flex-direction: column; gap: 0.55rem; }
+  .case.you { background: var(--urgent-bg); outline: 2px solid var(--bar-urgent); }
+  .case .ctitle { font-size: 0.84rem; font-weight: 800; line-height: 1.3; }
+  .case.you .ctitle { color: var(--urgent-ink); }
+  .crow { display: flex; align-items: center; gap: 0.4rem; }
+  .crow .ck { font-size: 0.72rem; font-weight: 700; color: var(--ink-soft); flex: 0 0 3.6rem; }
+  .cbar { flex: 1 1 auto; height: 14px; background: rgba(127,143,153,.25); border-radius: 3px; overflow: hidden; }
+  .cbar i { display: block; height: 100%; border-radius: 3px; }
+  .cbar i.mid { width: 55%; background: var(--bar-ok); }
+  .cbar i.high { width: 95%; background: var(--bar-warn); }
+  .cbar i.low { width: 7%; background: var(--bar-urgent); }
+  .case .cwhy { font-size: 0.76rem; color: var(--ink-soft); line-height: 1.4; }
+  .case.you .cwhy { color: var(--ink); font-weight: 600; }
+
+  /* sơ đồ hộp */
+  .flow { display: flex; flex-direction: column; }
+  .fbox { border-radius: 10px; padding: 0.7rem 0.85rem; background: var(--tile); }
+  .fbox b { font-size: 0.88rem; display: block; }
+  .fbox span { font-size: 0.78rem; color: var(--ink-soft); line-height: 1.4; display: block; margin-top: 2px; }
+  .fbox.bad { background: var(--urgent-bg); }
+  .fbox.bad b { color: var(--urgent-ink); }
+  .fbox.flag { background: var(--warn-bg); }
+  .fbox.flag b { color: var(--warn-ink); }
+  .farrow { display: flex; align-items: center; gap: 0.45rem; padding: 0.28rem 0 0.28rem 1rem; font-size: 0.76rem; color: var(--ink-faint); }
+  .farrow .bar { width: 3px; height: 20px; border-radius: 2px; background: var(--line); flex: none; }
+  .farrow.stop .bar { background: var(--bar-urgent); }
+  .farrow.stop { color: var(--urgent-ink); font-weight: 700; }
+
+  /* dấu hiệu */
+  .signs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .sign { background: var(--warn-bg); border-radius: 9px; padding: 0.6rem 0.65rem; font-size: 0.8rem; line-height: 1.35; }
+  .sign b { display: block; color: var(--warn-ink); font-size: 0.82rem; }
+
+  /* huyết áp */
+  .bp { display: flex; flex-direction: column; gap: 0.6rem; }
+  .bpush { display: flex; align-items: center; gap: 0.7rem; background: var(--urgent-bg); border-radius: 10px; padding: 0.75rem 0.85rem; }
+  .bpush .ar { font-size: 1.5rem; line-height: 1; color: var(--urgent-ink); flex: none; font-weight: 800; }
+  .bpush .bt { font-size: 0.86rem; line-height: 1.45; }
+  .bpush .bt b { color: var(--urgent-ink); }
+
+  .ask { background: linear-gradient(105deg, var(--band-a), var(--band-b)); border-radius: 14px; box-shadow: var(--shadow); }
+  .ask .pad { color: #fff; }
+  .ask h2 { font-size: 1.15rem; font-weight: 800; }
+  .ask ol { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.6rem; margin: 0; }
+  .ask li { font-size: 0.92rem; line-height: 1.5; }
+
+  footer { font-size: 0.78rem; color: var(--ink-faint); display: flex; flex-direction: column; gap: 0.5rem; padding: 0 0.4rem; }
+  footer strong { color: var(--ink-soft); }
+
+  :focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+  /* ---- menu chung ---- */
+  .sitenav { position: sticky; top: 0; z-index: 50; background: var(--card); border-bottom: 1px solid var(--line); box-shadow: var(--shadow); }
+  .sitenav-inner { max-width: 46rem; margin: 0 auto; padding: 0.55rem 0.7rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+  .sitenav .brand { font-weight: 800; font-size: 0.9rem; color: var(--teal-ink); margin-right: auto; display: flex; align-items: center; gap: 0.4rem; }
+  .sitenav a.navlink { text-decoration: none; font-size: 0.82rem; font-weight: 700; color: var(--ink-soft); padding: 0.4rem 0.7rem; border-radius: 8px; white-space: nowrap; }
+  .sitenav a.navlink:hover { background: var(--tile); color: var(--teal-ink); }
+  .sitenav a.navlink.active { background: var(--teal); color: #fff; }
+</style>
+
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <span class="brand">🩺 Kết quả xét nghiệm · Bác Tám</span>
+    <a class="navlink" href="index.html">Acid uric &amp; Gút</a>
+    <a class="navlink active" href="cortisol.html">Cortisol &amp; ACTH</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="glyph"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+    <div>
+      <div class="who">Nguyễn Tám · sinh 1962</div>
+      <div class="when">Xét nghiệm 17/07/2026 · Giải thích hai chỉ số Cortisol và ACTH</div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="card hero">
+    <div class="pad">
+      <div style="display:flex; flex-direction:column; gap:0.5rem">
+        <div class="eyebrow">Phần quan trọng nhất của tờ kết quả</div>
+        <h1>Hai hormone sinh tồn gần như cạn kiệt</h1>
+        <p class="lede">Đây không phải hai con số lẻ tẻ. Chúng đi cùng nhau và kể một câu chuyện — câu chuyện đó là lý do phải đi khám sớm.</p>
+      </div>
+
+      <div class="gauge">
+        <div class="gname">Cortisol <span>— lấy máu lúc 8h sáng</span></div>
+        <div class="track">
+          <div class="normal" style="left:30.1%; right:8%"><span>BÌNH THƯỜNG 6,02 – 18,4</span></div>
+          <div class="mark" style="left:3.2%"></div>
+        </div>
+        <div class="gfoot"><span>0</span><span>20 µg/dL</span></div>
+        <div class="gyou">Bác: 0,63 — vạch đỏ bên trái. Chỉ bằng khoảng 1/10 mức thấp nhất.</div>
+      </div>
+
+      <div class="gauge">
+        <div class="gname">ACTH</div>
+        <div class="track">
+          <div class="normal" style="left:8.9%; right:9.6%"><span>BÌNH THƯỜNG 6,2 – 63,3</span></div>
+          <div class="mark" style="left:2.8%"></div>
+        </div>
+        <div class="gfoot"><span>0</span><span>70 pg/mL</span></div>
+        <div class="gyou">Bác: 1,97 — cũng nằm ngoài, phía dưới.</div>
+      </div>
+
+      <div class="note alert">
+        <b>Cả hai cùng thấp.</b> Nghe thì tưởng chỉ là "thiếu nhiều thứ". Nhưng với hai hormone này, <b>cùng thấp mới là điều bất thường</b> — và nó chỉ thẳng vào nguyên nhân. Phần dưới giải thích vì sao.
+      </div>
+    </div>
+  </div>
+
+  <!-- CORTISOL LÀ GÌ -->
+  <div class="card">
+    <div class="ghead">
+      <span class="gnum">1</span>
+      <div>
+        <h2>Cortisol là gì</h2>
+        <span class="gsub">Hormone giữ cho người ta sống được</span>
+      </div>
+    </div>
+    <div class="pad">
+      <p>Cortisol do <b>tuyến thượng thận</b> tiết ra — hai tuyến nhỏ bằng đầu ngón tay, nằm úp lên trên hai quả thận như hai cái mũ.</p>
+
+      <div class="fig">
+        <svg viewBox="0 0 260 170" role="img" aria-label="Hình vẽ hai quả thận, mỗi quả có một tuyến thượng thận nhỏ hình mũ nằm úp lên trên.">
+          <rect x="121" y="18" width="18" height="140" rx="7" fill="var(--bone)"/>
+          <text x="130" y="167" text-anchor="middle" font-size="8" fill="var(--ink-faint)" font-family="sans-serif">cột sống</text>
+
+          <!-- thận trái -->
+          <ellipse cx="72" cy="102" rx="29" ry="38" fill="var(--organ)" stroke="var(--organ-line)" stroke-width="2"/>
+          <path d="M101 102 q-14 0 -14 -10 q0 -10 14 -10" fill="var(--bg)" stroke="var(--organ-line)" stroke-width="2"/>
+          <path d="M43 68 Q72 36 101 68 Q72 80 43 68 Z" fill="var(--gland)" stroke="var(--gland-line)" stroke-width="2"/>
+
+          <!-- thận phải -->
+          <ellipse cx="188" cy="102" rx="29" ry="38" fill="var(--organ)" stroke="var(--organ-line)" stroke-width="2"/>
+          <path d="M159 102 q14 0 14 -10 q0 -10 -14 -10" fill="var(--bg)" stroke="var(--organ-line)" stroke-width="2"/>
+          <path d="M159 68 Q188 36 217 68 Q188 80 159 68 Z" fill="var(--gland)" stroke="var(--gland-line)" stroke-width="2"/>
+
+          <!-- nhãn -->
+          <line x1="72" y1="52" x2="30" y2="26" stroke="var(--gland-line)" stroke-width="1.6"/>
+          <text x="28" y="21" text-anchor="start" font-size="10" font-weight="700" fill="var(--gland-line)" font-family="sans-serif">Tuyến thượng thận</text>
+          <line x1="60" y1="120" x2="24" y2="146" stroke="var(--organ-line)" stroke-width="1.6"/>
+          <text x="22" y="157" text-anchor="start" font-size="10" font-weight="700" fill="var(--organ-line)" font-family="sans-serif">Quả thận</text>
+        </svg>
+        <p class="cap">Màu vàng là <b>tuyến thượng thận</b> — nơi làm ra cortisol. Nhỏ vậy thôi nhưng thiếu nó là nguy tính mạng.</p>
+      </div>
+
+      <h3 class="sub">Cortisol làm những việc gì</h3>
+      <ul class="list">
+        <li><b>Giữ huyết áp.</b> Không có nó, huyết áp tụt. <em>Nhớ kỹ ý này — lát nữa quay lại.</em></li>
+        <li><b>Giữ đường huyết.</b> Nó giữ cho đường trong máu không tụt xuống quá thấp.</li>
+        <li><b>Chống viêm.</b> Đây là lý do người ta chế ra thuốc bắt chước nó.</li>
+        <li><b>Chống chọi khi có biến.</b> Khi ốm, khi bị thương, khi mổ, khi căng thẳng — cơ thể phải tiết vọt cortisol lên để chịu đựng. Đây là việc quan trọng nhất của nó.</li>
+      </ul>
+
+      <div class="note">
+        Vì việc thứ tư đó mà người ta gọi cortisol là <b>hormone sinh tồn</b>. Người không có cortisol thì lúc bình thường trông vẫn ổn, nhưng <b>chỉ cần một trận ốm là gục</b>.
+      </div>
+    </div>
+  </div>
+
+  <!-- NHỊP NGÀY ĐÊM -->
+  <div class="card">
+    <div class="ghead">
+      <span class="gnum">2</span>
+      <div>
+        <h2>Vì sao giờ lấy máu lại quan trọng</h2>
+        <span class="gsub">Máu lấy lúc 8h sáng — đúng lúc nó phải cao nhất</span>
+      </div>
+    </div>
+    <div class="pad">
+      <p>Cortisol không nằm yên một mức. Nó <b>lên xuống theo giờ trong ngày</b>: thấp nhất lúc nửa đêm, bắt đầu leo từ khoảng 3h sáng, <b>cao nhất quanh 8h sáng</b> để đánh thức cơ thể dậy, rồi hạ dần suốt ngày.</p>
+
+      <div class="fig">
+        <svg viewBox="0 0 300 135" role="img" aria-label="Biểu đồ đường cong cortisol trong ngày: cao nhất lúc 8 giờ sáng rồi giảm dần; đường của bác Tám nằm bẹp sát đáy suốt cả ngày.">
+          <line x1="20" y1="112" x2="288" y2="112" stroke="var(--line)" stroke-width="1.5"/>
+          <line x1="20" y1="14" x2="20" y2="112" stroke="var(--line)" stroke-width="1.5"/>
+
+          <line x1="107" y1="14" x2="107" y2="112" stroke="var(--teal)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.6"/>
+
+          <path d="M20,98 C55,96 80,38 107,29 S165,58 193,72 S255,94 288,98"
+                fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="107" cy="29" r="4.5" fill="var(--teal)"/>
+
+          <line x1="20" y1="107" x2="288" y2="107" stroke="var(--bar-urgent)" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round"/>
+
+          <text x="107" y="22" text-anchor="middle" font-size="9" font-weight="800" fill="var(--teal-ink)" font-family="sans-serif">đỉnh — 8h sáng</text>
+          <text x="292" y="99" text-anchor="end" font-size="9" font-weight="700" fill="var(--teal-ink)" font-family="sans-serif" opacity="0">.</text>
+          <text x="24" y="124" font-size="9" font-weight="800" fill="var(--urgent-ink)" font-family="sans-serif">Bác Tám: 0,63 — bẹp suốt ngày</text>
+
+          <text x="20" y="12" text-anchor="middle" font-size="8" fill="var(--ink-faint)" font-family="sans-serif">0h</text>
+          <text x="107" y="120" text-anchor="middle" font-size="8" fill="var(--ink-faint)" font-family="sans-serif" opacity="0">.</text>
+          <text x="288" y="12" text-anchor="middle" font-size="8" fill="var(--ink-faint)" font-family="sans-serif">24h</text>
+        </svg>
+        <p class="cap">Đường xanh là người bình thường. Đường đỏ đứt nét là bác — <b>nằm bẹp sát đáy</b>.</p>
+      </div>
+
+      <div class="note alert">
+        <b>Đây là chỗ đáng lo.</b> Máu bác lấy lúc <b>8h sáng — đúng thời điểm cortisol phải cao nhất trong ngày</b>. Nghĩa là 0,63 không phải "đo nhằm lúc thấp". Đó là <b>lúc tốt nhất của bác</b>, và nó vẫn chỉ bằng một phần mười mức thấp nhất của người thường.
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTH -->
+  <div class="card">
+    <div class="ghead">
+      <span class="gnum">3</span>
+      <div>
+        <h2>ACTH là gì</h2>
+        <span class="gsub">Là cái lệnh mà não gửi xuống</span>
+      </div>
+    </div>
+    <div class="pad">
+      <p>Tuyến thượng thận không tự ý làm việc. Nó <b>chờ lệnh từ não</b>. Cái lệnh đó tên là <b>ACTH</b>, do <b>tuyến yên</b> — một hạt nhỏ bằng hạt đậu nằm dưới đáy não — tiết ra và thả vào máu.</p>
+
+      <div class="fig">
+        <svg viewBox="0 0 300 210" role="img" aria-label="Sơ đồ dây chuyền: tuyến yên trong não gửi lệnh ACTH xuống tuyến thượng thận, tuyến thượng thận làm ra cortisol, và cortisol báo ngược lên não.">
+          <!-- đầu -->
+          <path d="M150 12 C112 12 92 40 92 62 C92 78 100 88 100 88 L200 88 C200 88 208 78 208 62 C208 40 188 12 150 12 Z" fill="var(--brain)" stroke="var(--brain-line)" stroke-width="2"/>
+          <circle cx="150" cy="72" r="9" fill="var(--gland)" stroke="var(--gland-line)" stroke-width="2"/>
+          <text x="150" y="42" text-anchor="middle" font-size="11" font-weight="800" fill="var(--brain-line)" font-family="sans-serif">NÃO</text>
+          <line x1="159" y1="72" x2="228" y2="60" stroke="var(--gland-line)" stroke-width="1.5"/>
+          <text x="231" y="58" font-size="9" font-weight="700" fill="var(--gland-line)" font-family="sans-serif">tuyến yên</text>
+
+          <!-- mũi tên xuống -->
+          <line x1="122" y1="92" x2="122" y2="140" stroke="var(--teal)" stroke-width="3.5"/>
+          <path d="M122 148 l-6 -10 l12 0 Z" fill="var(--teal)"/>
+          <rect x="60" y="106" width="52" height="20" rx="5" fill="var(--teal)"/>
+          <text x="86" y="120" text-anchor="middle" font-size="10" font-weight="800" fill="#fff" font-family="sans-serif">ACTH</text>
+          <text x="86" y="139" text-anchor="middle" font-size="8" fill="var(--ink-faint)" font-family="sans-serif">"làm việc đi!"</text>
+
+          <!-- mũi tên lên -->
+          <line x1="180" y1="148" x2="180" y2="100" stroke="var(--gland-line)" stroke-width="3.5"/>
+          <path d="M180 92 l-6 10 l12 0 Z" fill="var(--gland-line)"/>
+          <rect x="190" y="106" width="66" height="20" rx="5" fill="var(--gland-line)"/>
+          <text x="223" y="120" text-anchor="middle" font-size="10" font-weight="800" fill="#fff" font-family="sans-serif">CORTISOL</text>
+          <text x="223" y="139" text-anchor="middle" font-size="8" fill="var(--ink-faint)" font-family="sans-serif">"đủ rồi, nghỉ đi"</text>
+
+          <!-- thượng thận -->
+          <ellipse cx="150" cy="182" rx="26" ry="19" fill="var(--organ)" stroke="var(--organ-line)" stroke-width="2"/>
+          <path d="M126 162 Q150 142 174 162 Q150 171 126 162 Z" fill="var(--gland)" stroke="var(--gland-line)" stroke-width="2"/>
+          <text x="150" y="187" text-anchor="middle" font-size="9" font-weight="800" fill="#fff" font-family="sans-serif">THƯỢNG THẬN</text>
+        </svg>
+        <p class="cap">Một vòng khép kín. Não ra lệnh xuống, thượng thận làm ra cortisol, cortisol báo ngược lên não.</p>
+      </div>
+
+      <div class="note">
+        <b>Chỗ hay nhất nằm ở mũi tên đi lên.</b> Cortisol làm ra rồi thì <b>báo ngược lên não</b>. Não đo được lượng cortisol trong máu và tự chỉnh lệnh: <b>cortisol tụt xuống thì não hét lệnh to hơn</b> — tức ACTH phải tăng vọt. Giống như cái phao trong bồn nước: nước cạn thì phao hạ, van tự mở to.
+      </div>
+    </div>
+  </div>
+
+  <!-- ĐIỂM MẤU CHỐT -->
+  <div class="card">
+    <div class="ghead urgent">
+      <span class="gnum">4</span>
+      <div>
+        <h2>Điểm mấu chốt: vì sao cả hai cùng thấp mới lạ</h2>
+        <span class="gsub">Đây là chỗ hai con số kể ra câu chuyện</span>
+      </div>
+    </div>
+    <div class="pad">
+      <p>Giờ ta thử ba tình huống. Cùng là cortisol thấp, nhưng <b>ACTH sẽ khác nhau</b> — và chính ACTH chỉ ra hỏng ở đâu.</p>
+
+      <div class="cases">
+        <div class="case">
+          <div class="ctitle">Người bình thường</div>
+          <div class="crow"><span class="ck">ACTH</span><span class="cbar"><i class="mid"></i></span></div>
+          <div class="crow"><span class="ck">Cortisol</span><span class="cbar"><i class="mid"></i></span></div>
+          <div class="cwhy">Lệnh vừa đủ, hàng làm ra vừa đủ. Vòng chạy trơn tru.</div>
+        </div>
+
+        <div class="case">
+          <div class="ctitle">Hỏng ở tuyến thượng thận</div>
+          <div class="crow"><span class="ck">ACTH</span><span class="cbar"><i class="high"></i></span></div>
+          <div class="crow"><span class="ck">Cortisol</span><span class="cbar"><i class="low"></i></span></div>
+          <div class="cwhy">Não thấy thiếu nên <b>hét lệnh to hết cỡ</b>. Nhưng tuyến hỏng, không làm nổi. ACTH cao ngất, cortisol vẫn thấp.</div>
+        </div>
+
+        <div class="case you">
+          <div class="ctitle">Bác Tám</div>
+          <div class="crow"><span class="ck">ACTH</span><span class="cbar"><i class="low"></i></span></div>
+          <div class="crow"><span class="ck">Cortisol</span><span class="cbar"><i class="low"></i></span></div>
+          <div class="cwhy">Cortisol gần cạn, mà <b>não không hề ra lệnh</b>. Nó im lặng. Vì sao?</div>
+        </div>
+      </div>
+
+      <div class="note alert">
+        <b>Câu hỏi phải trả lời:</b> tại sao não lại im lặng, trong khi cortisol trong người gần như bằng không? Cái phao trong bồn nước lẽ ra phải hạ xuống và mở van rồi chứ?
+      </div>
+
+      <h3 class="sub">Câu trả lời: não đang bị lừa</h3>
+      <p>Não <b>tưởng trong người đã dư cortisol rồi</b> nên không cần ra lệnh nữa. Nó không biết là mình bị lừa.</p>
+      <p>Thứ lừa được não giỏi nhất — và phổ biến nhất — là <b>corticoid từ bên ngoài đưa vào</b>.</p>
+    </div>
+  </div>
+
+  <!-- CORTICOID -->
+  <div class="card">
+    <div class="ghead warn">
+      <span class="gnum">5</span>
+      <div>
+        <h2>Corticoid là gì</h2>
+        <span class="gsub">Thứ đáng ngờ nhất trong câu chuyện này</span>
+      </div>
+    </div>
+    <div class="pad">
+      <p><b>Corticoid là thuốc bắt chước cortisol.</b> Người ta chế ra nó để làm thay việc của cortisol tự nhiên. Về mặt hóa học nó giống cortisol đến mức <b>cơ thể không phân biệt nổi</b>.</p>
+
+      <h3 class="sub">Tên thường gặp</h3>
+      <div class="note flag">
+        <b>Dexamethasone</b> (dân hay gọi "đề-xa"), <b>Prednisolone</b>, <b>Methylprednisolone</b> (Medrol), <b>Betamethasone</b>, <b>Hydrocortisone</b>, <b>Triamcinolone</b>.
+        <br><br>
+        Trong đó <b>dexamethasone</b> là thứ hay bị trộn lén nhất — vì nó rẻ, mạnh, không mùi vị, nghiền ra trộn vào đâu cũng không ai biết.
+      </div>
+
+      <h3 class="sub">Bản thân corticoid không xấu</h3>
+      <p>Phải nói rõ điều này. Dùng <b>đúng bệnh, đúng liều, có bác sĩ theo dõi</b> thì corticoid là thuốc quý, cứu mạng người: hen suyễn cơn nặng, dị ứng nặng, bệnh tự miễn, một số bệnh khớp. Không có nó nhiều người đã chết.</p>
+      <p><b>Vấn đề nằm ở chỗ nó bị lạm dụng và bị trộn lén.</b></p>
+
+      <h3 class="sub">Vì sao nó hay bị trộn vào thuốc không rõ nguồn gốc</h3>
+      <p>Vì nó <b>chống viêm cực mạnh và có tác dụng rất nhanh</b>. Người đang đau nhức xương khớp uống vào:</p>
+      <ul class="list">
+        <li><b>Hết đau gần như ngay</b> — có khi chỉ sau một hai lần uống.</li>
+        <li><b>Ăn ngon miệng hẳn lên</b>, thấy khỏe ra.</li>
+        <li><b>Tăng cân</b>, người đầy đặn ra, ai nhìn cũng khen "trông khỏe hẳn".</li>
+      </ul>
+      <p>Người bệnh thấy vậy thì tin là <b>"thuốc thần"</b>, uống tiếp, giới thiệu cho người khác. Còn người bán thì bán được hàng. <b>Không ai biết cái giá phải trả nằm ở vài tháng sau.</b></p>
+
+      <div class="note flag">
+        <b>Loại thuốc cần nghi ngờ:</b> thuốc tán, thuốc tễ vo viên, thuốc bột gói giấy, thuốc "gia truyền", thuốc "đông y trị nhức khớp", thuốc không nhãn mác, thuốc người quen cho, thuốc mua trên mạng. Đặc biệt nghi nếu <b>uống vào hết đau ngay và ăn ngon lên cân</b>.
+      </div>
+
+      <h3 class="sub">Corticoid lừa não bằng cách nào</h3>
+
+      <div class="flow">
+        <div class="fbox flag">
+          <b>1. Corticoid vào người</b>
+          <span>Qua viên thuốc, thuốc tán, thuốc tễ — có khi người uống không biết trong đó có gì.</span>
+        </div>
+        <div class="farrow"><span class="bar"></span> nó trôi trong máu, giống hệt cortisol</div>
+        <div class="fbox flag">
+          <b>2. Não tưởng đó là cortisol thật</b>
+          <span>Não đo thấy "đầy đủ rồi". Nó không biết thứ đó đến từ viên thuốc chứ không phải do thượng thận làm ra.</span>
+        </div>
+        <div class="farrow stop"><span class="bar"></span> não tắt lệnh</div>
+        <div class="fbox bad">
+          <b>3. ACTH bị tắt</b>
+          <span>Não ngừng ra lệnh. Đây chính là <b>ACTH 1,97</b> của bác.</span>
+        </div>
+        <div class="farrow stop"><span class="bar"></span> không có lệnh, tuyến ngồi không</div>
+        <div class="fbox bad">
+          <b>4. Tuyến thượng thận teo dần</b>
+          <span>Lâu ngày không được dùng đến thì nó teo lại — <b>giống cánh tay bó bột mấy tháng, tháo ra thì cơ đã teo, cầm ly nước cũng run</b>.</span>
+        </div>
+        <div class="farrow stop"><span class="bar"></span> tuyến teo rồi thì không làm ra hàng nữa</div>
+        <div class="fbox bad">
+          <b>5. Cortisol thật rơi xuống gần bằng không</b>
+          <span>Đây chính là <b>Cortisol 0,63</b> của bác.</span>
+        </div>
+      </div>
+
+      <div class="note alert">
+        <b>Bác Tám bị gút — và gút thì đau.</b> Người đau lâu năm rất dễ tìm đến thuốc tán, thuốc tễ, thuốc gia truyền. Kiểu xét nghiệm <b>cả hai cùng thấp</b> ở một người bị gút <b>rất khớp với chuyện đã uống phải corticoid giấu trong thuốc nào đó</b> — có thể là uống mà không hề biết.
+        <br><br>
+        Còn nguyên nhân khác không? <b>Có</b> — bệnh ở tuyến yên chẳng hạn. Nhưng với hoàn cảnh của bác, corticoid ẩn là khả năng hàng đầu. <b>Kết luận là của bác sĩ, không phải của tờ giấy này.</b>
+      </div>
+
+      <h3 class="sub">Dấu hiệu người đã dùng corticoid lâu ngày</h3>
+      <div class="signs">
+        <div class="sign"><b>Mặt tròn</b>Mặt tròn múp lên như mặt trăng, khác hẳn trước đây</div>
+        <div class="sign"><b>Bụng to, tay chân teo</b>Mỡ dồn vào bụng, còn tay chân thì nhỏ đi</div>
+        <div class="sign"><b>Gáy dày lên</b>Cục mỡ nổi sau gáy, gọi là "bướu trâu"</div>
+        <div class="sign"><b>Da mỏng, dễ bầm</b>Va nhẹ cũng bầm tím, da mỏng thấy rõ mạch máu</div>
+        <div class="sign"><b>Vết rạn tím</b>Ở bụng, đùi, nách — rạn to màu tím đỏ</div>
+        <div class="sign"><b>Dễ nhiễm trùng</b>Hay ốm vặt, vết thương lâu lành</div>
+      </div>
+      <p style="font-size:0.86rem; color:var(--ink-soft)">Có mấy dấu hiệu này thì càng nên nói với bác sĩ. Nhưng <b>không có cũng không loại trừ được</b> — nhiều người không biểu hiện gì bên ngoài.</p>
+    </div>
+  </div>
+
+  <!-- HUYẾT ÁP -->
+  <div class="card">
+    <div class="ghead urgent">
+      <span class="gnum">6</span>
+      <div>
+        <h2>Vì sao chuyện này liên quan tới thuốc huyết áp</h2>
+        <span class="gsub">Amlodipin 5mg bác đang uống</span>
+      </div>
+    </div>
+    <div class="pad">
+      <p>Nhớ lại việc số một của cortisol ở phần trên: <b>giữ huyết áp</b>. Thiếu cortisol thì huyết áp tụt.</p>
+      <p>Giờ cộng thêm một thứ nữa vào.</p>
+
+      <div class="bp">
+        <div class="bpush">
+          <span class="ar">↓</span>
+          <span class="bt"><b>Amlodipin</b> — thuốc huyết áp bác đang uống. Nó <b>sinh ra để hạ huyết áp</b>. Đó là việc của nó, nó làm đúng.</span>
+        </div>
+        <div class="bpush">
+          <span class="ar">↓</span>
+          <span class="bt"><b>Thượng thận yếu</b> — thiếu cortisol nên <b>huyết áp cũng tụt</b>. Cái này không ai kê đơn cả, nó tự xảy ra.</span>
+        </div>
+      </div>
+
+      <div class="note alert">
+        <b>Hai lực cùng đẩy huyết áp xuống một lúc.</b> Bác sĩ kê Amlodipin lúc chưa biết tuyến thượng thận có vấn đề — kê vậy là hợp lý với thông tin lúc đó. Nhưng <b>giờ đã có kết quả này rồi thì bác sĩ cần biết để tính lại</b>.
+        <br><br>
+        Dấu hiệu huyết áp đang xuống quá: <b>choáng, chóng mặt, xây xẩm — nhất là lúc từ giường hay từ ghế đứng dậy</b>. Mắt tối sầm một lúc. Nặng hơn thì ngã.
+      </div>
+
+      <div class="note good">
+        <b>Đừng tự ngưng Amlodipin, cũng đừng tự giảm liều.</b> Tự bỏ thuốc huyết áp có cái nguy riêng của nó. Việc của bác là <b>mang hộp thuốc đi khám và đưa bác sĩ xem</b> — người quyết định là bác sĩ.
+      </div>
+    </div>
+  </div>
+
+  <!-- NGUY HIỂM -->
+  <div class="card">
+    <div class="ghead urgent">
+      <span class="gnum">7</span>
+      <div>
+        <h2>Vì sao không thể chờ tới lịch tái khám</h2>
+        <span class="gsub">Hai mối nguy có thật</span>
+      </div>
+    </div>
+    <div class="pad">
+      <h3 class="sub">Mối nguy thứ nhất: ngưng đột ngột</h3>
+      <p>Tuyến thượng thận đang teo. Nếu nguồn corticoid bên ngoài <b>đột ngột dừng</b> — vì hết thuốc, vì nghe ai đó khuyên bỏ, vì tự thấy "thuốc này chắc độc" — thì cơ thể <b>không còn chút cortisol nào</b>.</p>
+      <div class="note alert">
+        Tình trạng đó gọi là <b>suy thượng thận cấp</b>: tụt huyết áp, nôn ói, đau bụng, lơ mơ. <b>Có thể tử vong.</b>
+        <br><br>
+        Đây là lý do câu này phải nhắc đi nhắc lại: <b>đừng tự ngưng bất cứ thứ gì đang uống</b> — kể cả thứ bác nghi là có hại. Việc dừng phải do bác sĩ làm, và phải <b>giảm từ từ hàng tháng</b>.
+      </div>
+
+      <h3 class="sub">Mối nguy thứ hai: khi có biến</h3>
+      <p>Khi bị <b>nhiễm trùng, tai nạn, hay phải mổ</b>, người bình thường tiết vọt cortisol lên gấp nhiều lần để chống đỡ. <b>Bác Tám không tiết nổi.</b></p>
+      <div class="note alert">
+        Nghĩa là <b>một trận cúm bình thường với người khác có thể thành chuyện lớn với bác</b>. Một ca mổ nhỏ cũng vậy — nên nếu sắp mổ gì, kể cả nhổ răng, <b>phải báo trước tình trạng này</b>.
+      </div>
+
+      <h3 class="sub">Dấu hiệu cần để ý hằng ngày</h3>
+      <ul class="list">
+        <li>Mệt rũ không rõ lý do, nằm cả ngày không muốn dậy</li>
+        <li>Chán ăn, sụt cân</li>
+        <li>Buồn nôn, đau bụng</li>
+        <li>Chóng mặt, xây xẩm khi đứng dậy</li>
+      </ul>
+      <div class="note alert">
+        <b>Nếu nôn ói nhiều, không ăn uống được, hoặc lơ mơ — đi cấp cứu ngay.</b> Và nói thẳng với bác sĩ cấp cứu: <b>"đang nghi suy thượng thận, cortisol 0,63"</b>. Câu đó giúp họ xử trí đúng ngay lập tức. Mang theo tờ kết quả xét nghiệm.
+      </div>
+
+      <div class="note">
+        Natri của bác là <b>135 — sát mép dưới</b>. Cái này cũng khớp với bức tranh chung: thiếu cortisol làm natri tụt.
+      </div>
+    </div>
+  </div>
+
+  <!-- CẦN LÀM GÌ -->
+  <div class="ask">
+    <div class="pad">
+      <h2>Cần làm gì</h2>
+      <ol>
+        <li><b>Đi khám sớm, khoa Nội tiết.</b> Không phải khoa Cơ xương khớp, không phải phòng khám tổng quát. Đây là bệnh của hormone. Đừng chờ tới lịch tái khám xa.</li>
+        <li><b>Mang theo TẤT CẢ những gì đang uống.</b> Kể cả thứ được gọi là "thuốc bổ", "thuốc gia truyền", "thuốc vô hại", trà, viên tán, thuốc người quen cho. <b>Mang cả vỏ hộp, cả gói không nhãn, cả thứ chỉ còn vài viên.</b></li>
+        <li><b>Đừng giấu.</b> Đây là thông tin quan trọng nhất bác sĩ cần, và cũng là thứ người bệnh hay giấu vì ngại bị mắng. Không ai mắng bác cả — <b>rất nhiều người bị lừa uống phải mà không biết</b>. Giấu chỉ làm bác sĩ chẩn đoán sai.</li>
+        <li><b>Mang hộp Amlodipin.</b> Để bác sĩ tính lại liều huyết áp.</li>
+        <li><b>Đừng tự ngưng gì hết</b> trong lúc chờ đi khám.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- CÂU HỎI -->
+  <div class="card">
+    <div class="ghead">
+      <span class="gnum">?</span>
+      <div>
+        <h2>Câu hỏi mang đi hỏi bác sĩ</h2>
+        <span class="gsub">Đọc thẳng từ đây cũng được</span>
+      </div>
+    </div>
+    <div class="pad">
+      <ul class="list">
+        <li>"Cortisol của tôi 0,63 và ACTH 1,97 — <b>có phải tôi bị suy thượng thận không</b>?"</li>
+        <li>"<b>Có phải do tôi uống phải corticoid</b> trong thuốc nào đó không? Đây là mấy thứ tôi đang uống."</li>
+        <li>"Tôi có cần làm thêm <b>xét nghiệm gì để xác nhận</b> không?"</li>
+        <li>"Tôi có cần <b>uống thuốc thay thế</b> không? Uống trong bao lâu?"</li>
+        <li>"<b>Amlodipin tôi đang uống có cần chỉnh lại</b> không, vì nó cũng hạ huyết áp?"</li>
+        <li>"<b>Khi tôi bị ốm hay phải mổ thì phải làm gì</b>? Có cần tăng liều không?"</li>
+        <li>"Tôi có cần <b>mang theo giấy tờ gì để phòng khi đi cấp cứu</b> không?"</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <p><strong>Trang này giải thích, không chẩn đoán.</strong> Nội dung dựa trên kết quả xét nghiệm ngày 17/07/2026 của bác Nguyễn Tám. Việc đọc con số và nêu cơ chế là để bác hiểu chuyện gì đang xảy ra trong người mình và biết phải hỏi gì. <strong>Chẩn đoán và hướng điều trị là của bác sĩ.</strong></p>
+    <p>Các mốc bình thường ghi trên trang lấy theo đúng phiếu xét nghiệm. Hình vẽ là minh họa cho dễ hiểu, không phải hình chụp của bác.</p>
+  </footer>
+
+</div>
+
+</body></html>
